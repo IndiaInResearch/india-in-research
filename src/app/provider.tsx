@@ -3,6 +3,7 @@
 import { ConfigProvider, theme, ThemeConfig } from 'antd';
 import { useEffect, useState } from 'react';
 import { LOCAL_STORAGE_KEY, ThemeMode, ThemeModeContext } from '../components/theme-context';
+import getDesignToken from 'antd/es/theme/getDesignToken';
 
 const getSystemTheme = (): Partial<ThemeMode> => {
     if (typeof window !== 'undefined' && window.matchMedia) {
@@ -32,9 +33,20 @@ export const AntdConfigProvider = ({ children }: {children: React.ReactNode}) =>
     }
   }, []);
 
+  const tokens = getDesignToken()
+
   const themeStruct: ThemeConfig = {
     algorithm: mode === ThemeMode.Dark ? theme.darkAlgorithm : theme.defaultAlgorithm,
-    cssVar: true
+    cssVar: true,
+    token: {
+      colorPrimary: '#0f6cbd',
+      colorBgLayout: mode === ThemeMode.Dark ? '#292929' : tokens.colorBgBase,
+    },
+    components: {
+      Layout: {
+        headerBg: mode === ThemeMode.Dark ? '#292929' : tokens.colorBgBase
+      }
+    }
   }
 
   return (

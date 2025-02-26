@@ -1,4 +1,4 @@
-import { Divider, Typography } from "antd";
+import { Button, Divider, theme, Typography } from "antd";
 import Text from "antd/es/typography/Text";
 import { ThemeToggle } from "./theme-context";
 
@@ -29,8 +29,10 @@ export default async function Footer() {
                     </div>
                 </div>
                 <Text>Note: Some data has been analysed by AI and may be incorrect.</Text>
-                <ThemeToggle />
+                <Button type="primary">Contact Us</Button>
             </div>
+            <ThemeToggle />
+            <Button>Contact Us</Button>
         </>
     );
 }
