@@ -5,6 +5,6 @@ import { Input } from "antd"
 
 export default function SearchBox() {
     return (
-        <Input placeholder="Search" allowClear onPressEnter={e => console.log(e.target)} prefix={<SearchOutlined />} variant="outlined"/>
+        <Input style={{width: "256px"}} placeholder="Search" allowClear onPressEnter={e => console.log(e.target)} prefix={<SearchOutlined />} variant="outlined"/>
     )
 }

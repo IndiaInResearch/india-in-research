@@ -1,6 +1,7 @@
-import { Button, Divider, theme, Typography } from "antd";
+import { Button, Divider, Flex, theme, Typography } from "antd";
 import Text from "antd/es/typography/Text";
 import { ThemeToggle } from "./theme-context";
+import Title from "antd/es/typography/Title";
 
 export default async function Footer() {
     return (
@@ -9,30 +10,25 @@ export default async function Footer() {
                 <Divider />
                 <div style={{display: 'flex', justifyContent: 'space-around'}}>
                     <div style={{display: 'flex', flexDirection: 'column'}}>
-                        <Text>About</Text>
+                        <Title level={5}>About</Title>
                         <Text>Philosophy</Text>
                         <Text>Board</Text>
                         <Text>Acknowledgements</Text>
-                        <Text>© 2025 IIR.org</Text>
+                        <Text>Contact</Text>
                     </div>
                     <div style={{display: 'flex', flexDirection: 'column'}}>
+                        <Text>© 2025 IIR.org</Text>
                         <Text>Terms of Service</Text>
                         <Text>Privacy Policy</Text>
                         <Text>Cookie Policy</Text>
-                        <Text>© 2025 IIR.org</Text>
-                    </div>
-                    <div style={{display: 'flex', flexDirection: 'column'}}>
-                        <Text>Terms of Service</Text>
-                        <Text>Privacy Policy</Text>
-                        <Text>Cookie Policy</Text>
-                        <Text>© 2025 IIR.org</Text>
                     </div>
                 </div>
-                <Text>Note: Some data has been analysed by AI and may be incorrect.</Text>
-                <Button type="primary">Contact Us</Button>
+                <Divider />
+                <Flex justify="space-between">
+                    <Text>Note: Some data has been analyzed by AI and may be incorrect.</Text>
+                    <ThemeToggle />
+                </Flex>
             </div>
-            <ThemeToggle />
-            <Button>Contact Us</Button>
         </>
     );
 }

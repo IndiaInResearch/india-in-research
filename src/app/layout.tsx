@@ -26,7 +26,7 @@ export default function RootLayout({
               <Header>
                 <NavBar></NavBar>
               </Header>
-              <Content>{children}</Content>
+              <Content style={{minHeight: 600}}>{children}</Content>
               <AntFooter>
                 <Footer />
               </AntFooter>

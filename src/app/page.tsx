@@ -1,8 +1,24 @@
+import { Button, Flex, Space } from "antd";
+import Title from "antd/es/typography/Title";
+import Text from "antd/es/typography/Text";
+
 export default async function Home() {
 
   return (
     <>
-      Hello
+      <Flex vertical style={{minHeight: 600}} justify="center">
+        <Flex justify="space-around">
+          <Flex vertical>
+            <Title level={1}>Measuring Impact of Indian Papers</Title>
+            <Space>
+              <Button type="primary" size="large">Explore</Button>
+              <Button size="large">Know More</Button>
+            </Space>
+          </Flex>
+          
+          <Text>Impressive Graph</Text>
+        </Flex>
+      </Flex>
     </>
   );
 }

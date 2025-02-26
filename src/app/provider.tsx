@@ -40,11 +40,13 @@ export const AntdConfigProvider = ({ children }: {children: React.ReactNode}) =>
     cssVar: true,
     token: {
       colorPrimary: '#0f6cbd',
-      colorBgLayout: mode === ThemeMode.Dark ? '#292929' : tokens.colorBgBase,
     },
     components: {
       Layout: {
-        headerBg: mode === ThemeMode.Dark ? '#292929' : tokens.colorBgBase
+        headerBg: mode === ThemeMode.Dark ? '#292929' : tokens.colorBgBase,
+        bodyBg: mode === ThemeMode.Dark ? '#292929' : tokens.colorBgBase,
+        footerBg: mode === ThemeMode.Dark ? '#292929' : tokens.colorBgBase,
+        headerHeight: '48px',
       }
     }
   }
