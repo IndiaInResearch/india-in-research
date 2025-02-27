@@ -1,0 +1,14 @@
+[
+    {
+        "label": "NeurIPS",
+        "value": "neurips"
+    },
+    {
+        "label": "ICML",
+        "value": "icml"
+    },
+    {
+        "label": "ICLR",
+        "value": "iclr"
+    }
+]
