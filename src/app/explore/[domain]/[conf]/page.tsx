@@ -1,8 +1,8 @@
-import { Flex, Select, Space } from "antd";
+import { Divider, Flex, Select, Space } from "antd";
 import csVenues from "@/data/cs-venues.json";
 import domains from "@/data/domains.json";
 import { notFound } from "next/navigation";
-
+import CountryStat from "@/components/country-stat";
 export default function StatPage({
   params,
 }: {
@@ -21,12 +21,16 @@ export default function StatPage({
 
     return (
         <>
-            <Flex vertical>
+            <Flex vertical style={{padding: "24px"}}>
                 <Flex>
                     <Space>
                         <Select options={domains} defaultValue={domain}/>
                         <Select options={csVenues} defaultValue={conf}/>
                     </Space>
+                </Flex>
+                <Flex vertical>
+                    <Divider />
+                    <CountryStat domain={domain} conf={conf}/>
                 </Flex>
             </Flex>
         </>
