@@ -2,6 +2,7 @@ import { Button, Divider, Flex, theme, Typography } from "antd";
 import Text from "antd/es/typography/Text";
 import { ThemeToggle } from "./theme-context";
 import Title from "antd/es/typography/Title";
+import Link from "next/link";
 
 export default async function Footer() {
     return (
@@ -11,7 +12,10 @@ export default async function Footer() {
                 <div style={{display: 'flex', justifyContent: 'space-around'}}>
                     <div style={{display: 'flex', flexDirection: 'column'}}>
                         <Title level={5}>About</Title>
-                        <Text>Philosophy</Text>
+                        <Link href="/philosophy">
+                            <Button variant="link" color="default" style={{padding: "0px"}}>Philosophy</Button>
+                        </Link>
+                        
                         <Text>Board</Text>
                         <Text>Acknowledgements</Text>
                         <Text>Contact</Text>

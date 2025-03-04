@@ -1,8 +1,9 @@
-import { Divider, Flex, InputNumber, Select, Space } from "antd";
+import { Divider, Flex } from "antd";
 import csVenues from "@/data/cs-venues.json";
 import domains from "@/data/domains.json";
 import { notFound } from "next/navigation";
 import CountryStat from "@/components/country-stat";
+import ExploreForm from "@/components/explore-form";
 
 export default function StatPage({
   params,
@@ -25,13 +26,9 @@ export default function StatPage({
 
     return (
         <>
-            <Flex vertical style={{padding: "24px"}}>
+            <Flex vertical>
                 <Flex justify="center">
-                    <Space>
-                        <Select options={domains} defaultValue={domain} size="large" style={{minWidth: 80}}/>
-                        <Select options={csVenues} defaultValue={conf} size="large" style={{minWidth: 80}}/>
-                        <InputNumber min={2010} max={2024} defaultValue={year} size="large" style={{minWidth: 80}}/>
-                    </Space>
+                    <ExploreForm domain={domain} conf={conf} year={year} />
                 </Flex>
                 <Flex vertical>
                     <Divider />
