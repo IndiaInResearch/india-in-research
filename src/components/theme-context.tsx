@@ -27,6 +27,7 @@ export const ThemeToggle = () => {
           onChange={(value) => {
             const themeMode = value ? ThemeMode.Dark : ThemeMode.Light;
             localStorage.setItem(LOCAL_STORAGE_KEY, themeMode);
+            document.body.style.backgroundColor = themeMode === ThemeMode.Dark ? '#292929' : '#ffffff';
             setMode(themeMode);
           }}
         />

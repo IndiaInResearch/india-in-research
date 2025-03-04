@@ -25,10 +25,12 @@ export const AntdConfigProvider = ({ children }: {children: React.ReactNode}) =>
     if (localStorage.getItem(LOCAL_STORAGE_KEY) === null) {
         const systemTheme = getSystemTheme();
         localStorage.setItem(LOCAL_STORAGE_KEY, systemTheme);
+        document.body.style.backgroundColor = systemTheme === ThemeMode.Dark ? '#292929' : '#ffffff';
         setMode(systemTheme);
     }
     else{
         const theme = (localStorage.getItem(LOCAL_STORAGE_KEY) as ThemeMode) || ThemeMode.Light;
+        document.body.style.backgroundColor = theme === ThemeMode.Dark ? '#292929' : '#ffffff';
         setMode(theme);
     }
   }, []);
@@ -47,7 +49,7 @@ export const AntdConfigProvider = ({ children }: {children: React.ReactNode}) =>
         bodyBg: mode === ThemeMode.Dark ? '#292929' : tokens.colorBgBase,
         footerBg: mode === ThemeMode.Dark ? '#292929' : tokens.colorBgBase,
         headerHeight: '48px',
-      }
+      },
     }
   }
 
