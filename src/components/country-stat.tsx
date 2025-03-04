@@ -1,10 +1,15 @@
 import { Flex } from "antd";
 import Title from "antd/es/typography/Title";
 import TreemapChart from "./treemap-chart";
+import { notFound } from "next/navigation";
 
-async function getData(domain: string, conf: string) {
-    const data = await import(`@/data/${domain}/${conf}.json`);
-    return data.default;
+async function getData(domain: string, conf: string, year: number) {
+    try {
+        const data = await import(`@/data/${domain}/${conf}/${year}.json`);
+        return data.default;
+    } catch (error) {
+        return undefined;
+    }
 }
 
 function determineCountryofPaper(data: any) {
@@ -50,8 +55,13 @@ async function countPapersByCountry(data: any) {
     return countries_to_papers
 }
 
-export default async function CountryStat({domain, conf}: {domain: string, conf: string}) {
-    const data = await getData(domain, conf);
+export default async function CountryStat({domain, conf, year}: {domain: string, conf: string, year: number}) {
+    const data = await getData(domain, conf, year);
+
+    if (!data) {
+        notFound();
+    }
+
     const countries_to_papers = await countPapersByCountry(data)
 
     return (
