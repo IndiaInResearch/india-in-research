@@ -22,10 +22,10 @@ export default function StatPage({
     return (
         <>
             <Flex vertical style={{padding: "24px"}}>
-                <Flex>
+                <Flex justify="center">
                     <Space>
-                        <Select options={domains} defaultValue={domain}/>
-                        <Select options={csVenues} defaultValue={conf}/>
+                        <Select options={domains} defaultValue={domain} size="large" style={{minWidth: 80}}/>
+                        <Select options={csVenues} defaultValue={conf} size="large" style={{minWidth: 80}}/>
                     </Space>
                 </Flex>
                 <Flex vertical>

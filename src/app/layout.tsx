@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { AntdConfigProvider } from "./provider";
-import { Layout } from "antd";
+import { Divider, Layout } from "antd";
 import { Content, Footer as AntFooter, Header } from "antd/es/layout/layout";
 import NavBar from "@/components/navbar";
 import Footer from "@/components/footer";

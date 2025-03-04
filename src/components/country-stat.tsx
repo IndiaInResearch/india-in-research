@@ -1,6 +1,6 @@
 import { Flex } from "antd";
 import Title from "antd/es/typography/Title";
-import TreemapChart from "./TreemapChart";
+import TreemapChart from "./treemap-chart";
 
 async function getData(domain: string, conf: string) {
     const data = await import(`@/data/${domain}/${conf}.json`);
@@ -55,9 +55,9 @@ export default async function CountryStat({domain, conf}: {domain: string, conf:
     const countries_to_papers = await countPapersByCountry(data)
 
     return (
-        <Flex vertical>
+        <Flex vertical justify="center" align="center" style={{maxWidth: 1600, margin: "0 auto", width: "100%"}}>
             <Title level={3}>Papers by Country</Title>
-            <TreemapChart data={countries_to_papers} width={1200} height={400}/>
+            <TreemapChart data={countries_to_papers} width="100%" height={196} maxEntries={20} keyToHighlight="IN"/>
         </Flex>
     )
 }
