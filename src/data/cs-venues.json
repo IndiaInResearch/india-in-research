@@ -1,14 +1,26 @@
 [
     {
         "label": "NeurIPS",
-        "value": "neurips"
+        "value": "neurips",
+        "full_name": "Neural Information Processing Systems",
+        "location": "Vancouver, Canada"
     },
     {
         "label": "ICML",
-        "value": "icml"
+        "value": "icml",
+        "full_name": "International Conference on Machine Learning",
+        "location": "Long Beach, USA"
     },
     {
         "label": "ICLR",
-        "value": "iclr"
+        "value": "iclr",
+        "full_name": "International Conference on Learning Representations",
+        "location": "San Diego, USA"
+    },
+    {
+        "label": "AAAI",
+        "value": "aaai",
+        "full_name": "Association for the Advancement of Artificial Intelligence",
+        "location": "San Francisco, USA"
     }
 ]

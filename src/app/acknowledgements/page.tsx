@@ -3,14 +3,12 @@ import Title from "antd/es/typography/Title"
 import Text from "antd/es/typography/Text"
 
 const md = `
-# Philosophy
+# Acknowledgements
 
-1. All research metrics are flawed. This is *probably* less flawed.
-1. We are not trying to be comprehensive.
-1. Same data can be interpreted in different ways to suit different minds.
+1. Thanks to GitHub Copilot, Cursor, Bing Chat and Perplexity for writing majority of the code. 
 `
 
-export default function Philosophy() {
+export default function Acknowledgements() {
     return (
         <>
             <Markdown

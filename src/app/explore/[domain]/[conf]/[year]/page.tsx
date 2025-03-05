@@ -4,8 +4,11 @@ import domains from "@/data/domains.json";
 import { notFound } from "next/navigation";
 import CountryStat from "@/components/country-stat";
 import ExploreForm from "@/components/explore-form";
+import Title from "antd/es/typography/Title";
+import { countPapersByCountry } from "@/utils/data-handlers";
+import { getData } from "@/utils/data-handlers";
 
-export default function StatPage({
+export default async function StatPage({
   params,
 }: {
   params: { domain: string; conf: string; year: number };
@@ -24,15 +27,25 @@ export default function StatPage({
         notFound();
     }
 
+    const conf_name = csVenues.find((v) => v.value === conf)?.full_name || conf;
+    const location = csVenues.find((v) => v.value === conf)?.location || "";
+
+    const data = await getData(domain, conf, year);
+
+    if (!data) {
+        notFound();
+    }
+
     return (
         <>
             <Flex vertical>
                 <Flex justify="center">
                     <ExploreForm domain={domain} conf={conf} year={year} />
                 </Flex>
-                <Flex vertical>
+                <Flex vertical justify="center" align="center">
                     <Divider />
-                    <CountryStat domain={domain} conf={conf} year={year} />
+                    <Title level={3}>{conf_name}, {year}. {location}</Title>
+                    <CountryStat domain={domain} conf={conf} year={year} data={data}/>
                 </Flex>
             </Flex>
         </>

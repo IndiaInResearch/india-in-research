@@ -3,7 +3,6 @@
 import { useEffect, useRef, useContext } from 'react';
 import * as d3 from 'd3';
 import { ThemeMode, ThemeModeContext } from '@/components/theme-context';
-import getDesignToken from 'antd/es/theme/getDesignToken';
 import useToken from 'antd/es/theme/useToken';
 
 interface TreemapProps {

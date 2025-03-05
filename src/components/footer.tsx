@@ -13,12 +13,13 @@ export default async function Footer() {
                     <div style={{display: 'flex', flexDirection: 'column'}}>
                         <Title level={5}>About</Title>
                         <Link href="/philosophy">
-                            <Button variant="link" color="default" style={{padding: "0px"}}>Philosophy</Button>
+                            <Button variant="link" color="default" size="small" style={{padding: "0px"}}>Philosophy</Button>
                         </Link>
-                        
-                        <Text>Board</Text>
-                        <Text>Acknowledgements</Text>
+                        <Link href="/acknowledgements">
+                            <Button variant="link" color="default" size="small" style={{padding: "0px"}}>Acknowledgements</Button>
+                        </Link>
                         <Text>Contact</Text>
+                        <Text>Board</Text>
                     </div>
                     <div style={{display: 'flex', flexDirection: 'column'}}>
                         <Text>© 2025 IIR.org</Text>
