@@ -5,6 +5,7 @@ import Title from "antd/es/typography/Title";
 import { countPapersByCountry, filterPapersByCountry } from "@/utils/data-handlers";
 import TreemapChart from "./treemap-chart";
 import { useState } from "react";
+import { ColumnsType } from "antd/es/table";
 
 export default function CountryStat({domain, conf, year, data}: {
     domain: string, 
@@ -17,7 +18,7 @@ export default function CountryStat({domain, conf, year, data}: {
     const countries_to_papers = countPapersByCountry(data);
     const filtered_data = filterPapersByCountry(data, "IN");
 
-    const columns = [
+    const columns: ColumnsType = [
         {
             title: "Country",
             dataIndex: "country",
@@ -28,7 +29,10 @@ export default function CountryStat({domain, conf, year, data}: {
             title: "Paper Title",
             dataIndex: "title",
             key: "title",
-            width: "30%"
+            width: "30%",
+            sorter: (a, b) => a.title.localeCompare(b.title),
+            sortDirections: ['ascend', 'descend'],
+            defaultSortOrder: 'ascend'
         },
         {
             title: "Authors",
@@ -43,6 +47,19 @@ export default function CountryStat({domain, conf, year, data}: {
             // get affiliation from domain here
             render: (affiliation: string[]) => Array.from(new Set(affiliation)).join(", ")
             
+        },
+        {
+            title: "Primary Area",
+            dataIndex: "primary_area",
+            key: "primary_area",
+            render: (primary_area: string) => primary_area.split("_").join(" ")
+        },
+        {
+            title: "",
+            dataIndex: "link",
+            key: "link",
+            // should I use noreferrer here as well?
+            render: (link: string) => <a href={link} target="_blank" rel="noopener">link</a>
         }
     ]
 
