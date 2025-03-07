@@ -1,0 +1,3 @@
+[submodule "src/data/third-party/university-list"]
+	path = src/data/third-party/university-list
+	url = https://github.com/fliptrail/university-domains-list.git

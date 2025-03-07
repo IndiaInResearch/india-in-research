@@ -2,12 +2,13 @@
 
 import { Button, Divider, Flex, Space, Table } from "antd";
 import Title from "antd/es/typography/Title";
-import { countPapersByCountry, filterPapersByCountry } from "@/utils/data-handlers";
+import { countPapersByCountry, countPapersByInstitute, filterPapersByCountry, institutesToLatLon } from "@/utils/data-handlers";
 import TreemapChart from "./treemap-chart";
 import { useState } from "react";
 import { ColumnsType } from "antd/es/table";
+import IndiaGeoMap, { CityData } from "./india-geo-map";
 
-export default function CountryStat({domain, conf, year, data}: {
+export default function LocaleHighlights({domain, conf, year, data}: {
     domain: string, 
     conf: string, 
     year: number,
@@ -17,6 +18,9 @@ export default function CountryStat({domain, conf, year, data}: {
 
     const countries_to_papers = countPapersByCountry(data);
     const filtered_data = filterPapersByCountry(data, "IN");
+    const institutes_to_papers = countPapersByInstitute(filtered_data);
+    const cityData = institutesToLatLon(institutes_to_papers);
+    console.log(cityData)
 
     const columns: ColumnsType = [
         {
@@ -67,7 +71,7 @@ export default function CountryStat({domain, conf, year, data}: {
         <Flex vertical justify="center" align="center" style={{maxWidth: 1600, margin: "0 auto", width: "100%"}}>
             <Flex justify="space-between" align="center" style={{width: "100%"}}>
                 <Space align="baseline">
-                    <Title level={4}>Country Distribution</Title>
+                    <Title level={4}>Locale Highlights</Title>
                     <Button 
                         variant="link" 
                         color="default"
@@ -78,13 +82,7 @@ export default function CountryStat({domain, conf, year, data}: {
                 </Space>
             </Flex>
             <Space direction="vertical" style={{width: "100%"}}>
-                <TreemapChart 
-                    data={countries_to_papers} 
-                    width="100%" 
-                    height={showExpanded ? 300 : 196} 
-                    maxEntries={showExpanded ? 30 : 20} 
-                    keyToHighlight="IN"
-                />
+                <IndiaGeoMap width="100%" height={600} cities={cityData} />
                 {showExpanded && (
                     <>
                         <Table dataSource={filtered_data} columns={columns} rowKey={(record) => record.id}/>

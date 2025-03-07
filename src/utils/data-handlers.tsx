@@ -1,3 +1,6 @@
+import { CityData } from "@/components/india-geo-map";
+import institutes_list from "@/data/third-party/university-list/world_universities_and_domains.json"
+
 export async function getData(domain: string, conf: string, year: number) {
     try {
         const data = await import(`@/data/${domain}/${conf}/${year}.json`);
@@ -48,4 +51,46 @@ export function countPapersByCountry(data: any) {
         }
     }
     return countries_to_papers
+}
+
+export function countPapersByInstitute(data: any) {
+    const institutes_to_papers: Record<string, number> = {}
+    for (const d of data) {
+        const curr_institutes: string[] = []
+        for (const aff_domain of d["aff_domains"]){
+            if (curr_institutes.includes(aff_domain)){
+                continue
+            }
+            curr_institutes.push(aff_domain)
+            if (aff_domain in institutes_to_papers){
+                institutes_to_papers[aff_domain]++;
+            } else {
+                institutes_to_papers[aff_domain] = 1;
+            }
+        }
+    }
+    return institutes_to_papers
+}
+
+export function institutesToLatLon(institutes_to_papers: Record<string, number>) {
+    const domains_to_latlon: Record<string, number[]> = {}
+    for (const institute of institutes_list) {
+        if (institute.alpha_two_code == "IN" && institute.latlon != null) {
+            for (const domain of institute.domains) {
+                domains_to_latlon[domain] = institute.latlon
+            }
+        }
+    }
+
+    const cityData: CityData[] = []
+    for (const institute in institutes_to_papers) {
+        if (institute in domains_to_latlon) {
+            cityData.push({
+                name: institute,
+                coordinates: [domains_to_latlon[institute][1], domains_to_latlon[institute][0]],
+                population: institutes_to_papers[institute]
+            })
+        }
+    }
+    return cityData
 }

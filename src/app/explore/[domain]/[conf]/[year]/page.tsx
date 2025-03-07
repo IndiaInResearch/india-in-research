@@ -7,6 +7,8 @@ import ExploreForm from "@/components/explore-form";
 import Title from "antd/es/typography/Title";
 import { countPapersByCountry } from "@/utils/data-handlers";
 import { getData } from "@/utils/data-handlers";
+import LocaleStat from "@/components/locale-stat";
+
 
 export default async function StatPage({
   params,
@@ -46,6 +48,8 @@ export default async function StatPage({
                     <Divider />
                     <Title level={3}>{conf_name}, {year}. {location}</Title>
                     <CountryStat domain={domain} conf={conf} year={year} data={data}/>
+                    <Divider />
+                    <LocaleStat domain={domain} conf={conf} year={year} data={data}/>
                 </Flex>
             </Flex>
         </>
