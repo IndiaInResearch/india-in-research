@@ -6,6 +6,7 @@ import { countPapersByCountry, filterPapersByCountry } from "@/utils/data-handle
 import TreemapChart from "./treemap-chart";
 import { useState } from "react";
 import { ColumnsType } from "antd/es/table";
+import { getInstituteFromDomain } from "@/utils/domain-handlers";
 
 export default function CountryStat({domain, conf, year, data}: {
     domain: string, 
@@ -42,11 +43,15 @@ export default function CountryStat({domain, conf, year, data}: {
         },
         {
             title: "Affiliation",
-            dataIndex: "authors_aff",
+            dataIndex: "aff_domains",
             key: "authors_aff",
-            // get affiliation from domain here
-            render: (affiliation: string[]) => Array.from(new Set(affiliation)).join(", ")
-            
+            render: (affiliation: string[], record: any) => (Array.from(new Set(affiliation))).map((aff, index) => {
+                const institute = getInstituteFromDomain(aff);
+                if (institute) {
+                    return institute.name;
+                }
+                return record.authors_aff?.[index] || aff;
+            }).join(", ")
         },
         {
             title: "Primary Area",

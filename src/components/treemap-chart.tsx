@@ -71,9 +71,13 @@ export default function TreemapChart({ data, width, height, maxEntries = 10, key
         // Create the SVG container
         const svg = d3.select(svgRef.current);
 
+        const dataExtent = d3.extent(root.leaves(), d => d.data.value)
+
         // Create color scale with a more pleasing color palette
         const colorScale = d3.scaleSequential(mode === ThemeMode.Dark ? d3.interpolateViridis : d3.interpolateGreens)
+            .domain(dataExtent as [number, number])
         const highlightColorScale = d3.scaleSequential(d3.interpolateReds)
+            .domain(dataExtent as [number, number])
 
         // Add rectangles for each country with transitions and hover effects
         const nodes = svg
@@ -90,7 +94,7 @@ export default function TreemapChart({ data, width, height, maxEntries = 10, key
                 if (keyToHighlight && d.data.name === keyToHighlight) {
                     return highlightColorScale(0.5);
                 }
-                return colorScale(((d.data.value || 0)/ root.value!) as d3.NumberValue);
+                return colorScale(d.data.value!);
             })
             .attr("rx", 2) // Rounded corners
             .attr("ry", 2)

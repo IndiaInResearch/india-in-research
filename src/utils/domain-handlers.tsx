@@ -19,3 +19,17 @@ export function isDomainSame(domain1: string, domain2: string) {
     }
     return false
 }
+
+export function getInstituteFromDomain(domain: string) {
+    if (domain in institute_global_data) {
+        return institute_global_data[domain]
+    }
+    const domain_parts = domain.split(".")
+    if (domain_parts.length > 1) {
+        const subdomain = domain_parts.slice(1).join(".")
+        if (subdomain in institute_global_data) {
+            return institute_global_data[subdomain]
+        }
+    }
+    return null
+}
