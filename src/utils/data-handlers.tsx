@@ -1,6 +1,6 @@
-import { CityData } from "@/components/india-geo-map";
+import { GeoMapDataInterface } from "@/components/india-geo-map";
 import institutes_list from "@/data/third-party/university-list/world_universities_and_domains.json"
-
+import { isDomainSame } from "./domain-handlers";
 export async function getData(domain: string, conf: string, year: number) {
     try {
         const data = await import(`@/data/${domain}/${conf}/${year}.json`);
@@ -55,16 +55,29 @@ export function countPapersByCountry(data: any) {
 
 export function countPapersByInstitute(data: any) {
     const institutes_to_papers: Record<string, number> = {}
-    for (const d of data) {
-        const curr_institutes: string[] = []
-        for (const aff_domain of d["aff_domains"]){
-            if (curr_institutes.includes(aff_domain)){
+    for (const single_paper of data) {
+        const curr_domains: string[] = []
+        for (const aff_domain of single_paper["aff_domains"]){
+            let domain_already_processed = false
+            for (const curr_domain of curr_domains){
+                if (isDomainSame(aff_domain, curr_domain)){
+                    domain_already_processed = true
+                    break
+                }
+            }
+            if (domain_already_processed){
                 continue
             }
-            curr_institutes.push(aff_domain)
-            if (aff_domain in institutes_to_papers){
-                institutes_to_papers[aff_domain]++;
-            } else {
+            curr_domains.push(aff_domain)
+            let institute_count_incremented = false
+            for(const institute in institutes_to_papers){
+                if (isDomainSame(aff_domain, institute)){
+                    institutes_to_papers[institute]++;
+                    institute_count_incremented = true
+                    break
+                }
+            }
+            if (!institute_count_incremented){
                 institutes_to_papers[aff_domain] = 1;
             }
         }
@@ -73,24 +86,24 @@ export function countPapersByInstitute(data: any) {
 }
 
 export function institutesToLatLon(institutes_to_papers: Record<string, number>) {
-    const domains_to_latlon: Record<string, number[]> = {}
+    const domains_to_latlon_and_name: Record<string, {latlon: number[], name: string}> = {}
     for (const institute of institutes_list) {
         if (institute.alpha_two_code == "IN" && institute.latlon != null) {
             for (const domain of institute.domains) {
-                domains_to_latlon[domain] = institute.latlon
+                domains_to_latlon_and_name[domain] = {latlon: institute.latlon, name: institute.name}
             }
         }
     }
 
-    const cityData: CityData[] = []
+    const graphData: GeoMapDataInterface[] = []
     for (const institute in institutes_to_papers) {
-        if (institute in domains_to_latlon) {
-            cityData.push({
-                name: institute,
-                coordinates: [domains_to_latlon[institute][1], domains_to_latlon[institute][0]],
-                population: institutes_to_papers[institute]
+        if (institute in domains_to_latlon_and_name) {
+            graphData.push({
+                name:  domains_to_latlon_and_name[institute].name,
+                coordinates: [domains_to_latlon_and_name[institute].latlon[1], domains_to_latlon_and_name[institute].latlon[0]],
+                value: institutes_to_papers[institute]
             })
         }
     }
-    return cityData
+    return graphData
 }

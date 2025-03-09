@@ -5,22 +5,22 @@ import * as d3 from 'd3';
 import { ThemeModeContext, ThemeMode } from '@/components/theme-context';
 import useToken from 'antd/es/theme/useToken';
 import { Feature, FeatureCollection, Geometry } from 'geojson';
-import indiaGeoData from '@/data/india.geojson';
+import IndiaGeoJSON from '@/data/india.geojson';
 
-export interface CityData {
+export interface GeoMapDataInterface {
     name: string;
-    population: number;
+    value: number;
     coordinates: [number, number]; // [longitude, latitude]
 }
 
 interface IndiaGeoMapProps {
     width: number | string;
     height: number | string;
-    cities: CityData[];
+    data: GeoMapDataInterface[];
 }
 
 // LLM generated code
-export default function IndiaGeoMap({ width, height, cities }: IndiaGeoMapProps) {
+export default function IndiaGeoMap({ width, height, data }: IndiaGeoMapProps) {
     const svgRef = useRef<SVGSVGElement>(null);
     const { mode } = useContext(ThemeModeContext);
     const tokens = useToken()[1];
@@ -43,9 +43,12 @@ export default function IndiaGeoMap({ width, height, cities }: IndiaGeoMapProps)
         // Create a group for the map
         const g = svg.append("g");
 
+        const colorScale = d3.scaleSequential(d3.interpolatePurples)
+            .domain([0, d3.max(data, d => d.value) as number]);
+
         // Draw India map
         g.selectAll("path")
-            .data(indiaGeoData.features)
+            .data(IndiaGeoJSON.features)
             .enter()
             .append("path")
             .attr("d", (d: Feature) => pathGenerator(d))
@@ -54,20 +57,20 @@ export default function IndiaGeoMap({ width, height, cities }: IndiaGeoMapProps)
             .attr("stroke-width", 0.8);
 
         // Calculate radius scale based on population
-        const populationExtent = d3.extent(cities, d => d.population);
-        const radiusScale = d3.scaleSqrt()
+        const populationExtent = d3.extent(data, d => d.value);
+        const radiusScale = d3.scaleLinear()
             .domain(populationExtent as [number, number])
-            .range([8, 20]); // Linear scaling from 5px to 15px
+            .range([8, 24]); // Scaling from 8px to 20px
 
         // Add circles for cities
         g.selectAll("circle")
-            .data(cities)
+            .data(data)
             .enter()
             .append("circle")
             .attr("cx", d => projection(d.coordinates)![0])
             .attr("cy", d => projection(d.coordinates)![1])
-            .attr("r", d => radiusScale(d.population))
-            .attr("fill", tokens.colorPrimaryBg)
+            .attr("r", d => radiusScale(d.value))
+            .attr("fill", d => colorScale(d.value))
             .attr("fill-opacity", 0.8)
             .attr("stroke", tokens.colorPrimaryBorder)
             .attr("stroke-width", 0.8)
@@ -80,10 +83,10 @@ export default function IndiaGeoMap({ width, height, cities }: IndiaGeoMapProps)
                 g.append("text")
                     .attr("class", "tooltip")
                     .attr("x", projection(d.coordinates)![0])
-                    .attr("y", projection(d.coordinates)![1] - radiusScale(d.population) - 5)
+                    .attr("y", projection(d.coordinates)![1] - radiusScale(d.value) - 5)
                     .attr("text-anchor", "middle")
                     .attr("fill", tokens.colorText)
-                    .text(`${d.name}: ${d.population.toLocaleString()}`);
+                    .text(`${d.name}: ${d.value.toLocaleString()}`);
             })
             .on("mouseout", function() {
                 d3.select(this)
@@ -94,7 +97,7 @@ export default function IndiaGeoMap({ width, height, cities }: IndiaGeoMapProps)
                 g.selectAll(".tooltip").remove();
             });
 
-    }, [cities, mode, tokens]);
+    }, [data, mode, tokens]);
 
     return (
         <svg

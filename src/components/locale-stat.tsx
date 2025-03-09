@@ -6,7 +6,7 @@ import { countPapersByCountry, countPapersByInstitute, filterPapersByCountry, in
 import TreemapChart from "./treemap-chart";
 import { useState } from "react";
 import { ColumnsType } from "antd/es/table";
-import IndiaGeoMap, { CityData } from "./india-geo-map";
+import IndiaGeoMap, { GeoMapDataInterface } from "./india-geo-map";
 
 export default function LocaleHighlights({domain, conf, year, data}: {
     domain: string, 
@@ -19,8 +19,7 @@ export default function LocaleHighlights({domain, conf, year, data}: {
     const countries_to_papers = countPapersByCountry(data);
     const filtered_data = filterPapersByCountry(data, "IN");
     const institutes_to_papers = countPapersByInstitute(filtered_data);
-    const cityData = institutesToLatLon(institutes_to_papers);
-    console.log(cityData)
+    const institute_to_papers_with_latlon = institutesToLatLon(institutes_to_papers);
 
     const columns: ColumnsType = [
         {
@@ -30,40 +29,33 @@ export default function LocaleHighlights({domain, conf, year, data}: {
             render: () => "IN"
         },
         {
-            title: "Paper Title",
-            dataIndex: "title",
-            key: "title",
+            title: "Institute",
+            dataIndex: "name",
+            key: "name",
             width: "30%",
-            sorter: (a, b) => a.title.localeCompare(b.title),
+            sorter: (a, b) => a.name.localeCompare(b.name),
             sortDirections: ['ascend', 'descend'],
-            defaultSortOrder: 'ascend'
         },
         {
-            title: "Authors",
-            dataIndex: "authors",
-            key: "authors",
-            render: (authors: string[]) => authors.join(", ")
+            title: "Count",
+            dataIndex: "value",
+            key: "value",
+            sorter: (a, b) => a.value - b.value,
+            sortDirections: ['ascend', 'descend'],
+            defaultSortOrder: 'descend'
         },
         {
-            title: "Affiliation",
+            title: "Researchers",
             dataIndex: "authors_aff",
             key: "authors_aff",
-            // get affiliation from domain here
-            render: (affiliation: string[]) => Array.from(new Set(affiliation)).join(", ")
             
-        },
-        {
-            title: "Primary Area",
-            dataIndex: "primary_area",
-            key: "primary_area",
-            render: (primary_area: string) => primary_area.split("_").join(" ")
         },
         {
             title: "",
             dataIndex: "link",
             key: "link",
             // should I use noreferrer here as well?
-            render: (link: string) => <a href={link} target="_blank" rel="noopener">link</a>
+            // render: (link: string) => <a href={link} target="_blank" rel="noopener">link</a>
         }
     ]
 
@@ -82,10 +74,10 @@ export default function LocaleHighlights({domain, conf, year, data}: {
                 </Space>
             </Flex>
             <Space direction="vertical" style={{width: "100%"}}>
-                <IndiaGeoMap width="100%" height={600} cities={cityData} />
+                <IndiaGeoMap width="100%" height={600} data={institute_to_papers_with_latlon} />
                 {showExpanded && (
                     <>
-                        <Table dataSource={filtered_data} columns={columns} rowKey={(record) => record.id}/>
+                        <Table dataSource={institute_to_papers_with_latlon} columns={columns} rowKey={(record) => record.id}/>
                     </>
                 )}
             </Space>
