@@ -60,7 +60,7 @@ export default function IndiaGeoMap({ width, height, data }: IndiaGeoMapProps) {
         const populationExtent = d3.extent(data, d => d.value);
         const radiusScale = d3.scaleLinear()
             .domain(populationExtent as [number, number])
-            .range([8, 24]); // Scaling from 8px to 20px
+            .range([10, 28]); // Scaling from 8px to 20px
 
         // Add circles for cities
         g.selectAll("circle")

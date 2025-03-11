@@ -8,7 +8,7 @@ import Title from "antd/es/typography/Title";
 import { countPapersByCountry } from "@/utils/data-handlers";
 import { getData } from "@/utils/data-handlers";
 import LocaleStat from "@/components/locale-stat";
-
+import ScoreStat from "@/components/score-stat";
 
 export default async function StatPage({
   params,
@@ -50,6 +50,10 @@ export default async function StatPage({
                     <CountryStat domain={domain} conf={conf} year={year} data={data}/>
                     <Divider />
                     <LocaleStat domain={domain} conf={conf} year={year} data={data}/>
+                    <Divider />
+                    <ScoreStat domain={domain} conf={conf} year={year} data={data} ratingKey="rating" title="Rating Score Distribution"/>
+                    <Divider />
+                    <ScoreStat domain={domain} conf={conf} year={year} data={data} ratingKey="novelty" title="Novelty Score Distribution"/>
                 </Flex>
             </Flex>
         </>

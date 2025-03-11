@@ -74,10 +74,10 @@ export default function LocaleHighlights({domain, conf, year, data}: {
                 </Space>
             </Flex>
             <Space direction="vertical" style={{width: "100%"}}>
-                <IndiaGeoMap width="100%" height={600} data={institute_to_papers_with_latlon} />
+                <IndiaGeoMap width="100%" height={800} data={institute_to_papers_with_latlon} />
                 {showExpanded && (
                     <>
-                        <Table dataSource={institute_to_papers_with_latlon} columns={columns} rowKey={(record) => record.id}/>
+                        <Table dataSource={institute_to_papers_with_latlon} columns={columns} rowKey={(record) => record.name}/>
                     </>
                 )}
             </Space>
