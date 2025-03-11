@@ -36,7 +36,7 @@ export default function ScoreStat({domain, conf, year, data, ratingKey, title}: 
             cn: d3.mean(rating_data_china)?.toFixed(2)
         },
         {
-            metric: "Top 5th Percentile",
+            metric: "Top 5% (95th Percentile)",
             in: d3.quantile(rating_data_india, 0.95)?.toFixed(2),
             us: d3.quantile(rating_data_us, 0.95)?.toFixed(2),
             cn: d3.quantile(rating_data_china, 0.95)?.toFixed(2)
@@ -48,7 +48,7 @@ export default function ScoreStat({domain, conf, year, data, ratingKey, title}: 
             cn: d3.quantile(rating_data_china, 0.5)?.toFixed(2)
         },
         {
-            metric: "Bottom 5th Percentile",
+            metric: "Bottom 5% (5th Percentile)",
             in: d3.quantile(rating_data_india, 0.05)?.toFixed(2),
             us: d3.quantile(rating_data_us, 0.05)?.toFixed(2),
             cn: d3.quantile(rating_data_china, 0.05)?.toFixed(2)
