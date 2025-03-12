@@ -10,6 +10,16 @@ import { getData } from "@/utils/data-handlers";
 import LocaleStat from "@/components/locale-stat";
 import ScoreStat from "@/components/score-stat";
 
+export function generateStaticParams() {
+    return [
+        {
+            domain: 'cs',
+            conf: 'neurips',
+            year: '2024'
+        }
+    ]
+}
+
 export default async function StatPage({
   params,
 }: {
