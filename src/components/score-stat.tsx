@@ -17,17 +17,20 @@ export default function ScoreStat({domain, conf, year, data, ratingKey, title}: 
     ratingKey: string,
     title: string
 }) {
-    const [showExpanded, setShowExpanded] = useState(false);
+    const [showExpanded, setShowExpanded] = useState(true);
     const [comparisonCountry, setComparisonCountry] = useState<'US' | 'CN'>('US');
 
     const filtered_data_india = filterPapersByCountry(data, "IN");
     const filtered_data_us = filterPapersByCountry(data, "US");
     const filtered_data_china = filterPapersByCountry(data, "CN");
 
-    const rating_data_india = filtered_data_india.filter((paper: any) => paper[ratingKey].length > 0).map((paper: any) => paper[ratingKey].reduce((a: number, b: number) => a + b, 0) / paper[ratingKey].length);
-    const rating_data_us = filtered_data_us.filter((paper: any) => paper[ratingKey].length > 0).map((paper: any) => paper[ratingKey].reduce((a: number, b: number) => a + b, 0) / paper[ratingKey].length);
-    const rating_data_china = filtered_data_china.filter((paper: any) => paper[ratingKey].length > 0).map((paper: any) => paper[ratingKey].reduce((a: number, b: number) => a + b, 0) / paper[ratingKey].length);
+    const rating_data_india: number[] = filtered_data_india.filter((paper: any) => paper[ratingKey].length > 0).map((paper: any) => paper[ratingKey].reduce((a: number, b: number) => a + b, 0) / paper[ratingKey].length);
+    const rating_data_us: number[] = filtered_data_us.filter((paper: any) => paper[ratingKey].length > 0).map((paper: any) => paper[ratingKey].reduce((a: number, b: number) => a + b, 0) / paper[ratingKey].length);
+    const rating_data_china: number[] = filtered_data_china.filter((paper: any) => paper[ratingKey].length > 0).map((paper: any) => paper[ratingKey].reduce((a: number, b: number) => a + b, 0) / paper[ratingKey].length);
     
+    const us_90th_percentile = d3.quantile(rating_data_us.sort(d3.ascending), 0.9) ?? 0;
+    const us_10th_percentile = d3.quantile(rating_data_us.sort(d3.ascending), 0.1) ?? 0;
+
     const metric_data = [
         {
             metric: "Mean",
@@ -36,22 +39,34 @@ export default function ScoreStat({domain, conf, year, data, ratingKey, title}: 
             cn: d3.mean(rating_data_china)?.toFixed(2)
         },
         {
-            metric: "Top 5% (95th Percentile)",
-            in: d3.quantile(rating_data_india, 0.95)?.toFixed(2),
-            us: d3.quantile(rating_data_us, 0.95)?.toFixed(2),
-            cn: d3.quantile(rating_data_china, 0.95)?.toFixed(2)
+            metric: `% Papers > ${us_90th_percentile.toFixed(2)}`,
+            in: ((rating_data_india.filter((score: number) => score >= us_90th_percentile).length / rating_data_india.length) * 100).toFixed(2),
+            us: ((rating_data_us.filter((score: number) => score >= us_90th_percentile).length / rating_data_us.length) * 100).toFixed(2),
+            cn: ((rating_data_china.filter((score: number) => score >= us_90th_percentile).length / rating_data_china.length) * 100).toFixed(2)
+        },
+        {
+            metric: `% Papers < ${us_10th_percentile.toFixed(2)} (lower is better)`,
+            in: ((rating_data_india.filter((score: number) => score <= us_10th_percentile).length / rating_data_india.length) * 100).toFixed(2),
+            us: ((rating_data_us.filter((score: number) => score <= us_10th_percentile).length / rating_data_us.length) * 100).toFixed(2),
+            cn: ((rating_data_china.filter((score: number) => score <= us_10th_percentile).length / rating_data_china.length) * 100).toFixed(2)
         },
         {
             metric: "50th Percentile (Median)",
-            in: d3.quantile(rating_data_india, 0.5)?.toFixed(2),
-            us: d3.quantile(rating_data_us, 0.5)?.toFixed(2),
-            cn: d3.quantile(rating_data_china, 0.5)?.toFixed(2)
+            in: d3.quantile(rating_data_india.sort(d3.ascending), 0.5)?.toFixed(2),
+            us: d3.quantile(rating_data_us.sort(d3.ascending), 0.5)?.toFixed(2),
+            cn: d3.quantile(rating_data_china.sort(d3.ascending), 0.5)?.toFixed(2)
         },
         {
-            metric: "Bottom 5% (5th Percentile)",
-            in: d3.quantile(rating_data_india, 0.05)?.toFixed(2),
-            us: d3.quantile(rating_data_us, 0.05)?.toFixed(2),
-            cn: d3.quantile(rating_data_china, 0.05)?.toFixed(2)
+            metric: "95th Percentile (approx Max)",
+            in: d3.quantile(rating_data_india.sort(d3.ascending), 0.95)?.toFixed(2),
+            us: d3.quantile(rating_data_us.sort(d3.ascending), 0.95)?.toFixed(2),
+            cn: d3.quantile(rating_data_china.sort(d3.ascending), 0.95)?.toFixed(2)
+        },
+        {
+            metric: "5th Percentile (approx Min)",
+            in: d3.quantile(rating_data_india.sort(d3.ascending), 0.05)?.toFixed(2),
+            us: d3.quantile(rating_data_us.sort(d3.ascending), 0.05)?.toFixed(2),
+            cn: d3.quantile(rating_data_china.sort(d3.ascending), 0.05)?.toFixed(2)
         }
     ]
     const columns: ColumnsType = [

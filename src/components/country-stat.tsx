@@ -14,7 +14,7 @@ export default function CountryStat({domain, conf, year, data}: {
     year: number,
     data: any
 }) {
-    const [showExpanded, setShowExpanded] = useState(false);
+    const [showExpanded, setShowExpanded] = useState(true);
 
     const countries_to_papers = countPapersByCountry(data);
     const filtered_data = filterPapersByCountry(data, "IN");
@@ -92,7 +92,12 @@ export default function CountryStat({domain, conf, year, data}: {
                 />
                 {showExpanded && (
                     <>
-                        <Table dataSource={filtered_data} columns={columns} rowKey={(record) => record.id}/>
+                        <Table 
+                            dataSource={filtered_data} 
+                            columns={columns} 
+                            rowKey={(record) => record.id} 
+                            pagination={{ pageSize: 6 }} 
+                        />
                     </>
                 )}
             </Space>
