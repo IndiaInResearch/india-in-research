@@ -77,7 +77,7 @@ export default function TreemapChart({ data, width, height, maxEntries = 10, key
         const colorScale = d3.scaleSequential(mode === ThemeMode.Dark ? d3.interpolateViridis : d3.interpolateGreens)
             .domain(dataExtent as [number, number])
         const highlightColorScale = d3.scaleSequential(d3.interpolateReds)
-            .domain(dataExtent as [number, number])
+            // .domain(dataExtent as [number, number])
 
         // Add rectangles for each country with transitions and hover effects
         const nodes = svg
