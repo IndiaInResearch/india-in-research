@@ -8,6 +8,7 @@ import { ColumnsType } from "antd/es/table";
 import IndiaGeoMap, { GeoMapDataInterface } from "./india-geo-map";
 import RatingHistogram from "./rating-histogram";
 import * as d3 from "d3";
+import DataUnavailable from "./data-unavailable";
 
 export default function ScoreStat({domain, conf, year, data, ratingKey, title}: {
     domain: string, 
@@ -27,7 +28,7 @@ export default function ScoreStat({domain, conf, year, data, ratingKey, title}: 
     const rating_data_india: number[] = filtered_data_india.filter((paper: any) => paper[ratingKey]?.length > 0).map((paper: any) => paper[ratingKey]?.reduce((a: number, b: number) => a + b, 0) / paper[ratingKey]?.length);
     const rating_data_us: number[] = filtered_data_us.filter((paper: any) => paper[ratingKey]?.length > 0).map((paper: any) => paper[ratingKey]?.reduce((a: number, b: number) => a + b, 0) / paper[ratingKey]?.length);
     const rating_data_china: number[] = filtered_data_china.filter((paper: any) => paper[ratingKey]?.length > 0).map((paper: any) => paper[ratingKey]?.reduce((a: number, b: number) => a + b, 0) / paper[ratingKey]?.length);
-    
+
     const us_90th_percentile = d3.quantile(rating_data_us.sort(d3.ascending), 0.9) ?? 0;
     const us_10th_percentile = d3.quantile(rating_data_us.sort(d3.ascending), 0.1) ?? 0;
 
@@ -117,20 +118,24 @@ export default function ScoreStat({domain, conf, year, data, ratingKey, title}: 
                     <Radio.Button value="CN">With CN</Radio.Button>
                 </Radio.Group>
             </Flex>
-            <Space direction="vertical" style={{width: "100%"}}>
-                <RatingHistogram 
-                    width="100%" 
-                    height={400} 
-                    indiaRatings={rating_data_india}
-                    usRatings={comparisonCountry === 'US' ? rating_data_us : []}
-                    chinaRatings={comparisonCountry === 'CN' ? rating_data_china : []}
-                />
-                {showExpanded && (
-                    <>
-                        <Table dataSource={metric_data} columns={columns} rowKey={(record) => record.metric}/>
-                    </>
-                )}
-            </Space>
+
+            {(rating_data_india.length == 0 && rating_data_us.length == 0 && rating_data_china.length == 0) ? 
+                <DataUnavailable /> :
+                <Space direction="vertical" style={{width: "100%"}}>
+                    <RatingHistogram 
+                        width="100%" 
+                        height={400} 
+                        indiaRatings={rating_data_india}
+                        usRatings={comparisonCountry === 'US' ? rating_data_us : []}
+                        chinaRatings={comparisonCountry === 'CN' ? rating_data_china : []}
+                    />
+                    {showExpanded && (
+                        <>
+                            <Table dataSource={metric_data} columns={columns} rowKey={(record) => record.metric}/>
+                        </>
+                    )}
+                </Space>
+            }
         </Flex>
     )
 }
