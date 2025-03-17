@@ -9,15 +9,10 @@ import { countPapersByCountry } from "@/utils/data-handlers";
 import { getData } from "@/utils/data-handlers";
 import LocaleStat from "@/components/locale-stat";
 import ScoreStat from "@/components/score-stat";
+import { staticParams } from "./static-params";
 
 export function generateStaticParams() {
-    return [
-        {
-            domain: 'cs',
-            conf: 'neurips',
-            year: '2024'
-        }
-    ]
+    return staticParams
 }
 
 export default async function StatPage({
