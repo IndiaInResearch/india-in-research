@@ -3,24 +3,36 @@
         "label": "NeurIPS",
         "value": "neurips",
         "full_name": "Neural Information Processing Systems",
-        "location": "Vancouver, Canada"
+        "places": [{
+            "year": 2024,
+            "location": "Vancouver, Canada"
+        }]
     },
     {
         "label": "ICML",
         "value": "icml",
         "full_name": "International Conference on Machine Learning",
-        "location": "Long Beach, USA"
+        "places": [{
+            "year": 2024,
+            "location": "Vienna, Austria"
+        }]
     },
     {
         "label": "ICLR",
         "value": "iclr",
         "full_name": "International Conference on Learning Representations",
-        "location": "San Diego, USA"
+        "places": [{
+            "year": 2024,
+            "location": "Vienna, Austria"
+        }]
     },
     {
         "label": "AAAI",
         "value": "aaai",
         "full_name": "Association for the Advancement of Artificial Intelligence",
-        "location": "San Francisco, USA"
+        "places": [{
+            "year": 2024,
+            "location": "Vancouver, Canada"
+        }]
     }
 ]

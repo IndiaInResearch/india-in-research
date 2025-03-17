@@ -40,7 +40,7 @@ export default async function StatPage({
     }
 
     const conf_name = csVenues.find((v) => v.value === conf)?.full_name || conf;
-    const location = csVenues.find((v) => v.value === conf)?.location || "";
+    const location = csVenues.find((v) => v.value === conf)?.places?.find((v) => v.year == year)?.location || "";
 
     const data = await getData(domain, conf, year);
 
