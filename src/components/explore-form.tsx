@@ -25,7 +25,7 @@ export default function ExploreForm({ domain, conf, year }: { domain: string; co
                 value={selectedConf} 
                 onChange={setSelectedConf}
                 size="large" 
-                style={{minWidth: 80}}
+                style={{minWidth: 120}}
             />
             <InputNumber 
                 min={2010} 
