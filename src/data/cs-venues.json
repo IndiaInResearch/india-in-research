@@ -27,6 +27,15 @@
         }]
     },
     {
+        "label": "CVPR",
+        "value": "cvpr",
+        "full_name": "Computer Vision and Pattern Recognition Conference",
+        "places": [{
+            "year": 2024,
+            "location": "Seattle, USA"
+        }]
+    },
+    {
         "label": "AAAI",
         "value": "aaai",
         "full_name": "Association for the Advancement of Artificial Intelligence",

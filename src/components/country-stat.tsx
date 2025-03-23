@@ -57,7 +57,7 @@ export default function CountryStat({domain, conf, year, data}: {
             title: "Primary Area",
             dataIndex: "primary_area",
             key: "primary_area",
-            render: (primary_area: string) => primary_area.split("_").join(" ")
+            render: (primary_area: string) => primary_area?.split("_").join(" ")
         },
         {
             title: "",
