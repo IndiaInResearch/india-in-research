@@ -7,6 +7,7 @@ import TreemapChart from "./treemap-chart";
 import { useState } from "react";
 import { ColumnsType } from "antd/es/table";
 import { getInstituteFromDomain } from "@/utils/domain-handlers";
+import { v4 as uuidv4 } from 'uuid';
 
 export default function CountryStat({domain, conf, year, data}: {
     domain: string, 
@@ -95,7 +96,14 @@ export default function CountryStat({domain, conf, year, data}: {
                         <Table 
                             dataSource={filtered_data} 
                             columns={columns} 
-                            rowKey={(record) => record.id} 
+                            rowKey={(record) => {
+                                if (record.id) {
+                                    return record.id;
+                                }
+                                else{
+                                    return record.title + record.authors.join("") 
+                                }
+                            }} 
                             pagination={{ pageSize: 6 }} 
                         />
                     </>
