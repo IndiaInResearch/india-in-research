@@ -37,9 +37,13 @@ export default async function StatPage({
     const conf_name = csVenues.find((v) => v.value === conf)?.full_name || conf;
     const location = csVenues.find((v) => v.value === conf)?.places?.find((v) => v.year == year)?.location || "";
 
-    const data = await getData(domain, conf, year);
+    const conf_to_load = conf === "all" ? 
+        csVenues.map((v) => v.value)
+        : [conf];
 
-    if (!data) {
+    const data = await getData(domain, conf_to_load, year);
+
+    if (!data || data.length === 0) {
         notFound();
     }
 
@@ -55,10 +59,14 @@ export default async function StatPage({
                     <CountryStat domain={domain} conf={conf} year={year} data={data}/>
                     <Divider />
                     <LocaleStat domain={domain} conf={conf} year={year} data={data}/>
-                    <Divider />
-                    <ScoreStat domain={domain} conf={conf} year={year} data={data} ratingKey="rating" title="Rating Score Distribution"/>
-                    <Divider />
-                    <ScoreStat domain={domain} conf={conf} year={year} data={data} ratingKey="novelty" title="Novelty Score Distribution"/>
+                    {(conf != "all") && (
+                        <>
+                            <Divider />
+                            <ScoreStat domain={domain} conf={conf} year={year} data={data} ratingKey="rating" title="Rating Score Distribution"/>
+                            <Divider />
+                            <ScoreStat domain={domain} conf={conf} year={year} data={data} ratingKey="novelty" title="Novelty Score Distribution"/>
+                        </>
+                    )}
                 </Flex>
             </Flex>
         </>

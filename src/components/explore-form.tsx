@@ -11,6 +11,11 @@ export default function ExploreForm({ domain, conf, year }: { domain: string; co
     const [selectedConf, setSelectedConf] = useState(conf);
     const [selectedYear, setSelectedYear] = useState(year);
 
+    const confOptions = [
+        { label: "All", value: "all" },
+        ...csVenues
+    ]
+
     return (
         <Space>
             <Select 
@@ -21,7 +26,7 @@ export default function ExploreForm({ domain, conf, year }: { domain: string; co
                 style={{minWidth: 80}}
             />
             <Select 
-                options={csVenues} 
+                options={confOptions} 
                 value={selectedConf} 
                 onChange={setSelectedConf}
                 size="large" 

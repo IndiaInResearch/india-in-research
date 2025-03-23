@@ -1,13 +1,21 @@
 import { GeoMapDataInterface } from "@/components/india-geo-map";
 import institutes_list from "@/data/third-party/university-list/world_universities_and_domains.json"
 import { isDomainSame } from "./domain-handlers";
-export async function getData(domain: string, conf: string, year: number) {
-    try {
-        const data = await import(`@/data/${domain}/${conf}/${year}.json`);
-        return data.default;
-    } catch (error) {
-        return undefined;
+
+export async function getData(domain: string, confs: string[], year: number) {
+    const data_agg = []
+    for (const conf of confs) {
+        try {
+            const data = await import(`@/data/${domain}/${conf}/${year}.json`);
+            if (data) {
+                data_agg.push(...data.default)
+            }
+        } catch (error) {
+            console.error(error)
+            continue
+        }
     }
+    return data_agg
 }
 
 export function determineCountryofPaper(data: any) {
