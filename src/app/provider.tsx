@@ -54,10 +54,20 @@ export const AntdConfigProvider = ({ children }: {children: React.ReactNode}) =>
   }
 
   return (
-    <ThemeModeContext.Provider value={ThemeContextStruct}>
-        <ConfigProvider theme={themeStruct}>
-            {children}
-        </ConfigProvider>
-    </ThemeModeContext.Provider>
+    <>
+      <style>
+      {/* Use this to generate the filter used below: https://isotropic.co/tool/hex-color-to-css-filter/ */}
+        {`
+          :root {
+            --logo-color-filter: ${mode === ThemeMode.Dark? "": "brightness(0) saturate(100%) invert(13%) sepia(0%) saturate(1468%) hue-rotate(248deg) brightness(102%) contrast(92%)"};
+          }
+        `}
+      </style>
+      <ThemeModeContext.Provider value={ThemeContextStruct}>
+          <ConfigProvider theme={themeStruct}>
+              {children}
+          </ConfigProvider>
+      </ThemeModeContext.Provider>
+    </>
   );
 };

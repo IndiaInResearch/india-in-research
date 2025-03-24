@@ -22,10 +22,10 @@ export default async function Footer() {
                         <Text>Board</Text>
                     </div>
                     <div style={{display: 'flex', flexDirection: 'column'}}>
-                        <Text>© 2025 IIR.org</Text>
                         <Text>Terms of Service</Text>
                         <Text>Privacy Policy</Text>
                         <Text>Cookie Policy</Text>
+                        <Text>© 2025 India In Research</Text>
                     </div>
                 </div>
                 <Divider />

@@ -9,8 +9,8 @@ import Footer from "@/components/footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
-  title: "IIR",
-  description: "IIR is a platform for measuring the impact of Indian papers.",
+  title: "India In Research",
+  description: "India In Research (IIR) is a platform for measuring the impact of Indian papers.",
 };
 
 export default function RootLayout({
