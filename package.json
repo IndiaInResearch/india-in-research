@@ -5,16 +5,19 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@ant-design/icons": "^5.6.1",
     "@ant-design/nextjs-registry": "^1.0.2",
+    "@next/third-parties": "^15.2.3",
     "@types/d3": "^7.4.3",
     "antd": "^5.24.2",
     "d3": "^7.9.0",
     "next": "14.2.24",
+    "next-sitemap": "^4.2.3",
     "react": "^18",
     "react-dom": "^18",
     "react-markdown": "^10.0.1",
