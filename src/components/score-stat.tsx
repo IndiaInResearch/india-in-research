@@ -21,13 +21,20 @@ export default function ScoreStat({domain, conf, year, data, ratingKey, title}: 
     const [showExpanded, setShowExpanded] = useState(true);
     const [comparisonCountry, setComparisonCountry] = useState<'US' | 'CN'>('US');
 
-    const filtered_data_india = filterPapersByCountry(data, "IN");
-    const filtered_data_us = filterPapersByCountry(data, "US");
-    const filtered_data_china = filterPapersByCountry(data, "CN");
+    let rating_data_india = []
+    let rating_data_us = []
+    let rating_data_china = []
 
-    const rating_data_india: number[] = filtered_data_india.filter((paper: any) => paper[ratingKey]?.length > 0).map((paper: any) => paper[ratingKey]?.reduce((a: number, b: number) => a + b, 0) / paper[ratingKey]?.length);
-    const rating_data_us: number[] = filtered_data_us.filter((paper: any) => paper[ratingKey]?.length > 0).map((paper: any) => paper[ratingKey]?.reduce((a: number, b: number) => a + b, 0) / paper[ratingKey]?.length);
-    const rating_data_china: number[] = filtered_data_china.filter((paper: any) => paper[ratingKey]?.length > 0).map((paper: any) => paper[ratingKey]?.reduce((a: number, b: number) => a + b, 0) / paper[ratingKey]?.length);
+    if (ratingKey == "rating") {
+        rating_data_india = data.rating_overall.in;
+        rating_data_us = data.rating_overall.us;
+        rating_data_china = data.rating_overall.cn;
+    }
+    else if (ratingKey == "novelty") {
+        rating_data_india = data.novelty_overall.in;
+        rating_data_us = data.novelty_overall.us;
+        rating_data_china = data.novelty_overall.cn;
+    }
 
     const us_90th_percentile = d3.quantile(rating_data_us.sort(d3.ascending), 0.9) ?? 0;
     const us_10th_percentile = d3.quantile(rating_data_us.sort(d3.ascending), 0.1) ?? 0;

@@ -15,7 +15,39 @@ export async function getData(domain: string, confs: string[], year: number) {
             continue
         }
     }
-    return data_agg
+
+    if (data_agg.length === 0) {
+        return null
+    }
+
+    // calculate stats here and just return the required data to the React component
+    // saves lots of space in rendered HTML
+
+    const indian_papers = filterPapersByCountry(data_agg, "IN")
+    const us_papers = filterPapersByCountry(data_agg, "US")
+    const china_papers = filterPapersByCountry(data_agg, "CN")
+
+    const countries_to_papers = countPapersByCountry(data_agg)
+    
+    const indian_institute_to_papers_with_latlon = institutesToLatLon(countPapersByInstitute(indian_papers))
+
+    const getRatingData = (papers: any, key: string) => papers.filter((paper: any) => paper[key]?.length > 0).map((paper: any) => paper[key]?.reduce((a: number, b: number) => a + b, 0) / paper[key]?.length);
+
+    return {
+        indian_papers: indian_papers,
+        countries_to_papers: countries_to_papers,
+        indian_institute_to_papers_with_latlon: indian_institute_to_papers_with_latlon,
+        rating_overall: {
+            in: getRatingData(indian_papers, "rating"),
+            us: getRatingData(us_papers, "rating"),
+            cn: getRatingData(china_papers, "rating")
+        },
+        novelty_overall: {
+            in: getRatingData(indian_papers, "novelty"),
+            us: getRatingData(us_papers, "novelty"),
+            cn: getRatingData(china_papers, "novelty")
+        },
+    }
 }
 
 export function determineCountryofPaper(data: any) {

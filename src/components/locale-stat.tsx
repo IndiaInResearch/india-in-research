@@ -16,10 +16,7 @@ export default function LocaleHighlights({domain, conf, year, data}: {
 }) {
     const [showExpanded, setShowExpanded] = useState(false);
 
-    const countries_to_papers = countPapersByCountry(data);
-    const filtered_data = filterPapersByCountry(data, "IN");
-    const institutes_to_papers = countPapersByInstitute(filtered_data);
-    const institute_to_papers_with_latlon = institutesToLatLon(institutes_to_papers);
+    const institute_to_papers_with_latlon = data.indian_institute_to_papers_with_latlon;
 
     const columns: ColumnsType = [
         {

@@ -2,12 +2,10 @@
 
 import { Button, Divider, Flex, Space, Table } from "antd";
 import Title from "antd/es/typography/Title";
-import { countPapersByCountry, filterPapersByCountry } from "@/utils/data-handlers";
 import TreemapChart from "./treemap-chart";
 import { useState } from "react";
 import { ColumnsType } from "antd/es/table";
 import { getInstituteFromDomain } from "@/utils/domain-handlers";
-import { v4 as uuidv4 } from 'uuid';
 
 export default function CountryStat({domain, conf, year, data}: {
     domain: string, 
@@ -17,8 +15,8 @@ export default function CountryStat({domain, conf, year, data}: {
 }) {
     const [showExpanded, setShowExpanded] = useState(true);
 
-    const countries_to_papers = countPapersByCountry(data);
-    const filtered_data = filterPapersByCountry(data, "IN");
+    const countries_to_papers = data.countries_to_papers;
+    const filtered_data = data.indian_papers;
 
     const columns: ColumnsType = [
         {

@@ -43,7 +43,7 @@ export default async function StatPage({
 
     const data = await getData(domain, conf_to_load, year);
 
-    if (!data || data.length === 0) {
+    if (!data) {
         notFound();
     }
 
