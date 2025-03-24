@@ -6,6 +6,7 @@ import { Divider, Layout } from "antd";
 import { Content, Footer as AntFooter, Header } from "antd/es/layout/layout";
 import NavBar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: "IIR",
@@ -20,6 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+      <GoogleAnalytics gaId="G-0LQ04XLE3N" />
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9123105121789937" crossOrigin="anonymous"></script>
       </head>
       <body>
