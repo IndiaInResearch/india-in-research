@@ -1,14 +1,16 @@
-import { Divider, Flex } from "antd";
+import { Divider, Flex, Space } from "antd";
 import allVenuesData from "@/data/all-venues-data.json";
 import { notFound } from "next/navigation";
 import CountryStat from "@/components/country-stat";
 import ExploreForm from "@/components/explore-form";
 import Title from "antd/es/typography/Title";
+import Text from "antd/es/typography/Text";
 import { countPapersByCountry, dfsVenueData } from "@/utils/data-handlers";
 import { getData } from "@/utils/data-handlers";
 import LocaleStat from "@/components/locale-stat";
 import ScoreStat from "@/components/score-stat";
 import { buildStaticParamsForAllVenues } from "./static-params";
+import VenueTitleDisplay from "@/components/venue-title-display";
 
 export function generateStaticParams() {
     return buildStaticParamsForAllVenues();
@@ -66,9 +68,6 @@ export default async function StatPage({
 
     const year = 2024
 
-    const conf_name = singleConfData ? selectedVenues[0].full_name : "Top " + hierarchyLabels.join(" > ") + " Venues";
-    const location = singleConfData ? selectedVenues[0].places.find((v: any) => v.year === year)?.location : "";
-
     const venueKeys = selectedVenues.map(v => v.value)
 
     const data = await getData(domain, venueKeys, year);
@@ -85,7 +84,7 @@ export default async function StatPage({
                 </Flex>
                 <Flex vertical justify="center" align="center">
                     <Divider />
-                    <Title level={3}>{conf_name}, {year}. {location}</Title>
+                    <VenueTitleDisplay singleConfData={singleConfData} selectedVenues={selectedVenues} hierarchyLabels={hierarchyLabels} year={year}/>
                     <CountryStat data={data}/>
                     <Divider />
                     <LocaleStat data={data}/>
