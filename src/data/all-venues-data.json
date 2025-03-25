@@ -1,0 +1,88 @@
+[
+    {
+        "label": "CS",
+        "value": "cs",
+        "venues": [
+            {
+                "subdomain": "ai",
+                "label": "AI",
+                "full_name": "Artificial Intelligence",
+                "venues": [
+                    {
+                        "subsubdomain": "ml",
+                        "label": "ML",
+                        "full_name": "Machine Learning",
+                        "venues": [
+                            {
+                                "label": "NeurIPS",
+                                "value": "neurips",
+                                "full_name": "Neural Information Processing Systems",
+                                "places": [{
+                                    "year": 2024,
+                                    "location": "Vancouver, Canada"
+                                }]
+                            },
+                            {
+                                "label": "ICML",
+                                "value": "icml",
+                                "full_name": "International Conference on Machine Learning",
+                                "places": [{
+                                    "year": 2024,
+                                    "location": "Vienna, Austria"
+                                }]
+                            },
+                            {
+                                "label": "ICLR",
+                                "value": "iclr",
+                                "full_name": "International Conference on Learning Representations",
+                                "places": [{
+                                    "year": 2024,
+                                    "location": "Vienna, Austria"
+                                }]
+                            }
+                        ]
+                    },
+                    {
+                        "subsubdomain": "vision",
+                        "label": "Vision",
+                        "full_name": "Computer Vision",
+                        "venues": [
+                            {
+                                "label": "CVPR",
+                                "value": "cvpr",
+                                "full_name": "Computer Vision and Pattern Recognition Conference",
+                                "places": [{
+                                    "year": 2024,
+                                    "location": "Seattle, USA"
+                                }]
+                            }
+                        ]
+                    },
+                    {
+                        "subsubdomain": "nlp",
+                        "label": "NLP",
+                        "full_name": "Natural Language Processing",
+                        "venues": []
+                    }
+                ]
+            },
+            {
+                "subdomain": "systems",
+                "label": "Systems",
+                "full_name": "Systems and Networks",
+                "venues": []
+            },
+            {
+                "subdomain": "theory",
+                "label": "Theory",
+                "full_name": "Theory",
+                "venues": []
+            }
+        ]
+    },
+    {
+        "label": "Math",
+        "value": "math",
+        "venues": []
+    }        
+]

@@ -8,10 +8,7 @@ import { useState } from "react";
 import { ColumnsType } from "antd/es/table";
 import IndiaGeoMap, { GeoMapDataInterface } from "./india-geo-map";
 
-export default function LocaleHighlights({domain, conf, year, data}: {
-    domain: string, 
-    conf: string, 
-    year: number,
+export default function LocaleHighlights({data}: {
     data: any
 }) {
     const [showExpanded, setShowExpanded] = useState(false);

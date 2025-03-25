@@ -13,7 +13,7 @@ export default async function Home() {
             <Title level={1}>Measuring Impact of Indian Papers</Title>
             <Text>IIR is a platform for measuring the impact of Indian papers.</Text>
             <Space style={{marginTop: 16}}>
-              <Link href="/explore/cs/neurips/2024">
+              <Link href="/explore/cs/ai">
                 <Button type="primary" size="large">Explore</Button>
               </Link>
               <Button size="large">Know More</Button>

@@ -28,7 +28,7 @@ export async function getData(domain: string, confs: string[], year: number) {
     const china_papers = filterPapersByCountry(data_agg, "CN")
 
     const countries_to_papers = countPapersByCountry(data_agg)
-    
+
     const indian_institute_to_papers_with_latlon = institutesToLatLon(countPapersByInstitute(indian_papers))
 
     const getRatingData = (papers: any, key: string) => papers.filter((paper: any) => paper[key]?.length > 0).map((paper: any) => paper[key]?.reduce((a: number, b: number) => a + b, 0) / paper[key]?.length);
@@ -146,4 +146,17 @@ export function institutesToLatLon(institutes_to_papers: Record<string, number>)
         }
     }
     return graphData
+}
+
+export function dfsVenueData(venues_data: any[]): any[] {
+    const venues = [];
+    for (const venue_data of venues_data) {
+        if ("venues" in venue_data) {
+            venues.push(...dfsVenueData(venue_data.venues));
+        }
+        else {
+            venues.push(venue_data);
+        }
+    }
+    return venues;
 }

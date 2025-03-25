@@ -10,10 +10,7 @@ import RatingHistogram from "./rating-histogram";
 import * as d3 from "d3";
 import DataUnavailable from "./data-unavailable";
 
-export default function ScoreStat({domain, conf, year, data, ratingKey, title}: {
-    domain: string, 
-    conf: string, 
-    year: number,
+export default function ScoreStat({data, ratingKey, title}: {
     data: any,
     ratingKey: string,
     title: string

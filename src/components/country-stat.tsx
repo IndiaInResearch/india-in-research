@@ -7,10 +7,7 @@ import { useState } from "react";
 import { ColumnsType } from "antd/es/table";
 import { getInstituteFromDomain } from "@/utils/domain-handlers";
 
-export default function CountryStat({domain, conf, year, data}: {
-    domain: string, 
-    conf: string, 
-    year: number,
+export default function CountryStat({data}: {
     data: any
 }) {
     const [showExpanded, setShowExpanded] = useState(true);

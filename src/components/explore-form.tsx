@@ -1,36 +1,52 @@
 'use client';
 
-import { Button, InputNumber, Select, Space } from "antd";
-import csVenues from "@/data/cs-venues.json";
-import domains from "@/data/domains.json";
+import { Button, InputNumber, TreeSelect, Select, Space } from "antd";
+import allVenuesData from "@/data/all-venues-data.json";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function ExploreForm({ domain, conf, year }: { domain: string; conf: string; year: number }) {
+export default function ExploreForm({ domain, subdomain, subsubdomain, venue, year }: { domain: string; subdomain: string; subsubdomain: string; venue: string; year: number }) {
     const [selectedDomain, setSelectedDomain] = useState(domain);
-    const [selectedConf, setSelectedConf] = useState(conf);
+    const [selectedPath, setSelectedPath] = useState([subdomain, subsubdomain, venue].filter(Boolean).join('/'));
     const [selectedYear, setSelectedYear] = useState(year);
 
-    const confOptions = [
-        { label: "All", value: "all" },
-        ...csVenues
-    ]
+    const domainOptions = allVenuesData.map(d => ({ label: d.label, value: d.value }));
+
+    const treeData = allVenuesData.find(d => d.value === selectedDomain)?.venues?.map(sd => ({
+        title: "Top " + sd.full_name,
+        value: sd.subdomain,
+        children: sd.venues?.map(ssd => ({
+            title: "Top " + ssd.full_name,
+            value: `${sd.subdomain}/${ssd.subsubdomain}`,
+            children: ssd.venues?.map(v => ({
+                title: v.label,
+                value: `${sd.subdomain}/${ssd.subsubdomain}/${v.value}`
+            })) || []
+        })) || []
+    })) || [];
 
     return (
         <Space>
-            <Select 
-                options={domains} 
-                value={selectedDomain} 
-                onChange={setSelectedDomain}
-                size="large" 
-                style={{minWidth: 80}}
+            <Select
+                options={domainOptions}
+                value={selectedDomain}
+                onChange={(value) => {
+                    setSelectedDomain(value);
+                    setSelectedPath('');
+                }}
+                size="large"
+                style={{ minWidth: 80 }}
+                placeholder="Select a domain"
             />
-            <Select 
-                options={confOptions} 
-                value={selectedConf} 
-                onChange={setSelectedConf}
-                size="large" 
-                style={{minWidth: 120}}
+            <TreeSelect
+                treeData={treeData}
+                value={selectedPath}
+                onChange={setSelectedPath}
+                size="large"
+                style={{ minWidth: 320 }}
+                placeholder="Select a subdomain or venue"
+                treeDefaultExpandAll
+                disabled={!selectedDomain} // Disable TreeSelect if no domain is selected
             />
             <InputNumber 
                 min={2010} 
@@ -38,11 +54,11 @@ export default function ExploreForm({ domain, conf, year }: { domain: string; co
                 value={selectedYear} 
                 onChange={(value) => setSelectedYear(value || 2024)}
                 size="large" 
-                style={{minWidth: 80}}
+                style={{ minWidth: 80 }}
             />
-            <Link href={`/explore/${selectedDomain}/${selectedConf}/${selectedYear}`}>
+            <Link href={`/explore/${selectedDomain}/${selectedPath}`}>
                 <Button type="primary" size="large">Explore</Button>
             </Link>
         </Space>
     );
-} 
+}
