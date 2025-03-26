@@ -43,7 +43,7 @@ export default function ExploreForm({ domain, subdomain, subsubdomain, venue, ye
                 value={selectedPath}
                 onChange={setSelectedPath}
                 size="large"
-                style={{ minWidth: 320 }}
+                style={{ minWidth: 300 }}
                 placeholder="Select a subdomain or venue"
                 treeDefaultExpandAll
                 disabled={!selectedDomain} // Disable TreeSelect if no domain is selected

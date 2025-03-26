@@ -11,6 +11,7 @@ import LocaleStat from "@/components/locale-stat";
 import ScoreStat from "@/components/score-stat";
 import { buildStaticParamsForAllVenues } from "./static-params";
 import VenueTitleDisplay from "@/components/venue-title-display";
+import UndergraduateStat from "@/components/undergraduate-stat";
 
 export function generateStaticParams() {
     return buildStaticParamsForAllVenues();
@@ -88,6 +89,8 @@ export default async function StatPage({
                     <CountryStat data={data}/>
                     <Divider />
                     <LocaleStat data={data}/>
+                    <Divider />
+                    <UndergraduateStat data={data}/>
                     {(singleConfData) && (
                         <>
                             <Divider />

@@ -50,9 +50,17 @@ export default function CountryStat({data}: {
             }).join(", ")
         },
         {
+            title: "Venue",
+            dataIndex: "conf",
+            key: "conf",
+            minWidth: 100,
+            render: (conf: string) => conf?.toLocaleUpperCase()
+        },
+        {
             title: "Primary Area",
             dataIndex: "primary_area",
             key: "primary_area",
+            width: "10%",
             render: (primary_area: string) => primary_area?.split("_").join(" ")
         },
         {

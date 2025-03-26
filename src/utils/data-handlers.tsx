@@ -8,7 +8,11 @@ export async function getData(domain: string, confs: string[], year: number) {
         try {
             const data = await import(`@/data/${domain}/${conf}/${year}.json`);
             if (data) {
-                data_agg.push(...data.default)
+                data_agg.push(...(data.default.map((d: any) => {
+                    d["conf"] = conf
+                    d["year"] = year
+                    return d
+                })))
             }
         } catch (error) {
             console.error(error)
@@ -47,6 +51,11 @@ export async function getData(domain: string, confs: string[], year: number) {
             us: getRatingData(us_papers, "novelty"),
             cn: getRatingData(china_papers, "novelty")
         },
+        author_ranks: {
+            in: authorRankStat(indian_papers),
+            us: authorRankStat(us_papers),
+            cn: authorRankStat(china_papers)
+        }
     }
 }
 
@@ -159,4 +168,20 @@ export function dfsVenueData(venues_data: any[]): any[] {
         }
     }
     return venues;
+}
+
+function authorRankStat(data: any) {
+    const ranks: Record<string, number> = {}
+    for (const d of data) {
+        if (d["author_rank_standarized"]){
+            for (const pos of d["author_rank_standarized"]){
+                if (pos in ranks) {
+                    ranks[pos]++;
+                } else {
+                    ranks[pos] = 1;
+                }
+            }
+        }
+    }
+    return ranks
 }
