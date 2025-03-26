@@ -5,6 +5,7 @@ import Title from "antd/es/typography/Title";
 import Text from "antd/es/typography/Text";
 import { useState } from "react";
 import StackedBar from "./stacked-bar";
+import DataUnavailable from "./data-unavailable";
 
 export default function UndergraduateStat({
     data
@@ -31,25 +32,30 @@ export default function UndergraduateStat({
                     </Button>
                 </Space>
             </Flex>
-            <Flex justify="space-evenly" style={{width: "100%"}}>
-                <Flex vertical gap={64} style={{marginTop: 64}}>
-                    <Flex vertical align="center">
-                        <Title level={1}>
-                            {undergrad_percentage}%
-                        </Title>
-                        <Text>undergraduate participation</Text>
+            {total_authors === 0 ? 
+                <DataUnavailable /> :
+                (
+                    <Flex justify="space-evenly" style={{width: "100%"}}>
+                        <Flex vertical gap={64} style={{marginTop: 64}}>
+                            <Flex vertical align="center">
+                                <Title level={1}>
+                                    {undergrad_percentage}%
+                                </Title>
+                                <Text>undergraduate participation</Text>
+                            </Flex>
+                            <Flex vertical align="center">
+                                <Space align="baseline">
+                                    <Title level={1}>{data.author_ranks.in["Undergrad"]}</Title>
+                                    <Title level={3}>/</Title>
+                                    <Title level={4}>{total_authors}</Title>
+                                </Space>
+                                <Text>author contributions</Text>
+                            </Flex>
+                        </Flex>
+                        <StackedBar data={data.author_ranks} width="50%" height={350}/>
                     </Flex>
-                    <Flex vertical align="center">
-                        <Space align="baseline">
-                            <Title level={1}>{data.author_ranks.in["Undergrad"]}</Title>
-                            <Title level={3}>/</Title>
-                            <Title level={4}>{total_authors}</Title>
-                        </Space>
-                        <Text>author contributions</Text>
-                    </Flex>
-                </Flex>
-                <StackedBar data={data.author_ranks} width="50%" height={350}/>
-            </Flex>
+                )
+            }
         </Flex>
     )
 }

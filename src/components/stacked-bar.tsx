@@ -22,7 +22,6 @@ export default function StackedBar({ data, height, width }: { data: any, height:
         const categories = ["Undergrad", "Postgrad", "Postdoc", "Faculty", "Industry", "Unknown"];
 
         const colors = d3.scaleOrdinal(d3.schemePiYG[6]);
-        // const colors = d3.scaleOrdinal(d3.schemeCategory10);
 
         const formattedData = countries.map(country => {
             const total: number = (Object.values(data[country] || {}) as number[]).reduce((sum, value) => sum + value, 0 as number);

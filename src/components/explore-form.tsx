@@ -13,10 +13,10 @@ export default function ExploreForm({ domain, subdomain, subsubdomain, venue, ye
     const domainOptions = allVenuesData.map(d => ({ label: d.label, value: d.value }));
 
     const treeData = allVenuesData.find(d => d.value === selectedDomain)?.venues?.map(sd => ({
-        title: "Top " + sd.full_name,
+        title: sd.full_name,
         value: sd.subdomain,
         children: sd.venues?.map(ssd => ({
-            title: "Top " + ssd.full_name,
+            title: ssd.full_name,
             value: `${sd.subdomain}/${ssd.subsubdomain}`,
             children: ssd.venues?.map(v => ({
                 title: v.label,
@@ -47,6 +47,7 @@ export default function ExploreForm({ domain, subdomain, subsubdomain, venue, ye
                 placeholder="Select a subdomain or venue"
                 treeDefaultExpandAll
                 disabled={!selectedDomain} // Disable TreeSelect if no domain is selected
+                treeLine={true}
             />
             <InputNumber 
                 min={2010} 
