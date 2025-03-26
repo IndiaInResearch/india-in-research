@@ -1,76 +1,54 @@
 'use client';
 
-import { Button, Divider, Flex, Space, Table } from "antd";
+import { Button, Divider, Flex, Space, Table, Pagination } from "antd";
 import Title from "antd/es/typography/Title";
 import TreemapChart from "./treemap-chart";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { ColumnsType } from "antd/es/table";
 import { getInstituteFromDomain } from "@/utils/domain-handlers";
 
 export default function CountryStat({data}: {
     data: any
 }) {
-    const [showExpanded, setShowExpanded] = useState(true);
+    const [showExpanded, setShowExpanded] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
 
-    const countries_to_papers = data.countries_to_papers;
+    const countries_to_papers: Record<string, number> = data.countries_to_papers;
     const filtered_data = data.indian_papers;
 
-    const columns: ColumnsType = [
+    const totalPapers = Object.values(countries_to_papers).reduce((sum, count) => sum + count, 0);
+
+    const countryColumns: ColumnsType = [
         {
             title: "Country",
             dataIndex: "country",
             key: "country",
-            render: () => "IN"
         },
         {
-            title: "Paper Title",
-            dataIndex: "title",
-            key: "title",
-            width: "30%",
-            sorter: (a, b) => a.title.localeCompare(b.title),
-            sortDirections: ['ascend', 'descend'],
-            defaultSortOrder: 'ascend'
-        },
-        {
-            title: "Authors",
-            dataIndex: "authors",
-            key: "authors",
-            render: (authors: string[]) => authors.join(", ")
-        },
-        {
-            title: "Affiliation",
-            dataIndex: "aff_domains",
-            key: "authors_aff",
-            render: (affiliation: string[], record: any) => (Array.from(new Set(affiliation))).map((aff, index) => {
-                const institute = getInstituteFromDomain(aff);
-                if (institute) {
-                    return institute.name;
-                }
-                return record.authors_aff?.[index] || aff;
-            }).join(", ")
-        },
-        {
-            title: "Venue",
-            dataIndex: "conf",
-            key: "conf",
-            minWidth: 100,
-            render: (conf: string) => conf?.toLocaleUpperCase()
-        },
-        {
-            title: "Primary Area",
-            dataIndex: "primary_area",
-            key: "primary_area",
-            width: "10%",
-            render: (primary_area: string) => primary_area?.split("_").join(" ")
-        },
-        {
-            title: "",
-            dataIndex: "link",
-            key: "link",
-            // should I use noreferrer here as well?
-            render: (link: string) => <a href={link} target="_blank" rel="noopener">link</a>
+            title: "# Papers",
+            dataIndex: "count",
+            key: "count",
+            sorter: (a, b) => a.count - b.count,
+            sortDirections: ['descend', 'ascend'],
+            defaultSortOrder: 'descend',
+            render: (count: number) => `${count} (${(count / totalPapers * 100).toFixed(1)}%)`
         }
-    ]
+    ];
+
+    const countryDataSource = Object.entries(countries_to_papers).map(([country, count]) => ({
+        country,
+        count,
+        key: country
+    })).sort((a, b) => b.count - a.count);
+
+    const pageSize = 6;
+    const paginatedData = useMemo(() => {
+        const startIndex = (currentPage - 1) * pageSize * 2;
+        return [
+            countryDataSource.slice(startIndex, startIndex + pageSize),
+            countryDataSource.slice(startIndex + pageSize, startIndex + pageSize * 2)
+        ];
+    }, [countryDataSource, currentPage]);
 
     return (
         <Flex vertical justify="center" align="center" style={{maxWidth: 1600, margin: "0 auto", width: "100%"}}>
@@ -95,20 +73,29 @@ export default function CountryStat({data}: {
                     keyToHighlight="IN"
                 />
                 {showExpanded && (
-                    <>
-                        <Table 
-                            dataSource={filtered_data} 
-                            columns={columns} 
-                            rowKey={(record) => {
-                                if (record.id) {
-                                    return record.id;
-                                }
-                                else{
-                                    return record.title + record.authors.join("") 
-                                }
-                            }} 
-                            pagination={{ pageSize: 6 }} 
+                        <>
+                        <Flex justify="space-between" style={{width: "100%"}}>
+                            <Table 
+                                dataSource={paginatedData[0]} 
+                                columns={countryColumns} 
+                                pagination={false} 
+                                style={{ width: "48%" }}
+                            />
+                            <Table 
+                                dataSource={paginatedData[1]} 
+                                columns={countryColumns} 
+                                pagination={false} 
+                                style={{ width: "48%" }}
+                            />
+                        </Flex>
+                        <Flex justify="center" style={{marginTop: 16}}>
+                        <Pagination 
+                            current={currentPage} 
+                            pageSize={1} 
+                            total={Math.ceil(countryDataSource.length / (pageSize * 2))} 
+                            onChange={(page) => setCurrentPage(page)}
                         />
+                        </Flex>
                     </>
                 )}
             </Space>

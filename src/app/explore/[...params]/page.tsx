@@ -12,6 +12,7 @@ import ScoreStat from "@/components/score-stat";
 import { buildStaticParamsForAllVenues } from "./static-params";
 import VenueTitleDisplay from "@/components/venue-title-display";
 import UndergraduateStat from "@/components/undergraduate-stat";
+import PaperStat from "@/components/paper-stat";
 
 export function generateStaticParams() {
     return buildStaticParamsForAllVenues();
@@ -86,6 +87,8 @@ export default async function StatPage({
                 <Flex vertical justify="center" align="center">
                     <Divider />
                     <VenueTitleDisplay singleConfData={singleConfData} selectedVenues={selectedVenues} hierarchyLabels={hierarchyLabels} year={year}/>
+                    <PaperStat data={data} />
+                    <Divider />
                     <CountryStat data={data}/>
                     <Divider />
                     <LocaleStat data={data}/>
