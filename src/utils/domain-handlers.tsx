@@ -1,4 +1,4 @@
-// @ts-expect-error
+// @ts-expect-error library is old. missing something
 import parser from "tld-extract"
 import institutes_list from "@/data/third-party/university-list/world_universities_and_domains.json"
 
