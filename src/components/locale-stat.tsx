@@ -13,7 +13,8 @@ export default function LocaleHighlights({data}: {
 }) {
     const [showExpanded, setShowExpanded] = useState(false);
 
-    const institute_to_papers_with_latlon = data.indian_institute_to_papers_with_latlon;
+    const institute_to_papers_with_latlon = data.indian_institute_to_papers_with_latlon_for_graph;
+    const indian_institutes_to_papers = data.indian_institutes_to_papers
 
     const columns: ColumnsType = [
         {
@@ -28,14 +29,14 @@ export default function LocaleHighlights({data}: {
             key: "name",
             width: "30%",
             sorter: (a, b) => a.name.localeCompare(b.name),
-            sortDirections: ['ascend', 'descend'],
+            sortDirections: ['ascend', 'descend', 'ascend'],
         },
         {
             title: "Count",
-            dataIndex: "value",
-            key: "value",
-            sorter: (a, b) => a.value - b.value,
-            sortDirections: ['ascend', 'descend'],
+            dataIndex: "count",
+            key: "count",
+            sorter: (a, b) => a.count - b.count,
+            sortDirections: ['descend', 'ascend', 'descend'],
             defaultSortOrder: 'descend'
         },
         {
@@ -44,13 +45,6 @@ export default function LocaleHighlights({data}: {
             key: "authors_aff",
             
         },
-        {
-            title: "",
-            dataIndex: "link",
-            key: "link",
-            // should I use noreferrer here as well?
-            // render: (link: string) => <a href={link} target="_blank" rel="noopener">link</a>
-        }
     ]
 
     return (
@@ -71,7 +65,7 @@ export default function LocaleHighlights({data}: {
                 <IndiaGeoMap width="100%" height={800} data={institute_to_papers_with_latlon} />
                 {showExpanded && (
                     <>
-                        <Table dataSource={institute_to_papers_with_latlon} columns={columns} rowKey={(record) => record.name}/>
+                        <Table dataSource={indian_institutes_to_papers} columns={columns} rowKey={(record) => record.name}/>
                     </>
                 )}
             </Space>

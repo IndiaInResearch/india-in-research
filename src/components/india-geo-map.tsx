@@ -8,8 +8,8 @@ import { Feature, FeatureCollection, Geometry } from 'geojson';
 import IndiaGeoJSON from '@/data/india.geojson';
 
 export interface GeoMapDataInterface {
-    name: string;
-    value: number;
+    name: string[];
+    value: number[];
     coordinates: [number, number]; // [longitude, latitude]
 }
 
@@ -44,7 +44,9 @@ export default function IndiaGeoMap({ width, height, data }: IndiaGeoMapProps) {
         const g = svg.append("g");
 
         const colorScale = d3.scaleSequential(d3.interpolatePurples)
-            .domain([0, d3.max(data, d => d.value) as number]);
+            .domain([0, d3.max(data, d => {
+                return Math.max(...d.value)
+            }) as number]);
 
         // Draw India map
         g.selectAll("path")
@@ -57,7 +59,7 @@ export default function IndiaGeoMap({ width, height, data }: IndiaGeoMapProps) {
             .attr("stroke-width", 0.8);
 
         // Calculate radius scale based on population
-        const populationExtent = d3.extent(data, d => d.value);
+        const populationExtent = d3.extent(data, d => Math.max(...d.value));
         const radiusScale = d3.scaleLinear()
             .domain(populationExtent as [number, number])
             .range([10, 28]); // Scaling from 8px to 20px
@@ -69,8 +71,8 @@ export default function IndiaGeoMap({ width, height, data }: IndiaGeoMapProps) {
             .append("circle")
             .attr("cx", d => projection(d.coordinates)![0])
             .attr("cy", d => projection(d.coordinates)![1])
-            .attr("r", d => radiusScale(d.value))
-            .attr("fill", d => colorScale(d.value))
+            .attr("r", d => radiusScale(Math.max(...d.value)))
+            .attr("fill", d => colorScale(Math.max(...d.value)))
             .attr("fill-opacity", 0.8)
             .attr("stroke", tokens.colorPrimaryBorder)
             .attr("stroke-width", 0.8)
@@ -79,14 +81,20 @@ export default function IndiaGeoMap({ width, height, data }: IndiaGeoMapProps) {
                     .attr("fill-opacity", 1)
                     .attr("stroke-width", 2);
 
+                let legend = ""
+                for (let i = 0; i < d.name.length; ++i) {
+                    legend += `${d.name[i]}: ${d.value[i]}; `;
+                }
+
                 // Add tooltip
                 g.append("text")
                     .attr("class", "tooltip")
                     .attr("x", projection(d.coordinates)![0])
-                    .attr("y", projection(d.coordinates)![1] - radiusScale(d.value) - 5)
+                    .attr("y", projection(d.coordinates)![1] - radiusScale(Math.max(...d.value)) - 5)
                     .attr("text-anchor", "middle")
                     .attr("fill", tokens.colorText)
-                    .text(`${d.name}: ${d.value.toLocaleString()}`);
+                    .text(legend)
+                    
             })
             .on("mouseout", function() {
                 d3.select(this)

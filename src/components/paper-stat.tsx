@@ -13,7 +13,7 @@ export default function PaperStat({data}: {
 }) {
     const [showExpanded, setShowExpanded] = useState(true);
 
-    const filtered_data = data.indian_papers;
+    const indian_papers = data.indian_papers;
     const countries_to_papers: Record<string, number> = data.countries_to_papers;
 
     const totalPapers = Object.values(countries_to_papers).reduce((sum, count) => sum + count, 0);
@@ -44,13 +44,16 @@ export default function PaperStat({data}: {
             title: "Affiliation",
             dataIndex: "aff_domains",
             key: "authors_aff",
-            render: (affiliation: string[], record: any) => (Array.from(new Set(affiliation))).map((aff, index) => {
+            render: (affiliation: string[], record: any) => Array.from(new Set(affiliation.map((aff, idx) => {
                 const institute = getInstituteFromDomain(aff);
                 if (institute) {
                     return institute.name;
                 }
-                return record.authors_aff?.[index] || aff;
-            }).join(", ")
+                if (idx < record.authors_aff?.length) {
+                    return record.authors_aff[idx]
+                }
+                return aff
+            }))).join(", ")
         },
         {
             title: "Venue",
@@ -90,16 +93,16 @@ export default function PaperStat({data}: {
                 </Space>
             </Flex>
             <Space direction="vertical" style={{width: "100%"}}>
-                <Flex gap={64} justify="space-evenly" style={{marginTop: 64}}>
+                <Flex gap={64} justify="space-evenly" style={{marginTop: 64, marginBottom: 64}}>
                     <Flex vertical align="center">
                         <Title level={1}>
-                            {filtered_data.length}
+                            {indian_papers.length}
                         </Title>
                         <Text>total accepted</Text>
                     </Flex>
                     <Flex vertical align="center">
                         <Space align="baseline">
-                            <Title level={1}>{(filtered_data.length / totalPapers * 100).toFixed(2)}%</Title>
+                            <Title level={1}>{(indian_papers.length / totalPapers * 100).toFixed(2)}%</Title>
                         </Space>
                         <Text>conference contribution</Text>
                     </Flex>
@@ -108,7 +111,7 @@ export default function PaperStat({data}: {
                 {showExpanded && (
                     <>
                         <Table 
-                            dataSource={filtered_data} 
+                            dataSource={indian_papers} 
                             columns={columns} 
                             rowKey={(record) => {
                                 if (record.id) {
