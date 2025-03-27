@@ -67780,14 +67780,14 @@
         "authors_emails": [],
         "aff_domains": [
             "zju.edu.cn",
-            "mitwpu.edu.in",
+            "mit.edu",
             "usc.edu.cn",
             "umass.edu"
         ],
         "link": "https://cvpr.thecvf.com/virtual/2024/poster/29685",
         "author_country": [
             "CN",
-            "IN",
+            "US",
             "CN",
             "US"
         ],
@@ -74187,14 +74187,14 @@
             "umass.edu",
             "Unknown",
             "Unknown",
-            "mitwpu.edu.in"
+            "mit.edu"
         ],
         "link": "https://cvpr.thecvf.com/virtual/2024/poster/31882",
         "author_country": [
             "US",
             "Unknown",
             "Unknown",
-            "IN"
+            "US"
         ],
         "author_origin_country": [],
         "author_industry_academic": [],
@@ -77089,7 +77089,7 @@
         ],
         "authors_emails": [],
         "aff_domains": [
-            "mitindia.edu",
+            "iitm.ac.in",
             "rice.edu",
             "iitm.ac.in",
             "iitm.ac.in",
@@ -82306,7 +82306,7 @@
             "Unknown",
             "tsinghua.edu.cn",
             "usc.edu.cn",
-            "mitwpu.edu.in",
+            "mit.edu",
             "Unknown"
         ],
         "link": "https://cvpr.thecvf.com/virtual/2024/poster/29730",
@@ -82314,7 +82314,7 @@
             "Unknown",
             "CN",
             "CN",
-            "IN",
+            "US",
             "Unknown"
         ],
         "author_origin_country": [],
@@ -88790,18 +88790,18 @@
         "authors_emails": [],
         "aff_domains": [
             "amazon.com",
-            "mitwpu.edu.in",
+            "mit.edu",
             "hku.hk",
-            "mitwpu.edu.in",
+            "mit.edu",
             "tsinghua.edu.cn",
             "hku.hk"
         ],
         "link": "https://cvpr.thecvf.com/virtual/2024/poster/29403",
         "author_country": [
             "US",
-            "IN",
+            "US",
             "HK",
-            "IN",
+            "US",
             "CN",
             "HK"
         ],
@@ -100703,14 +100703,14 @@
         ],
         "authors_emails": [],
         "aff_domains": [
-            "ncuindia.edu",
+            "Unknown",
             "Unknown",
             "hse.ru",
             "Unknown"
         ],
         "link": "https://cvpr.thecvf.com/virtual/2024/poster/30563",
         "author_country": [
-            "IN",
+            "Unknown",
             "Unknown",
             "RU",
             "Unknown"
