@@ -5,7 +5,7 @@ import Title from "antd/es/typography/Title";
 import TreemapChart from "./treemap-chart";
 import { useState, useMemo } from "react";
 import { ColumnsType } from "antd/es/table";
-import { getInstituteFromDomain } from "@/utils/domain-handlers";
+import countryCodeToName from "@/data/third-party/country_code_to_name.json";
 
 export default function CountryStat({data}: {
     data: any
@@ -23,6 +23,13 @@ export default function CountryStat({data}: {
             title: "Country",
             dataIndex: "country",
             key: "country",
+            render: (code: string) => {
+                const name = countryCodeToName.find((c) => c.code === code)?.name;
+                if (name) {
+                    return `${name} (${code})`;
+                }
+                return code
+            }
         },
         {
             title: "# Papers",
@@ -31,7 +38,7 @@ export default function CountryStat({data}: {
             sorter: (a, b) => a.count - b.count,
             sortDirections: ['descend', 'ascend'],
             defaultSortOrder: 'descend',
-            render: (count: number) => `${count} (${(count / totalPapers * 100).toFixed(1)}%)`
+            render: (count: number) => `${count} (${(count / totalPapers * 100).toFixed(2)}%)`
         }
     ];
 
