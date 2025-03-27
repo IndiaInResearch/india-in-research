@@ -8,10 +8,27 @@ import NavBar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
+
 export const metadata: Metadata = {
-  title: "India In Research",
-  description: "India In Research (IIR) is a platform for measuring the impact of Indian papers.",
+  title: {
+    template: "%s | India In Research",
+    default: "India In Research",
+  },
+  description: "India In Research (IIR) is a platform for measuring the impact and diversity of Indian research papers. Covering Indian Research Stats. Fast.",
+  openGraph: {
+    title: "India In Research",
+    description: "India In Research (IIR) is a platform for measuring the impact and diversity of Indian research papers. Covering Indian Research Stats. Fast.",
+    url: "https://www.indiainresearch.org",
+    siteName: "India In Research",
+    locale: "en_US",
+    type: "website",
+    alternateLocale: "en_IN",
+    // emails, twitter, icons, category, manifest
+  }
+  ,
+  category: "science",
 };
+
 
 export default function RootLayout({
   children,

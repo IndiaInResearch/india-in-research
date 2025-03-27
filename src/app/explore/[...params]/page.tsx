@@ -13,9 +13,63 @@ import { buildStaticParamsForAllVenues } from "./static-params";
 import VenueTitleDisplay from "@/components/venue-title-display";
 import UndergraduateStat from "@/components/undergraduate-stat";
 import PaperStat from "@/components/paper-stat";
+import { Metadata } from "next";
 
 export function generateStaticParams() {
     return buildStaticParamsForAllVenues();
+}
+
+// LLM generated code
+export function generateMetadata({ params }: { params: { params: string[] } }): Metadata {
+    if (params.params.length > 0) {
+        const lastKey = params.params[params.params.length - 1]
+
+        let title: string | null = null
+
+        for (const domain of allVenuesData) {
+            if (domain.value === lastKey) {
+                title = domain.full_name
+                break
+            }
+            else{
+                for (const subdomain of domain.venues) {
+                    if (subdomain.value === lastKey) {
+                        title = subdomain.full_name
+                    }
+                    else{
+                        for (const subsubdomain of subdomain.venues) {
+                            if (subsubdomain.value === lastKey) {
+                                title = subsubdomain.full_name
+                            }
+                            else{
+                                for (const conf of subsubdomain.venues) {
+                                    if (conf.value === lastKey) {
+                                        title = conf.label
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        if (!title) {
+            return { 
+                title: "Not Found",
+                description: "Page not found. Invalid."
+            };
+        }
+
+        return { 
+            title: `${title} Stats`,
+            description: `${title} Stats for impact and diversty of top research papers from Indian universities and institutions.`
+        };
+    }
+
+    return {
+        title: "Not Found",
+    };
 }
 
 export default async function StatPage({

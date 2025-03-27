@@ -2,14 +2,17 @@
     {
         "label": "CS",
         "value": "cs",
+        "full_name": "Computer Science",
         "venues": [
             {
                 "subdomain": "ai",
+                "value": "ai",
                 "label": "AI",
                 "full_name": "Artificial Intelligence",
                 "venues": [
                     {
                         "subsubdomain": "ml",
+                        "value": "ml",
                         "label": "ML",
                         "full_name": "Machine Learning",
                         "venues": [
@@ -44,6 +47,7 @@
                     },
                     {
                         "subsubdomain": "vision",
+                        "value": "vision",
                         "label": "Vision",
                         "full_name": "Computer Vision",
                         "venues": [
@@ -60,6 +64,7 @@
                     },
                     {
                         "subsubdomain": "nlp",
+                        "value": "nlp",
                         "label": "NLP",
                         "full_name": "Natural Language Processing",
                         "venues": []
@@ -68,12 +73,14 @@
             },
             {
                 "subdomain": "systems",
+                "value": "systems",
                 "label": "Systems",
                 "full_name": "Systems and Networks",
                 "venues": []
             },
             {
                 "subdomain": "theory",
+                "value": "theory",
                 "label": "Theory",
                 "full_name": "Theory",
                 "venues": []
@@ -83,6 +90,7 @@
     {
         "label": "Math",
         "value": "math",
+        "full_name": "Math",
         "venues": []
     }        
 ]
