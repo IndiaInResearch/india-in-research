@@ -6,27 +6,27 @@ import TreemapChart from "./treemap-chart";
 import { useState, useMemo } from "react";
 import { ColumnsType } from "antd/es/table";
 import countryCodeToName from "@/data/third-party/country_code_to_name.json";
+import SearchBox from "./search-box";
 
 export default function CountryStat({data}: {
     data: any
 }) {
     const [showExpanded, setShowExpanded] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
+    const [searchText, setSearchText] = useState("");
 
     const countries_to_papers: Record<string, number> = data.countries_to_papers;
-    const filtered_data = data.indian_papers;
 
     const totalPapers = Object.values(countries_to_papers).reduce((sum, count) => sum + count, 0);
 
     const countryColumns: ColumnsType = [
         {
             title: "Country",
-            dataIndex: "country",
-            key: "country",
-            render: (code: string) => {
-                const name = countryCodeToName.find((c) => c.code === code)?.name;
-                if (name) {
-                    return `${name} (${code})`;
+            dataIndex: "country_code",
+            key: "country_code",
+            render: (code: string, record: any) => {
+                if (record.country_name) {
+                    return `${record.country_name} (${code})`;
                 }
                 return code
             }
@@ -42,11 +42,18 @@ export default function CountryStat({data}: {
         }
     ];
 
-    const countryDataSource = Object.entries(countries_to_papers).map(([country, count]) => ({
-        country,
+    let countryDataSource = Object.entries(countries_to_papers).map(([country_code, count]) => ({
+        country_code: country_code,
         count,
-        key: country
+        key: country_code,
+        country_name: countryCodeToName.find((c) => c.code === country_code)?.name
     })).sort((a, b) => b.count - a.count);
+
+    countryDataSource = countryDataSource.filter((country: any) =>
+        Object.values(country).some(value =>
+            value && value.toString().toLowerCase().includes(searchText.toLowerCase())
+        )
+    );
 
     const pageSize = 6;
     const paginatedData = useMemo(() => {
@@ -81,6 +88,7 @@ export default function CountryStat({data}: {
                 />
                 {showExpanded && (
                         <>
+                        <SearchBox value={searchText} onChange={(e) => setSearchText(e.target.value)} placeholder="Search table"/>
                         <Flex justify="space-between" style={{width: "100%"}}>
                             <Table 
                                 dataSource={paginatedData[0]} 

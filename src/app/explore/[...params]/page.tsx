@@ -54,6 +54,7 @@ export function generateMetadata({ params }: { params: { params: string[] } }): 
             }
         }
 
+        // add Opengraph metadata for title and description here
         if (!title) {
             return { 
                 title: "Not Found",
@@ -63,6 +64,7 @@ export function generateMetadata({ params }: { params: { params: string[] } }): 
 
         return { 
             title: `${title} Stats`,
+            // change this line
             description: `${title} Stats for impact and diversty of top research papers from Indian universities and institutions.`
         };
     }
