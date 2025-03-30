@@ -1,13 +1,14 @@
-import { Button, Divider, Flex, theme, Typography } from "antd";
+import { Button, Divider, Flex, Space, theme, Typography } from "antd";
 import Text from "antd/es/typography/Text";
 import { ThemeToggle } from "./theme-context";
 import Title from "antd/es/typography/Title";
 import Link from "next/link";
+import SocialIcons from "./socials";
 
 export default async function Footer() {
     return (
         <>
-            <div style={{ height: "256px", display: 'flex', flexDirection: 'column'}}>
+            <div style={{ display: 'flex', flexDirection: 'column'}}>
                 <Divider />
                 <div style={{display: 'flex', justifyContent: 'space-around'}}>
                     <div style={{display: 'flex', flexDirection: 'column'}}>
@@ -18,14 +19,20 @@ export default async function Footer() {
                         <Link href="/acknowledgements">
                             <Button variant="link" color="default" size="small" style={{padding: "0px"}}>Acknowledgements</Button>
                         </Link>
-                        <Text>Contact</Text>
+                        <Link href="/contact">
+                            <Button variant="link" color="default" size="small" style={{padding: "0px"}}>Contact</Button>
+                        </Link>
                         <Text>Board</Text>
                     </div>
                     <div style={{display: 'flex', flexDirection: 'column'}}>
+                        <Title level={5}>&nbsp;</Title>
                         <Text>Terms of Service</Text>
                         <Text>Privacy Policy</Text>
                         <Text>Cookie Policy</Text>
                         <Text>© 2025 India In Research</Text>
+                        <br />
+                        <br />
+                        <SocialIcons />
                     </div>
                 </div>
                 <Divider />

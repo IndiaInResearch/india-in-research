@@ -7,6 +7,7 @@ import Text from "antd/es/typography/Text";
 import Image from "next/image";
 import logoImage from "./../../public/logo-cropped.svg";
 import Link from "next/link";
+import SocialIcons from "./socials";
 
 export default function NavBar() {
 
@@ -18,8 +19,7 @@ export default function NavBar() {
                         <Image src={logoImage} alt="India in Research" height={36} style={{filter: "var(--logo-color-filter)"}}/>
                     </Link>
                 </Space>
-                <SearchBox />
-                <Text>User</Text>
+                <SocialIcons />
             </Flex>
         </>
     )
