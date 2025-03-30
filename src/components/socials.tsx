@@ -13,7 +13,7 @@ export default function SocialIcons() {
             <Link href="https://bsky.app/profile/indiainresearch.org" target="_blank" rel="noopener noreferrer">
                 <SiBluesky style={{ fontSize: '20px', color: '#000000'}} />
             </Link>
-            <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <Link href="https://github.com/IndiaInResearch" target="_blank" rel="noopener noreferrer">
                 <BsGithub style={{ fontSize: '20px', color: '#000000'}} />
             </Link>
         </Space>
