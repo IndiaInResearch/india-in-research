@@ -8,10 +8,10 @@ import SocialIcons from "./socials";
 export default async function Footer() {
     return (
         <>
-            <div style={{ display: 'flex', flexDirection: 'column'}}>
+            <Flex vertical>
                 <Divider />
-                <div style={{display: 'flex', justifyContent: 'space-around'}}>
-                    <div style={{display: 'flex', flexDirection: 'column'}}>
+                <Flex justify="space-around" gap={64}>
+                    <Flex vertical>
                         <Title level={5}>About</Title>
                         <Link href="/philosophy">
                             <Button variant="link" color="default" size="small" style={{padding: "0px"}}>Philosophy</Button>
@@ -23,8 +23,8 @@ export default async function Footer() {
                             <Button variant="link" color="default" size="small" style={{padding: "0px"}}>Contact</Button>
                         </Link>
                         <Text>Board</Text>
-                    </div>
-                    <div style={{display: 'flex', flexDirection: 'column'}}>
+                    </Flex>
+                    <Flex vertical>
                         <Title level={5}>&nbsp;</Title>
                         <Text>Terms of Service</Text>
                         <Text>Privacy Policy</Text>
@@ -33,14 +33,14 @@ export default async function Footer() {
                         <br />
                         <br />
                         <SocialIcons />
-                    </div>
-                </div>
+                    </Flex>
+                </Flex>
                 <Divider />
-                <Flex justify="space-between">
+                <Flex justify="space-between" gap={64}>
                     <Text>Note: Some data has been analyzed by AI and may be incorrect.</Text>
                     <ThemeToggle />
                 </Flex>
-            </div>
+            </Flex>
         </>
     );
 }

@@ -49,6 +49,7 @@ export const AntdConfigProvider = ({ children }: {children: React.ReactNode}) =>
         bodyBg: mode === ThemeMode.Dark ? '#292929' : tokens.colorBgBase,
         footerBg: mode === ThemeMode.Dark ? '#292929' : tokens.colorBgBase,
         headerHeight: '48px',
+        headerPadding: '0px'
       },
     }
   }

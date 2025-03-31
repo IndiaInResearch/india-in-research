@@ -8,10 +8,10 @@ export default async function Home() {
   return (
     <>
       <Flex vertical style={{minHeight: 600}} justify="center">
-        <Flex justify="space-around">
+        <Flex justify="space-around" wrap gap={64}>
           <Flex vertical>
-            <Title level={1}>Measuring Impact of Indian Papers</Title>
-            <Text>IIR is a platform for measuring the impact of Indian papers.</Text>
+            <Title level={1}>Some</Title>
+            <Text>Covering Indian Research Statistics. Fast.</Text>
             <Space style={{marginTop: 16}}>
               <Link href="/explore/cs/ai">
                 <Button type="primary" size="large">Explore</Button>
