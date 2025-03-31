@@ -170,9 +170,6 @@ export default function StackedBar({ data, height, width }: { data: any, height:
         <svg ref={svgRef} 
         width={width}
         height={height}
-        style={{
-            maxWidth: '100%',
-            height: 'auto'
-        }}></svg>
+        ></svg>
     );
 }

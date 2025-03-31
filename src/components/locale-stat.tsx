@@ -7,6 +7,7 @@ import TreemapChart from "./treemap-chart";
 import { useState } from "react";
 import { ColumnsType } from "antd/es/table";
 import IndiaGeoMap, { GeoMapDataInterface } from "./india-geo-map";
+import AntTable from "./ant-table";
 
 export default function LocaleHighlights({data}: {
     data: any
@@ -17,12 +18,6 @@ export default function LocaleHighlights({data}: {
     const indian_institutes_to_papers = data.indian_institutes_to_papers
 
     const columns: ColumnsType = [
-        {
-            title: "Country",
-            dataIndex: "country",
-            key: "country",
-            render: () => "IN"
-        },
         {
             title: "Institute",
             dataIndex: "name",
@@ -62,10 +57,10 @@ export default function LocaleHighlights({data}: {
                 </Space>
             </Flex>
             <Space direction="vertical" style={{width: "100%"}}>
-                <IndiaGeoMap width="100%" height={800} data={institute_to_papers_with_latlon} />
+                <IndiaGeoMap width="100%" height="min(90vw, 800px)" data={institute_to_papers_with_latlon} />
                 {showExpanded && (
                     <>
-                        <Table dataSource={indian_institutes_to_papers} columns={columns} rowKey={(record) => record.name}/>
+                        <AntTable dataSource={indian_institutes_to_papers} columns={columns} rowKey={(record) => record.name}/>
                     </>
                 )}
             </Space>

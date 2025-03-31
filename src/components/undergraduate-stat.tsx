@@ -35,13 +35,13 @@ export default function UndergraduateStat({
             {total_authors === 0 ? 
                 <DataUnavailable /> :
                 (
-                    <Flex justify="space-evenly" style={{width: "100%"}}>
-                        <Flex vertical gap={64} style={{marginTop: 64}}>
+                    <Flex justify="space-evenly" style={{width: "100%"}} wrap gap={48}>
+                        <Flex vertical justify="center" align="center" gap={64} style={{marginTop: 64, width: "30%"}}>
                             <Flex vertical align="center">
                                 <Title level={1}>
                                     {undergrad_percentage}%
                                 </Title>
-                                <Text>undergraduate participation</Text>
+                                <Text style={{textAlign: "center"}}>undergraduate participation</Text>
                             </Flex>
                             <Flex vertical align="center">
                                 <Space align="baseline">
@@ -49,10 +49,10 @@ export default function UndergraduateStat({
                                     <Title level={3}>/</Title>
                                     <Title level={4}>{total_authors}</Title>
                                 </Space>
-                                <Text>author contributions</Text>
+                                <Text style={{textAlign: "center"}}>author contributions</Text>
                             </Flex>
                         </Flex>
-                        <StackedBar data={data.author_ranks} width="50%" height={350}/>
+                        <StackedBar data={data.author_ranks} width="max(60%, 360px)" height={280}/>
                     </Flex>
                 )
             }

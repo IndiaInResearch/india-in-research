@@ -2,11 +2,13 @@
 
 import { Button, Divider, Flex, Space, Table, Pagination } from "antd";
 import Title from "antd/es/typography/Title";
+import Text from "antd/es/typography/Text";
 import TreemapChart from "./treemap-chart";
 import { useState, useMemo } from "react";
 import { ColumnsType } from "antd/es/table";
 import countryCodeToName from "@/data/third-party/country_code_to_name.json";
 import SearchBox from "./search-box";
+import AntTable from "./ant-table";
 
 export default function CountryStat({data}: {
     data: any
@@ -36,7 +38,7 @@ export default function CountryStat({data}: {
             dataIndex: "count",
             key: "count",
             sorter: (a, b) => a.count - b.count,
-            sortDirections: ['descend', 'ascend'],
+            sortDirections: ['descend', 'ascend', 'descend'],
             defaultSortOrder: 'descend',
             render: (count: number) => `${count} (${(count / totalPapers * 100).toFixed(2)}%)`
         }
@@ -48,6 +50,8 @@ export default function CountryStat({data}: {
         key: country_code,
         country_name: countryCodeToName.find((c) => c.code === country_code)?.name
     })).sort((a, b) => b.count - a.count);
+
+    const indiaRank = countryDataSource.findIndex((country: any) => country.country_code === "IN");
 
     countryDataSource = countryDataSource.filter((country: any) =>
         Object.values(country).some(value =>
@@ -79,24 +83,33 @@ export default function CountryStat({data}: {
                 </Space>
             </Flex>
             <Space direction="vertical" style={{width: "100%"}}>
-                <TreemapChart 
-                    data={countries_to_papers} 
-                    width="100%" 
-                    height={showExpanded ? 300 : 196} 
-                    maxEntries={showExpanded ? 30 : 20} 
-                    keyToHighlight="IN"
-                />
+                <Flex justify="space-evenly" wrap align="center" gap={32} style={{marginTop: 32, marginBottom: 64}}>
+                    <Flex vertical align="center">
+                        <Title level={1}>
+                            {indiaRank}<sup>{indiaRank === 0 ? "st" : indiaRank === 1 ? "nd" : indiaRank === 2 ? "rd" : "th"}</sup>
+                        </Title>
+                        <Text style={{textAlign: "center"}}>country rank</Text>
+                    </Flex>
+                    <TreemapChart 
+                        data={countries_to_papers} 
+                        width="max(70%, 400px)"
+                        height={showExpanded ? 300 : 180} 
+                        maxEntries={showExpanded ? 30 : 20} 
+                        keyToHighlight="IN"
+                    />
+                </Flex>
+                
                 {showExpanded && (
                         <>
                         <SearchBox value={searchText} onChange={(e) => setSearchText(e.target.value)} placeholder="Search table"/>
                         <Flex justify="space-between" style={{width: "100%"}}>
-                            <Table 
+                            <AntTable 
                                 dataSource={paginatedData[0]} 
                                 columns={countryColumns} 
                                 pagination={false} 
                                 style={{ width: "48%" }}
                             />
-                            <Table 
+                            <AntTable 
                                 dataSource={paginatedData[1]} 
                                 columns={countryColumns} 
                                 pagination={false} 

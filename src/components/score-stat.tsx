@@ -9,6 +9,7 @@ import IndiaGeoMap, { GeoMapDataInterface } from "./india-geo-map";
 import RatingHistogram from "./rating-histogram";
 import * as d3 from "d3";
 import DataUnavailable from "./data-unavailable";
+import AntTable from "./ant-table";
 
 export default function ScoreStat({data, ratingKey, title}: {
     data: any,
@@ -135,7 +136,7 @@ export default function ScoreStat({data, ratingKey, title}: {
                     />
                     {showExpanded && (
                         <>
-                            <Table dataSource={metric_data} columns={columns} rowKey={(record) => record.metric}/>
+                            <AntTable dataSource={metric_data} columns={columns} rowKey={(record) => record.metric} pagination={false}/>
                         </>
                     )}
                 </Space>

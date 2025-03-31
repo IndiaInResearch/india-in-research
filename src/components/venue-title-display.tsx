@@ -36,7 +36,7 @@ export default function VenueTitleDisplay({
                     <>
                         <Flex vertical>
                         <Space align="baseline">
-                            <Title level={3}>{conf_name}, {year}.</Title>
+                            <Title level={2}>{conf_name}, {year}.</Title>
                             <Button 
                                 variant="link" 
                                 color="default"

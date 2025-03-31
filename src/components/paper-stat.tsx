@@ -8,6 +8,7 @@ import { ColumnsType } from "antd/es/table";
 import { getInstituteFromDomain } from "@/utils/domain-handlers";
 import SearchBox from "./search-box";
 import useBreakpoint from "antd/lib/grid/hooks/useBreakpoint";
+import AntTable from "./ant-table";
 
 export default function PaperStat({data}: {
     data: any
@@ -108,7 +109,7 @@ export default function PaperStat({data}: {
                 </Space>
             </Flex>
             <Space direction="vertical" style={{width: "100%"}}>
-                <Flex gap={64} justify="space-evenly" style={{marginTop: 64, marginBottom: 64}}>
+                <Flex gap={64} justify="space-evenly" style={{marginTop: 32, marginBottom: 64}}>
                     <Flex vertical align="center">
                         <Title level={1}>
                             {indian_papers.length}
@@ -126,9 +127,9 @@ export default function PaperStat({data}: {
                 {showExpanded && (
                     <>
                         <SearchBox value={searchText} onChange={(e) => setSearchText(e.target.value)} placeholder="Search table"/>
-                        <Table 
-                            dataSource={filteredPapers} 
-                            columns={columns} 
+                        <AntTable
+                            dataSource={filteredPapers}
+                            columns={columns}
                             rowKey={(record) => {
                                 if (record.id) {
                                     return record.id;
@@ -137,8 +138,6 @@ export default function PaperStat({data}: {
                                     return record.title + record.authors.join("") 
                                 }
                             }} 
-                            pagination={{ pageSize: 6, showSizeChanger: false, simple: screens.md ? false : {readOnly: true} }} 
-                            scroll={{x: true, scrollToFirstRowOnChange: true}}
                         />
                     </>
                 )}

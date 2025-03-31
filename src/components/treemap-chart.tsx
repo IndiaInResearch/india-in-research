@@ -4,6 +4,7 @@ import { useEffect, useRef, useContext } from 'react';
 import * as d3 from 'd3';
 import { ThemeMode, ThemeModeContext } from '@/components/theme-context';
 import useToken from 'antd/es/theme/useToken';
+import countryCodeToName from "@/data/third-party/country_code_to_name.json";
 
 interface TreemapProps {
     data: Record<string, number>;
@@ -150,7 +151,7 @@ export default function TreemapChart({ data, width, height, maxEntries = 10, key
         // Add tooltips
         nodes
             .append("title")
-            .text(d => `${d.data.name}\nValue: ${d.value}`);
+            .text(d => `${countryCodeToName.find((c) => c.code === d.data.name)?.name || d.data.name}\nValue: ${d.value}`);
 
     }, [data, width, height, mode]);
 
