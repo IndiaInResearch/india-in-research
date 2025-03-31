@@ -26,7 +26,7 @@ export default function ExploreForm({ domain, subdomain, subsubdomain, venue, ye
     })) || [];
 
     return (
-        <Space>
+        <Space wrap>
             <Select
                 options={domainOptions}
                 value={selectedDomain}

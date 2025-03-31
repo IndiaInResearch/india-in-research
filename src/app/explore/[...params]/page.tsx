@@ -143,6 +143,7 @@ export default async function StatPage({
                 <Flex vertical justify="center" align="center">
                     <Divider />
                     <VenueTitleDisplay singleConfData={singleConfData} selectedVenues={selectedVenues} hierarchyLabels={hierarchyLabels} year={year}/>
+                    <Divider />
                     <PaperStat data={data} />
                     <Divider />
                     <CountryStat data={data}/>

@@ -7,12 +7,15 @@ import { useState } from "react";
 import { ColumnsType } from "antd/es/table";
 import { getInstituteFromDomain } from "@/utils/domain-handlers";
 import SearchBox from "./search-box";
+import useBreakpoint from "antd/lib/grid/hooks/useBreakpoint";
 
 export default function PaperStat({data}: {
     data: any
 }) {
     const [showExpanded, setShowExpanded] = useState(true);
     const [searchText, setSearchText] = useState("");
+    const screens = useBreakpoint();
+    
 
     const indian_papers = data.indian_papers;
     const countries_to_papers: Record<string, number> = data.countries_to_papers;
@@ -39,12 +42,6 @@ export default function PaperStat({data}: {
     );
 
     const columns: ColumnsType = [
-        {
-            title: "Country",
-            dataIndex: "country",
-            key: "country",
-            render: () => "IN"
-        },
         {
             title: "Paper Title",
             dataIndex: "title",
@@ -116,13 +113,13 @@ export default function PaperStat({data}: {
                         <Title level={1}>
                             {indian_papers.length}
                         </Title>
-                        <Text>total accepted</Text>
+                        <Text style={{textAlign: "center"}}>total accepted</Text>
                     </Flex>
                     <Flex vertical align="center">
                         <Space align="baseline">
                             <Title level={1}>{(indian_papers.length / totalPapers * 100).toFixed(2)}%</Title>
                         </Space>
-                        <Text>conference contribution</Text>
+                        <Text style={{textAlign: "center"}}>conference contribution</Text>
                     </Flex>
                 </Flex>
 
@@ -140,7 +137,8 @@ export default function PaperStat({data}: {
                                     return record.title + record.authors.join("") 
                                 }
                             }} 
-                            pagination={{ pageSize: 6 }} 
+                            pagination={{ pageSize: 6, showSizeChanger: false, simple: screens.md ? false : {readOnly: true} }} 
+                            scroll={{x: true, scrollToFirstRowOnChange: true}}
                         />
                     </>
                 )}
