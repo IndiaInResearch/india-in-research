@@ -59,6 +59,15 @@
                                     "year": 2024,
                                     "location": "Seattle, USA"
                                 }]
+                            },
+                            {
+                                "label": "WACV",
+                                "value": "wacv",
+                                "full_name": "Winter Conference on Applications of Computer Vision",
+                                "places": [{
+                                    "year": 2024,
+                                    "location": "Hawaii, USA"
+                                }]
                             }
                         ]
                     },
