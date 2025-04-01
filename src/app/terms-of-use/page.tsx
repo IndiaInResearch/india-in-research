@@ -1,4 +1,5 @@
 import AntMarkdown from "@/components/ant-markdown"
+import { Metadata } from "next";
 
 const md = `
 TERMS OF USE
@@ -394,6 +395,24 @@ In order to resolve a complaint regarding the Services or to receive further inf
 
 ****contact@indiainresearch.org****
 `
+
+export const metadata: Metadata = {
+    title: "Terms of Use",
+    description: "Terms of Use for India In Research (IIR) platform.",
+    openGraph: {
+      title: "Terms of Use | India In Research",
+      description: "Terms of Use for India In Research (IIR) platform.",
+      url: "https://www.indiainresearch.org/terms-of-use",
+      siteName: "India In Research",
+      locale: "en_US",
+      type: "website",
+      alternateLocale: "en_IN",
+      // emails, twitter, icons, category, manifest
+    }
+    ,
+    category: "science",
+};
+
 
 export default function TermsOfUse() {
 

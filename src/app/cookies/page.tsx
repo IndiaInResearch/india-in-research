@@ -1,4 +1,5 @@
 import AntMarkdown from "@/components/ant-markdown"
+import { Metadata } from "next";
 import Markdown from "react-markdown"
 
 const md = `
@@ -154,6 +155,23 @@ Bengaluru
 
 India
 `
+
+export const metadata: Metadata = {
+    title: "Cookie Policy",
+    description: "Cookie Policy for India In Research (IIR) platform.",
+    openGraph: {
+      title: "Cookie Policy | India In Research",
+      description: "Cookie Policy for India In Research (IIR) platform.",
+      url: "https://www.indiainresearch.org/cookies",
+      siteName: "India In Research",
+      locale: "en_US",
+      type: "website",
+      alternateLocale: "en_IN",
+      // emails, twitter, icons, category, manifest
+    }
+    ,
+    category: "science",
+};
 
 export default function CookiePolicy() {
 
