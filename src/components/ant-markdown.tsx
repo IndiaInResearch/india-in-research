@@ -3,6 +3,7 @@ import Title from "antd/es/typography/Title"
 import Text from "antd/es/typography/Text"
 import { Flex, List } from "antd";
 import Item from "antd/es/list/Item";
+import remarkGfm from 'remark-gfm'
 
 export default function AntMarkdown({text}: {text: string}){
     return (
@@ -18,6 +19,7 @@ export default function AntMarkdown({text}: {text: string}){
                     ol: ({ children }) => <List>{children}</List>,
                     li: ({ children }) => <Item>{children}</Item>,
                 }}
+                remarkPlugins={[remarkGfm]}
             >
                 {text}
             </Markdown>

@@ -12,7 +12,7 @@ export default async function Home() {
 
   return (
     <>
-      <Flex justify="space-evenly" align="center" wrap gap={64} style={{minHeight: 600}}>
+      <Flex justify="center" align="center" wrap gap={32} style={{minHeight: 600}}>
         <Flex vertical>
           <Title level={1} style={{marginBottom: 0}}>Covering Indian Research.</Title>
           <Title level={1} style={{marginTop: 4}}>Stats and Stories.</Title>
