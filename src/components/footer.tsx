@@ -29,7 +29,9 @@ export default async function Footer() {
                         <Link href="/terms-of-use">
                             <Button variant="link" color="default" size="small" style={{padding: "0px"}}>Terms of Use</Button>
                         </Link>
-                        <Text>Privacy Policy</Text>
+                        <Link href="/privacy">
+                            <Button variant="link" color="default" size="small" style={{padding: "0px"}}>Privacy Policy</Button>
+                        </Link>
                         <Link href="/cookies">
                             <Button variant="link" color="default" size="small" style={{padding: "0px"}}>Cookie Policy</Button>
                         </Link>
