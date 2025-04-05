@@ -1,18 +1,41 @@
 import { GeoMapDataInterface } from "@/components/india-geo-map";
-import institutes_list from "@/data/third-party/university-list/world_universities_and_domains.json"
-import { getInstituteFromDomain, getInstituteIdentifierDomain } from "./domain-handlers";
+import { AuthorLink, NewPaper } from "./paper-interfaces";
+import { add_institute_data_in_mem, get_institute_data_in_mem, manual_institute_latlon } from "./domain-handlers";
 
-export async function getData(domain: string, confs: string[], year: number) {
-    const data_agg = []
+export interface getDataReturnType {
+    indian_papers: NewPaper[],
+    countries_to_papers: Record<string, number>,
+    indian_institute_to_papers_with_latlon_for_graph: GeoMapDataInterface[],
+    indian_institutes_to_papers: {
+        domain: string;
+        count: number;
+        name: any;
+    }[],
+    rating_overall: {
+        in: number[],
+        us: number[],
+        cn: number[]
+    },
+    novelty_overall: {
+        in: number[],
+        us: number[],
+        cn: number[]
+    },
+    author_ranks: {
+        in: Record<string, number>,
+        us: Record<string, number>,
+        cn: Record<string, number>
+    }
+}
+
+export async function getData(domain: string, confs: string[], year: number): Promise<getDataReturnType | null> {
+
+    const data_agg: NewPaper[] = []
     for (const conf of confs) {
         try {
             const data = await import(`@/data/${domain}/${conf}/${year}.json`);
             if (data) {
-                data_agg.push(...(data.default.map((d: any) => {
-                    d["conf"] = conf
-                    d["year"] = year
-                    return d
-                })))
+                data_agg.push(...data.default)
             }
         } catch (error) {
             console.error(error)
@@ -39,13 +62,16 @@ export async function getData(domain: string, confs: string[], year: number) {
         return {
             domain: val[0],
             count: val[1],
-            name: getInstituteFromDomain(val[0])?.name
+            name: get_institute_data_in_mem(val[0])?.display_name || "Unknown"
         }
     }).filter((institute) => checkInstituteCountry(institute.domain, "IN"))
 
     const indian_institute_to_papers_with_latlon = institutesToLatLon(indian_institutes_to_papers)
 
-    const getRatingData = (papers: any, key: string) => papers.filter((paper: any) => paper[key]?.length > 0).map((paper: any) => paper[key]?.reduce((a: number, b: number) => a + b, 0) / paper[key]?.length);
+    const getRatingData = <K extends keyof NewPaper>(papers: NewPaper[], key: K) => 
+        papers.filter((paper: NewPaper) => 
+            Array.isArray(paper[key]) && paper[key].length > 0).map((paper: NewPaper) => 
+                (paper[key] as number[]).reduce((a: number, b: number) => a + b, 0) / (paper[key] as number[]).length);
 
     return {
         indian_papers: indian_papers,
@@ -53,14 +79,14 @@ export async function getData(domain: string, confs: string[], year: number) {
         indian_institute_to_papers_with_latlon_for_graph: indian_institute_to_papers_with_latlon,
         indian_institutes_to_papers: indian_institutes_to_papers,
         rating_overall: {
-            in: getRatingData(indian_papers, "rating"),
-            us: getRatingData(us_papers, "rating"),
-            cn: getRatingData(china_papers, "rating")
+            in: getRatingData(indian_papers, "overall_rating_from_paper"),
+            us: getRatingData(us_papers, "overall_rating_from_paper"),
+            cn: getRatingData(china_papers, "overall_rating_from_paper")
         },
         novelty_overall: {
-            in: getRatingData(indian_papers, "novelty"),
-            us: getRatingData(us_papers, "novelty"),
-            cn: getRatingData(china_papers, "novelty")
+            in: getRatingData(indian_papers, "novelty_from_paper"),
+            us: getRatingData(us_papers, "novelty_from_paper"),
+            cn: getRatingData(china_papers, "novelty_from_paper")
         },
         author_ranks: {
             in: authorRankStat(indian_papers),
@@ -70,8 +96,21 @@ export async function getData(domain: string, confs: string[], year: number) {
     }
 }
 
-export function determineCountryofPaper(data: any) {
-    const countries_list = data["author_country"]
+export function determineCountryofPaper(data: NewPaper) {
+    const countries_list = data.authorships?.map((authorship: AuthorLink) => {
+        if (authorship.countries && authorship.countries.length > 0) {
+            return authorship.countries[0]
+        }
+        if (authorship.institutions) {
+            for (const institution of authorship.institutions) {
+                if (institution.institution && institution.institution.country_code) {
+                    return institution.institution.country_code
+                }
+            }
+        }
+        return "Unknown";
+    }) || [];
+
     const countries: Record<string, number> = {}
     let freq = 0
     let curr_max_country = "Unknown"
@@ -91,8 +130,8 @@ export function determineCountryofPaper(data: any) {
     return curr_max_country
 }
 
-export function filterPapersByCountry(data: any, input_country: string) {
-    return data.filter((d: any) => {
+export function filterPapersByCountry(data: NewPaper[], input_country: string) {
+    return data.filter((d: NewPaper) => {
         if (determineCountryofPaper(d) == input_country) {
             return true
         }
@@ -100,7 +139,7 @@ export function filterPapersByCountry(data: any, input_country: string) {
     })
 }
 
-export function countPapersByCountry(data: any) {
+export function countPapersByCountry(data: NewPaper[]) {
     const countries_to_papers: Record<string, number> = {}
     for (const d of data) {
         const country = determineCountryofPaper(d)
@@ -113,23 +152,38 @@ export function countPapersByCountry(data: any) {
     return countries_to_papers
 }
 
-export function countPapersByInstitute(data: any) {
+export function countPapersByInstitute(data: NewPaper[]) {
     const institutes_to_papers: Record<string, number> = {}
 
     for (const single_paper of data) {
-        const curr_domains: string[] = []
-        for (const aff_domain of single_paper["aff_domains"]){
-            const standard_domain = getInstituteIdentifierDomain(aff_domain)
 
-            if (curr_domains.find((d) => d == standard_domain)) {
+        for(const authorship of single_paper.authorships || []){
+            for (const institution of authorship.institutions || []) {
+                if (institution.institution) {
+                    add_institute_data_in_mem(institution.institution)
+                }
+            }
+        }
+
+        const curr_domains: string[] = []
+        for (const aff_domain of single_paper.authorships?.map((authorship) => { 
+            if (authorship.institutions && authorship.institutions.length > 0) {
+                return authorship.institutions[0].institution?.openalex_id || "Unknown"
+            }
+            else {
+                return "Unknown"
+            }
+        }) || []){
+
+            if (curr_domains.find((d) => d == aff_domain)) {
                 continue
             }
             else {
-                curr_domains.push(standard_domain)
-                if (standard_domain in institutes_to_papers) {
-                    institutes_to_papers[standard_domain]++;
+                curr_domains.push(aff_domain)
+                if (aff_domain in institutes_to_papers) {
+                    institutes_to_papers[aff_domain]++;
                 } else {
-                    institutes_to_papers[standard_domain] = 1;
+                    institutes_to_papers[aff_domain] = 1;
                 }
             }
         }
@@ -139,9 +193,9 @@ export function countPapersByInstitute(data: any) {
 
 
 export function checkInstituteCountry(domain: string, country: string){
-    const institute = getInstituteFromDomain(domain)
+    const institute = get_institute_data_in_mem(domain)
     if (institute){
-        return institute.alpha_two_code == country
+        return institute.country_code == country
     }
     console.warn("Unable to determine country for: ", domain)
     return false
@@ -153,38 +207,46 @@ export function institutesToLatLon(institutes_to_papers: {
     count: number;
     name: any;
 }[]) {
-    const domains_to_latlon_and_name: Record<string, {latlon: number[], name: string}> = {}
-    for (const institute of institutes_list) {
-        if (institute.alpha_two_code == "IN" && institute.latlon != null) {
-            for (const domain of institute.domains) {
-                domains_to_latlon_and_name[domain] = {latlon: institute.latlon, name: institute.name}
-            }
-        }
-    }
-
     const graphData: GeoMapDataInterface[] = []
-    for (const institute of institutes_to_papers) {
-        if (institute.domain in domains_to_latlon_and_name) {
-            const coords = domains_to_latlon_and_name[institute.domain].latlon
-            const val = institute.count
 
-            const sameLocation = graphData.find((d) => d.coordinates[1] == coords[0] && d.coordinates[0] == coords[1])  // add approx distance check here
-            if (sameLocation) {
-                sameLocation.name.push(domains_to_latlon_and_name[institute.domain].name)
-                sameLocation.value.push(val)
+    for (const institute_to_paper of institutes_to_papers) {
 
-                continue
+        const institute_data = get_institute_data_in_mem(institute_to_paper.domain)
+        if (institute_data){
+
+            if (!institute_data.latlon && institute_data.openalex_id) {
+                institute_data.latlon = manual_institute_latlon(institute_data.openalex_id)
             }
 
-            graphData.push({
-                name:  [institute.name],
-                coordinates: [domains_to_latlon_and_name[institute.domain].latlon[1], domains_to_latlon_and_name[institute.domain].latlon[0]],
-                value: [institute.count],
-            })
+            if (institute_data.latlon && institute_data.latlon.length == 2) {
+
+                const sameLocation = graphData.find((d) => {
+                    const latDiff = Math.abs(d.coordinates[1] - institute_data.latlon[0]);
+                    const lonDiff = Math.abs(d.coordinates[0] - institute_data.latlon[1]);
+                    return latDiff <= 0.1 && lonDiff <= 0.1;
+                });
+
+                if (sameLocation) {
+                    sameLocation.name.push(institute_data.display_name)
+                    sameLocation.value.push(institute_to_paper.count)
+
+                    continue
+                }
+
+                graphData.push({
+                    name:  [institute_to_paper.name],
+                    coordinates: [institute_data.latlon[1], institute_data.latlon[0]],
+                    value: [institute_to_paper.count],
+                })
+            }
+            else {
+                console.warn("Institute lat lon not available in database", institute_to_paper.domain)
+            }
         }
-        else{
-            console.warn("Institute lat lon not available in database", institute.domain)
+        else {
+            console.warn("Institute not available in database", institute_to_paper.domain)
         }
+        
     }
     return graphData
 }
