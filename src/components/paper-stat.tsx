@@ -6,11 +6,9 @@ import Text from "antd/es/typography/Text";
 import { useState } from "react";
 import { ColumnsType } from "antd/es/table";
 import SearchBox from "./search-box";
-import useBreakpoint from "antd/lib/grid/hooks/useBreakpoint";
 import AntTable from "./ant-table";
 import { getDataReturnType } from "@/utils/data-handlers";
 import { NewPaper, TopicLink } from "@/utils/paper-interfaces";
-import { ExclamationCircleFilled, ExclamationCircleOutlined, ExclamationOutlined } from "@ant-design/icons";
 import { ReportIssueButton } from "./misc";
 
 export default function PaperStat({data}: {data: getDataReturnType}) {
@@ -108,18 +106,21 @@ export default function PaperStat({data}: {data: getDataReturnType}) {
 
     return (
         <Flex vertical justify="center" align="center" style={{maxWidth: 1600, margin: "0 auto", width: "100%"}}>
-            <Flex justify="space-between" align="center" style={{width: "100%"}}>
-                <Space align="baseline">
-                    <Title level={4}>Paper Statistics</Title>
-                    <Button 
-                        variant="link" 
-                        color="default"
-                        onClick={() => setShowExpanded(!showExpanded)}
-                    >
-                        {showExpanded ? 'View Less <' : 'View More >'}
-                    </Button>
-                </Space>
-                <ReportIssueButton />
+            <Flex vertical style={{width: "100%"}}>
+                <Flex justify="space-between" align="center" style={{width: "100%"}}>
+                    <Space align="baseline">
+                        <Title level={4}>Paper Statistics</Title>
+                        <Button 
+                            variant="link" 
+                            color="default"
+                            onClick={() => setShowExpanded(!showExpanded)}
+                        >
+                            {showExpanded ? 'View Less <' : 'View More >'}
+                        </Button>
+                    </Space>
+                    <ReportIssueButton />
+                </Flex>
+                <Text>List of accepted papers where maximum authors are from Indian Institutes. More details here.</Text>
             </Flex>
             <Space direction="vertical" style={{width: "100%"}}>
                 <Flex gap={64} justify="space-evenly" style={{marginTop: 32, marginBottom: 64}}>

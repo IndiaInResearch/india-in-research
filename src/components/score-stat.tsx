@@ -2,10 +2,9 @@
 
 import { Button, Divider, Flex, Radio, Space, Table } from "antd";
 import Title from "antd/es/typography/Title";
-import { countPapersByCountry, countPapersByInstitute, filterPapersByCountry, institutesToLatLon } from "@/utils/data-handlers";
+import Text from "antd/es/typography/Text";
 import { useState } from "react";
 import { ColumnsType } from "antd/es/table";
-import IndiaGeoMap, { GeoMapDataInterface } from "./india-geo-map";
 import RatingHistogram from "./rating-histogram";
 import * as d3 from "d3";
 import DataUnavailable from "./data-unavailable";
@@ -103,29 +102,31 @@ export default function ScoreStat({data, ratingKey, title}: {
 
     return (
         <Flex vertical justify="center" align="center" style={{maxWidth: 1600, margin: "0 auto", width: "100%"}}>
-            <Flex justify="space-between" align="center" style={{width: "100%"}}>
-                <Space align="baseline">
-                    <Title level={4}>{title}</Title>
-                    <Button 
-                        variant="link" 
-                        color="default"
-                        onClick={() => setShowExpanded(!showExpanded)}
+            <Flex vertical style={{width: "100%"}}>
+                <Flex justify="space-between" align="center" style={{width: "100%"}}>
+                    <Space align="baseline">
+                        <Title level={4}>{title}</Title>
+                        <Button 
+                            variant="link" 
+                            color="default"
+                            onClick={() => setShowExpanded(!showExpanded)}
+                        >
+                            {showExpanded ? 'View Less <' : 'View More >'}
+                        </Button>
+                    </Space>
+                    <Radio.Group 
+                        value={comparisonCountry} 
+                        onChange={(e) => setComparisonCountry(e.target.value)}
+                        optionType="button"
+                        buttonStyle="solid"
                     >
-                        {showExpanded ? 'View Less <' : 'View More >'}
-                    </Button>
-                </Space>
-                <Radio.Group 
-                    value={comparisonCountry} 
-                    onChange={(e) => setComparisonCountry(e.target.value)}
-                    optionType="button"
-                    buttonStyle="solid"
-                >
-                    <Radio.Button value="US">With US</Radio.Button>
-                    <Radio.Button value="CN">With CN</Radio.Button>
-                </Radio.Group>
-                <ReportIssueButton />
+                        <Radio.Button value="US">With US</Radio.Button>
+                        <Radio.Button value="CN">With CN</Radio.Button>
+                    </Radio.Group>
+                    <ReportIssueButton />
+                </Flex>
+                <Text>Comparison of {title.split(" ")[0].toLocaleLowerCase()} reviewer scores of Indian papers with US and Chinese papers.</Text>
             </Flex>
-
             {(rating_data_india.length == 0 && rating_data_us.length == 0 && rating_data_china.length == 0) ? 
                 <DataUnavailable /> :
                 <Space direction="vertical" style={{width: "100%"}}>

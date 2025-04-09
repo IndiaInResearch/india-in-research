@@ -73,18 +73,21 @@ export default function CountryStat({data}: {
 
     return (
         <Flex vertical justify="center" align="center" style={{maxWidth: 1600, margin: "0 auto", width: "100%"}}>
-            <Flex justify="space-between" align="center" style={{width: "100%"}}>
-                <Space align="baseline">
-                    <Title level={4}>Country Distribution</Title>
-                    <Button 
-                        variant="link" 
-                        color="default"
-                        onClick={() => setShowExpanded(!showExpanded)}
-                    >
-                        {showExpanded ? 'View Less <' : 'View More >'}
-                    </Button>
-                </Space>
-                <ReportIssueButton />
+            <Flex vertical style={{width: "100%"}}>
+                <Flex justify="space-between" align="center" style={{width: "100%"}}>
+                    <Space align="baseline">
+                        <Title level={4}>Country Distribution</Title>
+                        <Button 
+                            variant="link" 
+                            color="default"
+                            onClick={() => setShowExpanded(!showExpanded)}
+                        >
+                            {showExpanded ? 'View Less <' : 'View More >'}
+                        </Button>
+                    </Space>
+                    <ReportIssueButton />
+                </Flex>
+                <Text>Country-wise distribution of all accepted papers in the venue. Learn how we identify that here.</Text>
             </Flex>
             <Space direction="vertical" style={{width: "100%"}}>
                 <Flex justify="space-evenly" wrap align="center" gap={32} style={{marginTop: 32, marginBottom: 64}}>

@@ -21,18 +21,21 @@ export default function UndergraduateStat({
 
     return (
         <Flex vertical justify="center" align="center" style={{maxWidth: 1600, margin: "0 auto", width: "100%"}}>
-            <Flex justify="space-between" align="center" style={{width: "100%"}}>
-                <Space align="baseline">
-                    <Title level={4}>Undergraduate Participation</Title>
-                    <Button 
-                        variant="link" 
-                        color="default"
-                        onClick={() => setShowExpanded(!showExpanded)}
-                    >
-                        {showExpanded ? 'View Less <' : 'View More >'}
-                    </Button>
-                </Space>
-                <ReportIssueButton />
+            <Flex vertical style={{width: "100%"}}>
+                <Flex justify="space-between" align="center" style={{width: "100%"}}>
+                    <Space align="baseline">
+                        <Title level={4}>Undergraduate Participation</Title>
+                        <Button 
+                            variant="link" 
+                            color="default"
+                            onClick={() => setShowExpanded(!showExpanded)}
+                        >
+                            {showExpanded ? 'View Less <' : 'View More >'}
+                        </Button>
+                    </Space>
+                    <ReportIssueButton />
+                </Flex>
+                <Text>Split of undergraduate, postgraduate, faculty and industry authors among the accepted papers. Checkout data sources here. </Text>
             </Flex>
             {total_authors === 0 ? 
                 <DataUnavailable /> :
