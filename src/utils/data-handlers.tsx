@@ -221,8 +221,12 @@ export function institutesToLatLon(institutes_to_papers: {
             if (institute_data.latlon && institute_data.latlon.length == 2) {
 
                 const sameLocation = graphData.find((d) => {
-                    const latDiff = Math.abs(d.coordinates[1] - institute_data.latlon[0]);
-                    const lonDiff = Math.abs(d.coordinates[0] - institute_data.latlon[1]);
+                    const latDiff = institute_data.latlon 
+                        ? Math.abs(d.coordinates[1] - Number(institute_data.latlon[0])) 
+                        : Infinity;
+                    const lonDiff = institute_data.latlon 
+                        ? Math.abs(d.coordinates[0] - Number(institute_data.latlon[1])) 
+                        : Infinity;
                     return latDiff <= 0.1 && lonDiff <= 0.1;
                 });
 
