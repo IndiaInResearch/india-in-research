@@ -31,6 +31,17 @@ export default function IndiaGeoMap({ width, height, data }: IndiaGeoMapProps) {
         const svg = d3.select(svgRef.current);
         svg.selectAll("*").remove();
 
+        const tooltip = d3.select("body").append("div")
+            .attr("class", "d3-tooltip")
+            .style("position", "absolute")
+            .style("visibility", "hidden")
+            .style("background-color", tokens.colorBgElevated)
+            .style("color", tokens.colorText)
+            .style("padding", "8px")
+            .style("border-radius", "4px")
+            .style("font-size", "12px")
+            .style("box-shadow", "0 2px 8px rgba(0,0,0,0.15)");
+
         // Create a projection for India
         const projection = d3.geoMercator()
             .center([82, 23]) // Approximately center of India
@@ -82,19 +93,23 @@ export default function IndiaGeoMap({ width, height, data }: IndiaGeoMapProps) {
                     .attr("stroke-width", 2);
 
                 let legend = ""
-                for (let i = 0; i < d.name.length; ++i) {
-                    legend += `${d.name[i]}: ${d.value[i]}; `;
+                const sortedData = d.name
+                    .map((name, index) => ({ name, value: d.value[index] }))
+                    .sort((a, b) => b.value - a.value);
+
+                for (const item of sortedData) {
+                    legend += `<p>${item.name}: ${item.value}</p>`;
                 }
 
-                // Add tooltip
-                g.append("text")
-                    .attr("class", "tooltip")
-                    .attr("x", projection(d.coordinates)![0])
-                    .attr("y", projection(d.coordinates)![1] - radiusScale(Math.max(...d.value)) - 5)
-                    .attr("text-anchor", "middle")
-                    .attr("fill", tokens.colorText)
-                    .text(legend)
+                tooltip
+                    .style("visibility", "visible")
+                    .html(legend);
                     
+            })
+            .on("mousemove", function(event: MouseEvent) {
+                tooltip
+                    .style("left", `${event.pageX + 10}px`)
+                    .style("top", `${event.pageY - 10}px`);
             })
             .on("mouseout", function() {
                 d3.select(this)
@@ -102,10 +117,17 @@ export default function IndiaGeoMap({ width, height, data }: IndiaGeoMapProps) {
                     .attr("stroke-width", 0.8);
                 
                 // Remove tooltip
-                g.selectAll(".tooltip").remove();
+                tooltip.style("visibility", "hidden");
             });
 
     }, [data, mode, tokens]);
+
+    // Cleanup tooltip on unmount
+    useEffect(() => {
+        return () => {
+            d3.select("body").selectAll(".d3-tooltip").remove();
+        };
+    }, []);
 
     return (
         <svg
