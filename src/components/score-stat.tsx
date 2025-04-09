@@ -10,6 +10,7 @@ import RatingHistogram from "./rating-histogram";
 import * as d3 from "d3";
 import DataUnavailable from "./data-unavailable";
 import AntTable from "./ant-table";
+import { ReportIssueButton } from "./misc";
 
 export default function ScoreStat({data, ratingKey, title}: {
     data: any,
@@ -122,6 +123,7 @@ export default function ScoreStat({data, ratingKey, title}: {
                     <Radio.Button value="US">With US</Radio.Button>
                     <Radio.Button value="CN">With CN</Radio.Button>
                 </Radio.Group>
+                <ReportIssueButton />
             </Flex>
 
             {(rating_data_india.length == 0 && rating_data_us.length == 0 && rating_data_china.length == 0) ? 

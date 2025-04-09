@@ -6,6 +6,7 @@ import Text from "antd/es/typography/Text";
 import { useState } from "react";
 import StackedBar from "./stacked-bar";
 import DataUnavailable from "./data-unavailable";
+import { ReportIssueButton } from "./misc";
 
 export default function UndergraduateStat({
     data
@@ -31,6 +32,7 @@ export default function UndergraduateStat({
                         {showExpanded ? 'View Less <' : 'View More >'}
                     </Button>
                 </Space>
+                <ReportIssueButton />
             </Flex>
             {total_authors === 0 ? 
                 <DataUnavailable /> :

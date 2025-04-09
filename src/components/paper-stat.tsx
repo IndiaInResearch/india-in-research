@@ -10,6 +10,8 @@ import useBreakpoint from "antd/lib/grid/hooks/useBreakpoint";
 import AntTable from "./ant-table";
 import { getDataReturnType } from "@/utils/data-handlers";
 import { NewPaper, TopicLink } from "@/utils/paper-interfaces";
+import { ExclamationCircleFilled, ExclamationCircleOutlined, ExclamationOutlined } from "@ant-design/icons";
+import { ReportIssueButton } from "./misc";
 
 export default function PaperStat({data}: {data: getDataReturnType}) {
     const [showExpanded, setShowExpanded] = useState(true);
@@ -117,6 +119,7 @@ export default function PaperStat({data}: {data: getDataReturnType}) {
                         {showExpanded ? 'View Less <' : 'View More >'}
                     </Button>
                 </Space>
+                <ReportIssueButton />
             </Flex>
             <Space direction="vertical" style={{width: "100%"}}>
                 <Flex gap={64} justify="space-evenly" style={{marginTop: 32, marginBottom: 64}}>

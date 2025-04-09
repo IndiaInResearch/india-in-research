@@ -8,6 +8,7 @@ import { useState } from "react";
 import { ColumnsType } from "antd/es/table";
 import IndiaGeoMap, { GeoMapDataInterface } from "./india-geo-map";
 import AntTable from "./ant-table";
+import { ReportIssueButton } from "./misc";
 
 export default function LocaleHighlights({data}: {
     data: any
@@ -55,6 +56,7 @@ export default function LocaleHighlights({data}: {
                         {showExpanded ? 'View Less <' : 'View More >'}
                     </Button>
                 </Space>
+                <ReportIssueButton />
             </Flex>
             <Space direction="vertical" style={{width: "100%"}}>
                 <IndiaGeoMap width="100%" height="min(90vw, 800px)" data={institute_to_papers_with_latlon} />
