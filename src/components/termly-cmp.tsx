@@ -1,11 +1,11 @@
 'use client'
 
-import { useEffect, useMemo, useRef } from 'react'
+import { Suspense, useEffect, useMemo, useRef } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 
 const SCRIPT_SRC_BASE = 'https://app.termly.io'
 
-export default function TermlyCMP({ autoBlock, masterConsentsOrigin, websiteUUID }: {
+export function TermlyCMP({ autoBlock, masterConsentsOrigin, websiteUUID }: {
     autoBlock?: any
     masterConsentsOrigin?: any
     websiteUUID: any
@@ -40,4 +40,14 @@ export default function TermlyCMP({ autoBlock, masterConsentsOrigin, websiteUUID
   }, [pathname, searchParams])
 
   return null
+}
+
+export default function SuspenseWithTermlyCMP({ websiteUUID }: {
+    websiteUUID: any
+}) {
+  return (
+    <Suspense>
+      <TermlyCMP websiteUUID={websiteUUID} />
+    </Suspense>
+  )
 }
