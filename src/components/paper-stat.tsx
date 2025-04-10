@@ -10,13 +10,14 @@ import AntTable from "./ant-table";
 import { getDataReturnType } from "@/utils/data-handlers";
 import { NewPaper, TopicLink } from "@/utils/paper-interfaces";
 import { ReportIssueButton } from "./misc";
+import LookableText, { RenderArrayAsLookableText } from "./lookable-text";
 
 export default function PaperStat({data}: {data: getDataReturnType}) {
     const [showExpanded, setShowExpanded] = useState(true);
     const [searchText, setSearchText] = useState("");
     
 
-    const indian_papers = data.indian_papers as (NewPaper & { aff_render?: string[], author_render?: string[] })[];
+    const indian_papers = data.indian_papers as (NewPaper & { aff_render?: { text: string; link: string | undefined; }[], author_render?: string[] })[];
     const countries_to_papers: Record<string, number> = data.countries_to_papers;
 
     const totalPapers = Object.values(countries_to_papers).reduce((sum, count) => sum + count, 0);
@@ -24,10 +25,17 @@ export default function PaperStat({data}: {data: getDataReturnType}) {
     indian_papers.forEach((paper) => {
         paper.aff_render = Array.from(new Set(paper.authorships?.map(authorship => {
             if (authorship.institutions && authorship.institutions.length > 0) {
-                return authorship.institutions[0].institution?.display_name || "Unknown"
+                // set will treat different objects as not equal even if their content is same
+                return JSON.stringify({
+                    text: authorship.institutions[0].institution?.display_name || "Unknown",
+                    link: authorship.institutions[0].institution?.openalex_id
+                })
             }
-            return "Unknown"
-        })))
+            return JSON.stringify({
+                text: "Unknown",
+                link: undefined
+            })
+        }))).map(aff => JSON.parse(aff))
 
         paper.author_render = paper.authorships?.map(authorship => {
             if (authorship.author.name) {
@@ -37,6 +45,7 @@ export default function PaperStat({data}: {data: getDataReturnType}) {
         }) || [];
     })
 
+    // use fuzzy search here
     const filteredPapers = indian_papers.filter((paper: any) =>
         Object.values(paper).some(value =>
             value && value.toString().toLowerCase().includes(searchText.toLowerCase())
@@ -63,11 +72,12 @@ export default function PaperStat({data}: {data: getDataReturnType}) {
             title: "Affiliation",
             dataIndex: "aff_render",
             key: "authors_aff",
-            filters: Array.from(new Set(indian_papers.flatMap((paper) => paper.aff_render))).sort().map(aff => ({ text: aff as React.ReactNode, value: aff as string })),
+            // filter not working. search not working. 
+            filters: Array.from(new Set(indian_papers.flatMap((paper) => paper.aff_render))).sort().map(aff => ({ text: aff?.text as React.ReactNode, value: aff?.text as string })),
             onFilter: (value, record) => record.aff_render.includes(value),
             filterIcon: false,
             filterSearch: true,
-            render: (aff_render: string[]) => aff_render.join(", ")
+            render: (aff_render: {text: string, link: string | undefined}[]) => RenderArrayAsLookableText(aff_render)
         },
         {
             title: "Venue",
