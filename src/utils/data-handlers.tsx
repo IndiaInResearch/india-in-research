@@ -1,5 +1,5 @@
 import { GeoMapDataInterface } from "@/components/india-geo-map";
-import { AuthorLink, NewPaper } from "./paper-interfaces";
+import { AuthorLink, AuthorRank, NewPaper } from "./paper-interfaces";
 import { add_institute_data_in_mem, get_institute_data_in_mem, manual_institute_latlon } from "./domain-handlers";
 
 export interface getDataReturnType {
@@ -22,9 +22,9 @@ export interface getDataReturnType {
         cn: number[]
     },
     author_ranks: {
-        in: Record<string, number>,
-        us: Record<string, number>,
-        cn: Record<string, number>
+        in: Record<AuthorRank | "unknown", number>,
+        us: Record<AuthorRank | "unknown", number>,
+        cn: Record<AuthorRank | "unknown", number>
     }
 }
 
@@ -268,15 +268,26 @@ export function dfsVenueData(venues_data: any[]): any[] {
     return venues;
 }
 
-function authorRankStat(data: any) {
-    const ranks: Record<string, number> = {}
+function authorRankStat(data: NewPaper[]) {
+    const ranks: Record<AuthorRank | "unknown", number> = {
+        undergrad: 0,
+        postgrad: 0,
+        postdoc: 0,
+        faculty: 0,
+        industry: 0,
+        unknown: 0
+    }
+
     for (const d of data) {
-        if (d["author_rank_standarized"]){
-            for (const pos of d["author_rank_standarized"]){
-                if (pos in ranks) {
-                    ranks[pos]++;
-                } else {
-                    ranks[pos] = 1;
+        for (const authorship of d.authorships || []){
+            if (authorship.institutions){
+                for (const institution of authorship.institutions){
+                    if (institution.rank){
+                        ranks[institution.rank]++
+                    }
+                    else {
+                        ranks["unknown"]++
+                    }
                 }
             }
         }

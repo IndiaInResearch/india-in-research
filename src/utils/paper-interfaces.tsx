@@ -1,30 +1,30 @@
 // LLM generated interfaces from pydantic models
 
-export interface InstitutionType {
-    EDUCATION: "education";
-    HEALTHCARE: "healthcare";
-    COMPANY: "company";
-    ARCHIVE: "archive";
-    NONPROFIT: "nonprofit";
-    GOVERNMENT: "government";
-    FACILITY: "facility";
-    FUNDER: "funder";
-    OTHER: "other";
+export enum InstitutionType {
+    EDUCATION = "education",
+    HEALTHCARE = "healthcare",
+    COMPANY = "company",
+    ARCHIVE = "archive",
+    NONPROFIT = "nonprofit",
+    GOVERNMENT = "government",
+    FACILITY = "facility",
+    FUNDER = "funder",
+    OTHER = "other",
 }
 
-export interface AuthorRank {
-    UNDERGRAD: "undergrad";
-    POSTGRAD: "postgrad";
-    POSTDOC: "postdoc";
-    FACULTY: "faculty";
-    INDUSTRY: "industry";
+export enum AuthorRank {
+    UNDERGRAD = "undergrad",
+    POSTGRAD = "postgrad",
+    POSTDOC = "postdoc",
+    FACULTY = "faculty",
+    INDUSTRY = "industry",
 }
 
-export interface AuthorPosition {
-    FIRST: "first";
-    MIDDLE: "middle";
-    LAST: "last";
-}
+export enum AuthorPosition {
+    FIRST = "first",
+    MIDDLE = "middle",
+    LAST = "last",
+};
 
 export interface Institution {
     id: string;
