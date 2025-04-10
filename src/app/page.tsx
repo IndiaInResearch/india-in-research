@@ -28,7 +28,7 @@ export default async function Home() {
         </Flex>
         <Flex vertical style={{width: "max(60%, 400px)"}} align="center">
           <IndiaGeoMap width="100%" height="min(800px, 80vw)" data={institute_to_papers_with_latlon || []} />
-          <Text>Papers from Indian Institutes in NeurIPS 2024. IIT Delhi and Bombay lead at 3 papers each.
+          <Text>Papers from Indian Institutes in NeurIPS 2024. IISc, IIT Delhi and IIT Bombay lead at 3 papers each.
           <Link href="explore/cs/ai/ml/neurips">
               <Text italic>&nbsp;View more...</Text>
           </Link>
