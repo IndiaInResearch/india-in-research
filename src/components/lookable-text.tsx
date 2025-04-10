@@ -10,9 +10,9 @@ export function RenderArrayAsLookableText(array: {text: string, link: string | u
     return array.map((d, idx) => {
         if (!d.link) {
             if (idx != array.length - 1){
-                return <><Text>{d.text}</Text><Text>, </Text></>
+                return <><Text key={idx}>{d.text}</Text><Text>, </Text></>
             }
-            return <Text>{d.text}</Text>
+            return <Text key={idx}>{d.text}</Text>
         }
         if (idx != array.length - 1){
             return <><LookableText key={idx} text={d.text} link={d.link} /><Text>, </Text></>
