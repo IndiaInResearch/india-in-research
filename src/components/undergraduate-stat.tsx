@@ -18,7 +18,13 @@ export default function UndergraduateStat({
 
     const [showExpanded, setShowExpanded] = useState(false);
 
-    const total_authors = Object.values(data.author_ranks.in as Record<string, number>).reduce((sum, value) => sum + value, 0);
+    const total_authors = Object.values(data.author_ranks.in).reduce((sum, value, idx, array) => {
+        // last key is for "unknown"
+        if (idx == array.length - 1){
+            return sum
+        }
+        return sum + value
+    }, 0);
     const undergrad_percentage = ((data.author_ranks.in[AuthorRank.UNDERGRAD] / total_authors) * 100).toFixed();
 
     return (
