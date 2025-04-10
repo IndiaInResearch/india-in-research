@@ -102,7 +102,7 @@ export default function ScoreStat({data, ratingKey, title}: {
 
     return (
         <Flex vertical justify="center" align="center" style={{maxWidth: 1600, margin: "0 auto", width: "100%"}}>
-            <Flex vertical style={{width: "100%"}}>
+            <Flex vertical style={{width: "100%", marginBottom: 32}}>
                 <Flex justify="space-between" align="center" style={{width: "100%"}}>
                     <Space align="baseline">
                         <Title level={4}>{title}</Title>

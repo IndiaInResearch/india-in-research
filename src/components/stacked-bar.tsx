@@ -4,11 +4,12 @@ import { useEffect, useRef } from "react";
 import * as d3 from "d3";
 import { Tooltip, Typography, Space } from "antd";
 import useToken from "antd/es/theme/useToken";
+import { getDataReturnType } from "@/utils/data-handlers";
 
 const { Text } = Typography;
 
 // LLM generated code
-export default function StackedBar({ data, height, width }: { data: any, height: number | string, width: number | string }) {
+export default function StackedBar({ data, height, width }: { data: getDataReturnType, height: number | string, width: number | string }) {
     const svgRef = useRef<SVGSVGElement>(null);
     const tokens = useToken()[1];
 
@@ -19,24 +20,24 @@ export default function StackedBar({ data, height, width }: { data: any, height:
         svg.selectAll("*").remove(); // Clear previous content
 
         const countries = ["in", "us", "cn"];
-        const categories = ["Undergrad", "Postgrad", "Postdoc", "Faculty", "Industry", "Unknown"];
+        const categories = Object.keys(data.author_ranks.in);
 
         const colors = d3.scaleOrdinal(d3.schemePiYG[6]);
 
         const formattedData = countries.map(country => {
-            const total: number = (Object.values(data[country] || {}) as number[]).reduce((sum, value) => sum + value, 0 as number);
+            const total: number = (Object.values(data.author_ranks[country as keyof typeof data.author_ranks] || {}) as number[]).reduce((sum, value) => sum + value, 0 as number);
             
             return {
                 country: country.toUpperCase(),
                 values: categories.map(category => ({
                     category,
-                    percentage: ((data[country][category] || 0) / total) * 100,
-                    value: data[country][category] || 0
+                    percentage: ((data.author_ranks[country as keyof typeof data.author_ranks][category as keyof typeof data.author_ranks.in] || 0) / total) * 100,
+                    value: data.author_ranks[country as keyof typeof data.author_ranks][category as keyof typeof data.author_ranks.in] || 0
                 }))
             };
         });
 
-        const margin = { top: 24, right: 24, bottom: 24, left: 24 };
+        const margin = { top: 24, right: 24, bottom: 24, left: 40 };
         const width = svgRef.current.clientWidth;
         const height = svgRef.current.clientHeight;
 
@@ -47,24 +48,25 @@ export default function StackedBar({ data, height, width }: { data: any, height:
 
         // Add Y-axis
         svg.append("g")
-            .attr("transform", `translate(${margin.left},0)`)
+            .attr("transform", `translate(${margin.left - 10},0)`) // Add gap by shifting the Y-axis left
             .call(d3.axisLeft(yScale).tickSize(0))
             .select(".domain")
-            .remove()               // Remove the Y-axis vertical line
-            .selectAll("text")
-            .style("font-size", "12px");
+            .remove();               // Remove the Y-axis vertical line
+
+        svg.selectAll(".tick text")
+            .style("font-size", tokens.fontSizeHeading5)
 
         // Add tooltip
-        const tooltip = d3.select("body")
-            .append("div")
+        const tooltip = d3.select("body").append("div")
+            .attr("class", "d3-tooltip")
             .style("position", "absolute")
-            .style("background", "white")
-            .style("border", "1px solid #ccc")
-            .style("padding", "5px")
+            .style("visibility", "hidden")
+            .style("background-color", tokens.colorBgElevated)
+            .style("color", tokens.colorText)
+            .style("padding", "8px")
             .style("border-radius", "4px")
-            .style("box-shadow", "0px 2px 5px rgba(0, 0, 0, 0.2)")
-            .style("pointer-events", "none")
-            .style("opacity", 0);
+            .style("font-size", "12px")
+            .style("box-shadow", "0 2px 8px rgba(0,0,0,0.15)");
 
         // Add stacked bars
         svg.append("g")
@@ -93,8 +95,8 @@ export default function StackedBar({ data, height, width }: { data: any, height:
                     .style("cursor", "pointer");
 
                 tooltip
-                    .style("opacity", 1)
-                    .html(`<strong>${d.category} (${d.percentage.toFixed(1)}%)</strong><br>Val: ${d.value}`)
+                    .style("visibility", "visible")
+                    .html(`<strong>${d.category[0].toUpperCase() + d.category.slice(1)} (${d.percentage.toFixed(1)}%)</strong><br>Val: ${d.value}`)
                     .style("left", `${event.pageX + 10}px`)
                     .style("top", `${event.pageY + 10}px`);
             })
@@ -107,7 +109,7 @@ export default function StackedBar({ data, height, width }: { data: any, height:
                 d3.select(this)
                     .style("opacity", 1);
 
-                tooltip.style("opacity", 0);
+                tooltip.style("visibility", "hidden");
             });
 
         // Add percentage text inside the bars
@@ -130,8 +132,8 @@ export default function StackedBar({ data, height, width }: { data: any, height:
             .attr("dy", "0.35em")
             .attr("text-anchor", "middle")
             .text(d => `${d.percentage.toFixed(1)}%`)
-            .style("fill", "white")
-            .style("font-size", "10px");
+            .style("fill", tokens.colorText)
+            .style("font-size", tokens.fontSizeSM);
 
         // Add X-axis
         svg.append("g")
@@ -157,8 +159,9 @@ export default function StackedBar({ data, height, width }: { data: any, height:
             legendRow.append("text")
                 .attr("x", 20)
                 .attr("y", 12)
-                .style("font-size", "12px")
-                .text(category);
+                .style("font-size", tokens.fontSize)
+                .style("fill", tokens.colorText)
+                .text(category[0].toUpperCase() + category.slice(1));
         });
 
         return () => {
