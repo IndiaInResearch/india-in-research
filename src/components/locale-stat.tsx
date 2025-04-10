@@ -13,16 +13,64 @@ import { getDataReturnType } from "@/utils/data-handlers";
 export default function LocaleHighlights({data}: {
     data: getDataReturnType
 }) {
-    const [showExpanded, setShowExpanded] = useState(false);
+    const [showExpanded, setShowExpanded] = useState(true);
 
     const institute_to_papers_with_latlon = data.indian_institute_to_papers_with_latlon_for_graph;
-    const indian_institutes_to_papers = data.indian_institutes_to_papers
+    const indian_institutes_to_papers = data.indian_institutes_to_papers.map(institute => ({
+        ...institute,
+        researchers: [] as string[]
+    }));
 
     const maxCount = Math.max(
         ...indian_institutes_to_papers.map((institute) => institute.count)
     )
-
     const maxCountInstitutes = indian_institutes_to_papers.filter((institute) => institute.count == maxCount)
+
+    const indianPapers = data.indian_papers
+
+    const author_to_paper_count: Record<string, {aff_counts: Record<string, number>, name: string}> = {}
+
+    for(const paper of indianPapers){
+        for (const authorship of paper.authorships || []){
+            if (authorship.author.openalex_id){
+                for (const institution of authorship.institutions || []){
+                    if (institution.institution?.openalex_id){
+                        if (!(authorship.author.openalex_id in author_to_paper_count)){
+                            author_to_paper_count[authorship.author.openalex_id] = { aff_counts: {}, name: authorship.author.name }
+                        }
+                        if (institution.institution?.openalex_id in author_to_paper_count[authorship.author.openalex_id].aff_counts){
+                            author_to_paper_count[authorship.author.openalex_id].aff_counts[institution.institution?.openalex_id]++
+                        }
+                        else{
+                            author_to_paper_count[authorship.author.openalex_id].aff_counts[institution.institution?.openalex_id] = 1
+                        }
+                    }
+                }
+            }
+        }
+    }    
+
+    const paperCounts = Object.values(author_to_paper_count).map(author => 
+        Object.values(author.aff_counts).reduce((a, b) => a + b, 0)
+    );
+
+    // review this thresholding logic
+    paperCounts.sort((a, b) => a - b);
+    const percentileIndex = Math.ceil(0.75 * paperCounts.length);
+    let threshold = paperCounts[percentileIndex] + 1;
+    threshold = Math.min(threshold, paperCounts[paperCounts.length - 1])
+    
+    console.log(`Calculated threshold: ${threshold}`);
+
+    for (const author in author_to_paper_count){
+        const totalPapers = Object.values(author_to_paper_count[author].aff_counts).reduce((a, b) => a + b, 0)
+
+        if (totalPapers >= threshold){
+            for (const institute in author_to_paper_count[author].aff_counts){
+                indian_institutes_to_papers.find((d) => d.domain == institute)?.researchers.push(author_to_paper_count[author].name)
+            }
+        }
+    }
 
     const columns: ColumnsType = [
         {
@@ -39,13 +87,14 @@ export default function LocaleHighlights({data}: {
             key: "count",
             sorter: (a, b) => a.count - b.count,
             sortDirections: ['descend', 'ascend', 'descend'],
-            defaultSortOrder: 'descend'
+            defaultSortOrder: 'descend',
+            width: "10%",
         },
         {
-            title: "Researchers",
-            dataIndex: "authors_aff",
+            title: "Popular Researchers",
+            dataIndex: "researchers",
             key: "authors_aff",
-            
+            render: (researchers: string[]) => researchers.join(", ")
         },
     ]
 
