@@ -1,4 +1,4 @@
-import { Divider, Flex, Space } from "antd";
+import { Breadcrumb, Divider, Flex, Space } from "antd";
 import allVenuesData from "@/data/all-venues-data.json";
 import { notFound } from "next/navigation";
 import CountryStat from "@/components/country-stat";
@@ -92,22 +92,27 @@ export default async function StatPage({
     let subsetVenuesData = []
     let singleConfData = false
     const hierarchyLabels = []
+    const breadCrumbLabels = []
 
     hierarchyLabels.push(allVenuesData.find((d) => d.value === domain)?.label || "")
+    breadCrumbLabels.push(allVenuesData.find((d) => d.value === domain)?.full_name || "")
     subsetVenuesData = allVenuesData.find((d) => d.value === domain)?.venues || []
     
 
     if (subdomain) {
         hierarchyLabels.push(subsetVenuesData.find((sd) => sd.subdomain === subdomain)?.label || "")
+        breadCrumbLabels.push(subsetVenuesData.find((sd) => sd.subdomain === subdomain)?.full_name || "")
         subsetVenuesData = subsetVenuesData.find((sd) => sd.subdomain === subdomain)?.venues || []
         
         if (subsubdomain) {
             hierarchyLabels.push(subsetVenuesData.find((ssd) => ssd.subsubdomain === subsubdomain)?.label || "")
+            breadCrumbLabels.push(subsetVenuesData.find((ssd) => ssd.subsubdomain === subsubdomain)?.full_name || "")
             subsetVenuesData = subsetVenuesData.find((ssd) => ssd.subsubdomain === subsubdomain)?.venues || []
 
             if (conf) {
                 const conf_data = subsetVenuesData.find((v) => v.value === conf)
                 if (conf_data) {
+                    breadCrumbLabels.push(conf_data.label)
                     subsetVenuesData = [conf_data]
                     singleConfData = true
                 }
@@ -142,6 +147,9 @@ export default async function StatPage({
                 </Flex>
                 <Flex vertical justify="center" align="center">
                     <Divider />
+                    <Space style={{maxWidth: 1600, margin: "0 auto", width: "100%", marginBottom: 16}}>
+                        <Breadcrumb items={breadCrumbLabels.map((label) => ({ title: label }))} />
+                    </Space>
                     <VenueTitleDisplay singleConfData={singleConfData} selectedVenues={selectedVenues} hierarchyLabels={hierarchyLabels} year={year}/>
                     <Divider />
                     <PaperStat data={data} />

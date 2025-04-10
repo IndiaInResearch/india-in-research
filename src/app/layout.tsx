@@ -7,8 +7,7 @@ import { Content, Footer as AntFooter, Header } from "antd/es/layout/layout";
 import NavBar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import TermlyCMP from "@/components/termly-cmp";
-import { Suspense } from "react";
+import SuspenseWithTermlyCMP from "@/components/termly-cmp";
 
 
 export const metadata: Metadata = {
@@ -44,9 +43,7 @@ export default function RootLayout({
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9123105121789937" crossOrigin="anonymous"></script>
       </head>
       <body>
-        <Suspense>
-          <TermlyCMP websiteUUID={'de1531e1-f734-46d0-a912-ed316fa77cd1'}></TermlyCMP>
-        </Suspense>
+        <SuspenseWithTermlyCMP websiteUUID={'de1531e1-f734-46d0-a912-ed316fa77cd1'}></SuspenseWithTermlyCMP>
         <AntdRegistry>
           <AntdConfigProvider>
             <Layout>

@@ -68,6 +68,15 @@
                                     "year": 2024,
                                     "location": "Hawaii, USA"
                                 }]
+                            },
+                            {
+                                "label": "ECCV",
+                                "value": "eccv",
+                                "full_name": "European Conference on Computer Vision",
+                                "places": [{
+                                    "year": 2024,
+                                    "location": "Milan, Italy"
+                                }]
                             }
                         ]
                     },

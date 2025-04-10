@@ -5,37 +5,47 @@ import Title from "antd/es/typography/Title";
 import Text from "antd/es/typography/Text";
 import { useState } from "react";
 import { ColumnsType } from "antd/es/table";
-import { getInstituteFromDomain } from "@/utils/domain-handlers";
 import SearchBox from "./search-box";
-import useBreakpoint from "antd/lib/grid/hooks/useBreakpoint";
 import AntTable from "./ant-table";
+import { getDataReturnType } from "@/utils/data-handlers";
+import { NewPaper, TopicLink } from "@/utils/paper-interfaces";
+import { ReportIssueButton } from "./misc";
+import LookableText, { RenderArrayAsLookableText } from "./lookable-text";
 
-export default function PaperStat({data}: {
-    data: any
-}) {
+export default function PaperStat({data}: {data: getDataReturnType}) {
     const [showExpanded, setShowExpanded] = useState(true);
     const [searchText, setSearchText] = useState("");
-    const screens = useBreakpoint();
     
 
-    const indian_papers = data.indian_papers;
+    const indian_papers = data.indian_papers as (NewPaper & { aff_render?: { text: string; link: string | undefined; }[], author_render?: string[] })[];
     const countries_to_papers: Record<string, number> = data.countries_to_papers;
 
     const totalPapers = Object.values(countries_to_papers).reduce((sum, count) => sum + count, 0);
 
-    indian_papers.map((paper: any) => {
-        paper['aff_render'] = Array.from(new Set(paper.aff_domains.map((aff: string, idx: number) => {
-            const institute = getInstituteFromDomain(aff);
-            if (institute) {
-                return institute.name;
+    indian_papers.forEach((paper) => {
+        paper.aff_render = Array.from(new Set(paper.authorships?.map(authorship => {
+            if (authorship.institutions && authorship.institutions.length > 0) {
+                // set will treat different objects as not equal even if their content is same
+                return JSON.stringify({
+                    text: authorship.institutions[0].institution?.display_name || "Unknown",
+                    link: authorship.institutions[0].institution?.openalex_id
+                })
             }
-            if (idx < paper.authors_aff?.length) {
-                return paper.authors_aff[idx]
+            return JSON.stringify({
+                text: "Unknown",
+                link: undefined
+            })
+        }))).map(aff => JSON.parse(aff))
+
+        paper.author_render = paper.authorships?.map(authorship => {
+            if (authorship.author.name) {
+                return authorship.author.name
             }
-            return aff
-        })))
+            return "Unknown";
+        }) || [];
     })
 
+    // use fuzzy search here
     const filteredPapers = indian_papers.filter((paper: any) =>
         Object.values(paper).some(value =>
             value && value.toString().toLowerCase().includes(searchText.toLowerCase())
@@ -54,7 +64,7 @@ export default function PaperStat({data}: {
         },
         {
             title: "Authors",
-            dataIndex: "authors",
+            dataIndex: "author_render",
             key: "authors",
             render: (authors: string[]) => authors.join(", ")
         },
@@ -62,28 +72,38 @@ export default function PaperStat({data}: {
             title: "Affiliation",
             dataIndex: "aff_render",
             key: "authors_aff",
-            filters: Array.from(new Set(indian_papers.flatMap((paper: any) => paper.aff_render))).sort().map(aff => ({ text: aff as React.ReactNode, value: aff as string })),
+            // filter not working. search not working. 
+            filters: Array.from(new Set(indian_papers.flatMap((paper) => paper.aff_render))).sort().map(aff => ({ text: aff?.text as React.ReactNode, value: aff?.text as string })),
             onFilter: (value, record) => record.aff_render.includes(value),
             filterIcon: false,
             filterSearch: true,
-            render: (affiliation: string[]) => affiliation.join(", ")
+            render: (aff_render: {text: string, link: string | undefined}[]) => RenderArrayAsLookableText(aff_render)
         },
         {
             title: "Venue",
-            dataIndex: "conf",
+            dataIndex: "publication_venue",
             key: "conf",
-            filters: Array.from(new Set(indian_papers.map((paper: any) => paper.conf?.toLocaleUpperCase()))).map(conf => ({ text: conf as React.ReactNode, value: conf as string })),
-            onFilter: (value, record) => record.conf?.toLocaleUpperCase() === value,
+            filters: Array.from(new Set(indian_papers.map((paper) => paper.publication_venue?.toLocaleUpperCase()))).map(conf => ({ text: conf as React.ReactNode, value: conf as string })),
+            onFilter: (value, record) => record.publication_venue?.toLocaleUpperCase() === value,
             filterSearch: true,
             minWidth: 100,
-            render: (conf: string) => conf?.toLocaleUpperCase()
+            render: (publication_venue: string) => publication_venue?.toLocaleUpperCase()
         },
         {
             title: "Primary Area",
-            dataIndex: "primary_area",
-            key: "primary_area",
+            dataIndex: "primary_topic",
+            key: "primary_topic",
             width: "10%",
-            render: (primary_area: string) => primary_area?.split("_").join(" ")
+            render: (primary_topic: TopicLink, record: any) => {
+                const newPaperRecord = record as NewPaper;
+                if (primary_topic && primary_topic.topic && primary_topic.topic.display_name){
+                    return primary_topic.topic.display_name.toLowerCase()
+                }
+                if (newPaperRecord.primary_area_from_paper) {
+                    return newPaperRecord.primary_area_from_paper.replace(/_/g, " ");
+                }
+                return "";
+            }
         },
         {
             title: "",
@@ -96,17 +116,21 @@ export default function PaperStat({data}: {
 
     return (
         <Flex vertical justify="center" align="center" style={{maxWidth: 1600, margin: "0 auto", width: "100%"}}>
-            <Flex justify="space-between" align="center" style={{width: "100%"}}>
-                <Space align="baseline">
-                    <Title level={4}>Paper Statistics</Title>
-                    <Button 
-                        variant="link" 
-                        color="default"
-                        onClick={() => setShowExpanded(!showExpanded)}
-                    >
-                        {showExpanded ? 'View Less <' : 'View More >'}
-                    </Button>
-                </Space>
+            <Flex vertical style={{width: "100%"}}>
+                <Flex justify="space-between" align="center" style={{width: "100%"}}>
+                    <Space align="baseline">
+                        <Title level={4}>Paper Statistics</Title>
+                        <Button 
+                            variant="link" 
+                            color="default"
+                            onClick={() => setShowExpanded(!showExpanded)}
+                        >
+                            {showExpanded ? 'View Less <' : 'View More >'}
+                        </Button>
+                    </Space>
+                    <ReportIssueButton />
+                </Flex>
+                <Text>List of accepted papers where maximum authors are from Indian Institutes. More details here.</Text>
             </Flex>
             <Space direction="vertical" style={{width: "100%"}}>
                 <Flex gap={64} justify="space-evenly" style={{marginTop: 32, marginBottom: 64}}>

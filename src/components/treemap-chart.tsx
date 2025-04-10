@@ -23,7 +23,7 @@ interface TreemapData {
 type TreemapNode = d3.HierarchyRectangularNode<TreemapData>;
 
 // LLM generated code
-export default function TreemapChart({ data, width, height, maxEntries = 10, keyToHighlight }: TreemapProps) {
+export default function TreemapChart({ data, width, height, maxEntries, keyToHighlight }: TreemapProps) {
     const svgRef = useRef<SVGSVGElement>(null);
     const { mode, setMode } = useContext(ThemeModeContext);
 
@@ -34,6 +34,17 @@ export default function TreemapChart({ data, width, height, maxEntries = 10, key
 
         // Clear any existing content
         d3.select(svgRef.current).selectAll("*").remove();
+
+        const tooltip = d3.select("body").append("div")
+            .attr("class", "d3-tooltip")
+            .style("position", "absolute")
+            .style("visibility", "hidden")
+            .style("background-color", tokens.colorBgElevated)
+            .style("color", tokens.colorText)
+            .style("padding", "8px")
+            .style("border-radius", "4px")
+            .style("font-size", "12px")
+            .style("box-shadow", "0 2px 8px rgba(0,0,0,0.15)");
 
         // Convert data to hierarchical format
         const hierarchicalData: TreemapData = {
@@ -107,12 +118,24 @@ export default function TreemapChart({ data, width, height, maxEntries = 10, key
                     .style("opacity", 0.5)
                     .style("cursor", "pointer")
                     .style("stroke", colorScale(0.9))
+
+                    tooltip
+                        .style("visibility", "visible")
+                        .html(`<strong>${countryCodeToName.find((c) => c.code === d.data.name)?.name || d.data.name}</strong><br />Value: ${d.value}`);
+            })
+            .on("mousemove", function(event: MouseEvent) {
+                tooltip
+                    .style("left", `${event.pageX + 10}px`)
+                    .style("top", `${event.pageY - 10}px`);
             })
             .on("mouseout", function(event, d) {
                 d3.select(this)
                     .style("opacity", 1)
                     .style("filter", "none")
                     .style("stroke", tokens.colorBgBase)
+
+                // Remove tooltip
+                tooltip.style("visibility", "hidden");
             });
 
         // Add text labels
@@ -126,16 +149,6 @@ export default function TreemapChart({ data, width, height, maxEntries = 10, key
             .attr("font-family", tokens.fontFamilyCode)
             .attr("fill", tokens.colorText)
             .style("pointer-events", "none")
-            .each(function(d) {
-                const node = d as TreemapNode;
-                const bbox = (this as SVGTextElement).getBBox();
-                const availableWidth = node.x1 - node.x0;
-
-                if (bbox.width > availableWidth - 10) {
-                    d3.select(this)
-                        .text(node.data.name.substring(0, 3) + "...")
-                }
-            });
 
         // Add value labels
         nodes
@@ -148,12 +161,15 @@ export default function TreemapChart({ data, width, height, maxEntries = 10, key
             .attr("fill", tokens.colorText)
             .style("pointer-events", "none");
 
-        // Add tooltips
-        nodes
-            .append("title")
-            .text(d => `${countryCodeToName.find((c) => c.code === d.data.name)?.name || d.data.name}\nValue: ${d.value}`);
 
-    }, [data, width, height, mode]);
+    }, [data, width, height, mode, maxEntries]);
+    
+    // Cleanup tooltip on unmount
+    useEffect(() => {
+        return () => {
+            d3.select("body").selectAll(".d3-tooltip").remove();
+        };
+    }, []);
 
     return (
         <svg 

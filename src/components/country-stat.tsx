@@ -9,6 +9,8 @@ import { ColumnsType } from "antd/es/table";
 import countryCodeToName from "@/data/third-party/country_code_to_name.json";
 import SearchBox from "./search-box";
 import AntTable from "./ant-table";
+import useBreakpoint from "antd/lib/grid/hooks/useBreakpoint";
+import { ReportIssueButton } from "./misc";
 
 export default function CountryStat({data}: {
     data: any
@@ -16,6 +18,7 @@ export default function CountryStat({data}: {
     const [showExpanded, setShowExpanded] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [searchText, setSearchText] = useState("");
+    const screens = useBreakpoint()
 
     const countries_to_papers: Record<string, number> = data.countries_to_papers;
 
@@ -70,17 +73,21 @@ export default function CountryStat({data}: {
 
     return (
         <Flex vertical justify="center" align="center" style={{maxWidth: 1600, margin: "0 auto", width: "100%"}}>
-            <Flex justify="space-between" align="center" style={{width: "100%"}}>
-                <Space align="baseline">
-                    <Title level={4}>Country Distribution</Title>
-                    <Button 
-                        variant="link" 
-                        color="default"
-                        onClick={() => setShowExpanded(!showExpanded)}
-                    >
-                        {showExpanded ? 'View Less <' : 'View More >'}
-                    </Button>
-                </Space>
+            <Flex vertical style={{width: "100%"}}>
+                <Flex justify="space-between" align="center" style={{width: "100%"}}>
+                    <Space align="baseline">
+                        <Title level={4}>Country Distribution</Title>
+                        <Button 
+                            variant="link" 
+                            color="default"
+                            onClick={() => setShowExpanded(!showExpanded)}
+                        >
+                            {showExpanded ? 'View Less <' : 'View More >'}
+                        </Button>
+                    </Space>
+                    <ReportIssueButton />
+                </Flex>
+                <Text>Country-wise distribution of all accepted papers in the venue. Learn how we identify that here.</Text>
             </Flex>
             <Space direction="vertical" style={{width: "100%"}}>
                 <Flex justify="space-evenly" wrap align="center" gap={32} style={{marginTop: 32, marginBottom: 64}}>
@@ -94,7 +101,7 @@ export default function CountryStat({data}: {
                         data={countries_to_papers} 
                         width="max(70%, 400px)"
                         height={showExpanded ? 300 : 180} 
-                        maxEntries={showExpanded ? 30 : 20} 
+                        maxEntries={showExpanded ? (screens.lg ? 20 : 15) : (screens.lg ? 15 : 10)} 
                         keyToHighlight="IN"
                     />
                 </Flex>
