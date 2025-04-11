@@ -5,6 +5,7 @@ import Text from "antd/es/typography/Text"
 import { useEffect, useState } from "react"
 import { Drawer } from "antd"
 import useBreakpoint from "antd/lib/grid/hooks/useBreakpoint"
+import { Institution } from "@/utils/paper-interfaces"
 
 export function RenderArrayAsLookableText(array: {text: string, link: string | undefined}[]) {
     return array.map((d, idx) => {
@@ -23,13 +24,14 @@ export function RenderArrayAsLookableText(array: {text: string, link: string | u
 
 export default function LookableText({text, link} : {text: string, link: string}) {
     const [isModalOpen, setIsModalOpen] = useState(false)
+    const [modalData, setModalData] = useState<Institution | null>(null)
     const screens = useBreakpoint()
 
 
     const openModal = async () => {
         setIsModalOpen(true)
-        const data = await fetch("http://indiainresearch.org/api/institute")
-        console.log(data)
+        const data = await fetch(`/api/institute/${link.replace("https://openalex.org/", "")}`)
+        setModalData(await data.json())
     }
     
 
@@ -38,8 +40,9 @@ export default function LookableText({text, link} : {text: string, link: string}
             <Text onClick={openModal} style={{"cursor": "pointer"}}>
                 {text}
             </Text>
-            <Drawer title={link} open={isModalOpen} onClose={() => setIsModalOpen(false)} size={screens.md ? "large" : "default"}>
-                <Title level={3}>{text}</Title>
+            <Drawer title={"Institute"} open={isModalOpen} onClose={() => setIsModalOpen(false)} size={screens.md ? "large" : "default"}>
+                <Title level={3}>{modalData?.display_name}</Title>
+                <Text>Link: {modalData?.homepage_url}</Text>
             </Drawer>
         </>
     )
