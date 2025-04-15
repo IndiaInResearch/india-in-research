@@ -94,7 +94,25 @@
                 "value": "systems",
                 "label": "Systems",
                 "full_name": "Systems and Networks",
-                "venues": []
+                "venues": [
+                    {
+                        "subsubdomain": "mobilecomputing",
+                        "value": "mobilecomputing",
+                        "label": "Mobile Computing",
+                        "full_name": "Mobile and Ubiquitous Computing",
+                        "venues": [
+                            {
+                                "label": "MobiSys",
+                                "value": "mobisys",
+                                "full_name": "International Conference on Mobile Systems, Applications, and Services",
+                                "places": [{
+                                    "year": 2024,
+                                    "location": "Tokyo, Japan"
+                                }]
+                            }
+                        ]
+                    }
+                ]
             },
             {
                 "subdomain": "theory",

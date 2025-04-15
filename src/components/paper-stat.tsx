@@ -148,7 +148,7 @@ export default function PaperStat({data}: {data: getDataReturnType}) {
                     </Flex>
                 </Flex>
 
-                {showExpanded && (
+                {showExpanded && data.indian_papers.length > 0 && (
                     <>
                         <SearchBox value={searchText} onChange={(e) => setSearchText(e.target.value)} placeholder="Search table"/>
                         <AntTable

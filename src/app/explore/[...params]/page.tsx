@@ -155,18 +155,23 @@ export default async function StatPage({
                     <PaperStat data={data} />
                     <Divider />
                     <CountryStat data={data}/>
-                    <Divider />
-                    <LocaleStat data={data}/>
-                    <Divider />
-                    <UndergraduateStat data={data}/>
-                    {(singleConfData) && (
+                    {data.indian_papers.length > 0 && 
                         <>
                             <Divider />
-                            <ScoreStat data={data} ratingKey="rating" title="Rating Score Distribution"/>
+                            <LocaleStat data={data}/>
                             <Divider />
-                            <ScoreStat data={data} ratingKey="novelty" title="Novelty Score Distribution"/>
+                            <UndergraduateStat data={data}/>
+                            {(singleConfData) && (
+                                <>
+                                    <Divider />
+                                    <ScoreStat data={data} ratingKey="rating" title="Rating Score Distribution"/>
+                                    <Divider />
+                                    <ScoreStat data={data} ratingKey="novelty" title="Novelty Score Distribution"/>
+                                </>
+                            )}
                         </>
-                    )}
+                    }
+                    
                 </Flex>
             </Flex>
         </>

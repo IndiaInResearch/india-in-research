@@ -93,7 +93,7 @@ export default function CountryStat({data}: {
                 <Flex justify="space-evenly" wrap align="center" gap={32} style={{marginTop: 32, marginBottom: 64}}>
                     <Flex vertical align="center">
                         <Title level={1}>
-                            {indiaRank}<sup>{indiaRank === 0 ? "st" : indiaRank === 1 ? "nd" : indiaRank === 2 ? "rd" : "th"}</sup>
+                            {indiaRank == -1 ? "NA" : indiaRank}<sup>{indiaRank === 0 ? "st" : indiaRank === 1 ? "nd" : indiaRank === 2 ? "rd" : indiaRank == -1 ? "" : "th"}</sup>
                         </Title>
                         <Text style={{textAlign: "center"}}>country rank</Text>
                     </Flex>
