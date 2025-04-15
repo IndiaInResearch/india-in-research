@@ -111,6 +111,66 @@
                                 }]
                             }
                         ]
+                    },
+                    {
+                        "subsubdomain": "databases",
+                        "value": "databases",
+                        "label": "Databases",
+                        "full_name": "Databases",
+                        "venues": [
+                            {
+                                "label": "VLDB",
+                                "value": "vldb",
+                                "full_name": "International Conference on Very Large Data Bases",
+                                "places": [{
+                                    "year": 2024,
+                                    "location": "Guangzhou, China"
+                                }]
+                            }
+                        ]
+                    },
+                    {
+                        "subsubdomain": "operatingsystems",
+                        "value": "operatingsystems",
+                        "label": "Operating Systems",
+                        "full_name": "Operating Systems",
+                        "venues": [
+                            {
+                                "label": "OSDI",
+                                "value": "osdi",
+                                "full_name": "USENIX Symposium on Operating Systems Design and Implementation",
+                                "places": [{
+                                    "year": 2024,
+                                    "location": "Santa Clara, USA"
+                                }]
+                            }
+                        ]
+                    },
+                    {
+                        "subsubdomain": "computernetworks",
+                        "value": "computernetworks",
+                        "label": "Computer Networks",
+                        "full_name": "Computer Networks",
+                        "venues": [
+                            {
+                                "label": "NSDI",
+                                "value": "nsdi",
+                                "full_name": "USENIX Symposium on Networked Systems Design and Implementation",
+                                "places": [{
+                                    "year": 2024,
+                                    "location": "Santa Clara, USA"
+                                }]
+                            },
+                            {
+                                "label": "SIGCOMM",
+                                "value": "sigcomm",
+                                "full_name": "ACM Special Interest Group on Data Communication",
+                                "places": [{
+                                    "year": 2024,
+                                    "location": "Sydney, Australia"
+                                }]
+                            }
+                        ]
                     }
                 ]
             },
@@ -133,6 +193,15 @@
                                 "places": [{
                                     "year": 2024,
                                     "location": "Vancouver, Canada"
+                                }]
+                            },
+                            {
+                                "label": "FOCS",
+                                "value": "focs",
+                                "full_name": "IEEE Symposium on Foundations of Computer Science",
+                                "places": [{
+                                    "year": 2024,
+                                    "location": "Chicago, USA"
                                 }]
                             }
                         ]
