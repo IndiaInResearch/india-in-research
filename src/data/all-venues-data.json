@@ -85,7 +85,17 @@
                         "value": "nlp",
                         "label": "NLP",
                         "full_name": "Natural Language Processing",
-                        "venues": []
+                        "venues": [
+                            {
+                                "label": "EMNLP",
+                                "value": "emnlp",
+                                "full_name": "Conference on Empirical Methods in Natural Language Processing",
+                                "places": [{
+                                    "year": 2024,
+                                    "location": "Miami, USA"
+                                }]
+                            }
+                        ]
                     }
                 ]
             },
