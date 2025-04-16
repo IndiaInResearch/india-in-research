@@ -25,10 +25,10 @@ export default function PaperStat({data}: {data: getDataReturnType}) {
     indian_papers.forEach((paper) => {
         paper.aff_render = Array.from(new Set(paper.authorships?.map(authorship => {
             if (authorship.institutions && authorship.institutions.length > 0) {
-                // set will treat different objects as not equal even if their content is same
+                // set will treat different objects as not equal even if their content is same, hence JSON.stringify
                 return JSON.stringify({
                     text: authorship.institutions[0].institution?.display_name || "Unknown",
-                    link: authorship.institutions[0].institution?.openalex_id
+                    link: authorship.institutions[0].institution?.country_code == "IN" ? authorship.institutions[0].institution?.openalex_id : null
                 })
             }
             return JSON.stringify({
