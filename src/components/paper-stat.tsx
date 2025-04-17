@@ -72,6 +72,7 @@ export default function PaperStat({data}: {data: getDataReturnType}) {
             title: "Authors",
             dataIndex: "author_render",
             key: "authors",
+            width: '30%',
             render: (authors: {text: string, link: string | undefined}[]) => RenderArrayAsLookableText(authors)
         },
         {

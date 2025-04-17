@@ -14,12 +14,12 @@ export function RenderArrayAsLookableText(array: {text: string, link: string | u
     return array.map((d, idx) => {
         if (!d.link) {
             if (idx != array.length - 1){
-                return <div key={idx}><Text>{d.text}, </Text></div>
+                return <span key={idx}><Text>{d.text}, </Text></span>
             }
             return <Text key={idx}>{d.text}</Text>
         }
         if (idx != array.length - 1){
-            return <div key={idx}><LookableText key={idx} text={d.text} link={d.link} /><Text>, </Text></div>
+            return <span key={idx}><LookableText key={idx} text={d.text} link={d.link} /><Text>, </Text></span>
         }
         return <LookableText key={idx} text={d.text} link={d.link} />
     })
@@ -64,7 +64,7 @@ export default function LookableText({text, link} : {text: string, link: string}
                 {text}
             </Text>
             {/* this will render one drawer for each lookable text which is not ideal */}
-            <Drawer title={"Institute"} open={isModalOpen} onClose={() => setIsModalOpen(false)} size={screens.md ? "large" : "default"}>
+            <Drawer title={lookableType && lookableType[0].toUpperCase() + lookableType.slice(1)} open={isModalOpen} onClose={() => setIsModalOpen(false)} size={screens.md ? "large" : "default"}>
                 {isModalLoading 
                     ? 
                     <LoadingComp /> 
