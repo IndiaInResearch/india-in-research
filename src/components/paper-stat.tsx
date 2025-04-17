@@ -17,7 +17,7 @@ export default function PaperStat({data}: {data: getDataReturnType}) {
     const [searchText, setSearchText] = useState("");
     
 
-    const indian_papers = data.indian_papers as (NewPaper & { aff_render?: { text: string; link: string | undefined; }[], author_render?: string[] })[];
+    const indian_papers = data.indian_papers as (NewPaper & { aff_render?: { text: string; link: string | undefined; }[], author_render?: { text: string; link: string | undefined; }[] })[];
     const countries_to_papers: Record<string, number> = data.countries_to_papers;
 
     const totalPapers = Object.values(countries_to_papers).reduce((sum, count) => sum + count, 0);
@@ -28,7 +28,7 @@ export default function PaperStat({data}: {data: getDataReturnType}) {
                 // set will treat different objects as not equal even if their content is same, hence JSON.stringify
                 return JSON.stringify({
                     text: authorship.institutions[0].institution?.display_name || "Unknown",
-                    link: authorship.institutions[0].institution?.country_code == "IN" ? authorship.institutions[0].institution?.openalex_id : null
+                    link: authorship.institutions[0].institution?.country_code == "IN" ? authorship.institutions[0].institution?.openalex_id : undefined
                 })
             }
             return JSON.stringify({
@@ -39,9 +39,15 @@ export default function PaperStat({data}: {data: getDataReturnType}) {
 
         paper.author_render = paper.authorships?.map(authorship => {
             if (authorship.author.name) {
-                return authorship.author.name
+                return {
+                    text: authorship.author.name,
+                    link: authorship.countries?.includes("IN") ? authorship.author.openalex_id : undefined
+                }
             }
-            return "Unknown";
+            return {
+                text: "Unknown",
+                link: undefined
+            }
         }) || [];
     })
 
@@ -66,7 +72,8 @@ export default function PaperStat({data}: {data: getDataReturnType}) {
             title: "Authors",
             dataIndex: "author_render",
             key: "authors",
-            render: (authors: string[]) => authors.join(", ")
+            width: '30%',
+            render: (authors: {text: string, link: string | undefined}[]) => RenderArrayAsLookableText(authors)
         },
         {
             title: "Affiliation",

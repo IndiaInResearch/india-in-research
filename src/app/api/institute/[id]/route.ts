@@ -1,4 +1,3 @@
-import { get_institute_data_in_mem } from "@/utils/domain-handlers";
 import { supabaseClient } from "@/utils/supabase-client";
 import { NextRequest, NextResponse } from "next/server";
 

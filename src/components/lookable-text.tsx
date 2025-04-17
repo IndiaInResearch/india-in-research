@@ -5,20 +5,21 @@ import Text from "antd/es/typography/Text"
 import { useEffect, useState } from "react"
 import { Drawer, Flex, Space, Tag } from "antd"
 import useBreakpoint from "antd/lib/grid/hooks/useBreakpoint"
-import { Institution } from "@/utils/paper-interfaces"
+import { Author, Institution } from "@/utils/paper-interfaces"
 import LoadingComp from "./loading"
 import Link from "next/link"
+import { AuthorCard, InstituteCard } from "./quick-info-cards"
 
 export function RenderArrayAsLookableText(array: {text: string, link: string | undefined}[]) {
     return array.map((d, idx) => {
         if (!d.link) {
             if (idx != array.length - 1){
-                return <div key={idx}><Text>{d.text}, </Text></div>
+                return <span key={idx}><Text>{d.text}, </Text></span>
             }
             return <Text key={idx}>{d.text}</Text>
         }
         if (idx != array.length - 1){
-            return <div key={idx}><LookableText key={idx} text={d.text} link={d.link} /><Text>, </Text></div>
+            return <span key={idx}><LookableText key={idx} text={d.text} link={d.link} /><Text>, </Text></span>
         }
         return <LookableText key={idx} text={d.text} link={d.link} />
     })
@@ -26,16 +27,33 @@ export function RenderArrayAsLookableText(array: {text: string, link: string | u
 
 export default function LookableText({text, link} : {text: string, link: string}) {
     const [isModalOpen, setIsModalOpen] = useState(false)
-    const [modalData, setModalData] = useState<Institution | null>(null)
+    const [modalData, setModalData] = useState<Institution |  Author | null>(null)
     const [isModalLoading, setIsModalLoading] = useState(false)
     const screens = useBreakpoint()
 
+    let lookableType = undefined
+
+    if (link.startsWith("https://openalex.org/A")){
+        lookableType = "author"
+    }
+    else if (link.startsWith("https://openalex.org/I")){
+        lookableType = "institute"
+    }
+    if (link.startsWith("https://openalex.org/W")){
+        lookableType = "paper"
+    }
 
     const openModal = async () => {
         setIsModalOpen(true)
         setIsModalLoading(true)
-        const data = await fetch(`/api/institute/${link.replace("https://openalex.org/", "")}`)
-        setModalData(await data.json())
+        if (lookableType == "institute"){
+            const data = await fetch(`/api/institute/${link.replace("https://openalex.org/", "")}`)
+            setModalData((await data.json()) as Institution)
+        }
+        if (lookableType == "author"){
+            const data = await fetch(`/api/author/${link.replace("https://openalex.org/", "")}`)
+            setModalData((await data.json()) as Author)
+        }
         setIsModalLoading(false)
     }
     
@@ -46,34 +64,14 @@ export default function LookableText({text, link} : {text: string, link: string}
                 {text}
             </Text>
             {/* this will render one drawer for each lookable text which is not ideal */}
-            <Drawer title={"Institute"} open={isModalOpen} onClose={() => setIsModalOpen(false)} size={screens.md ? "large" : "default"}>
+            <Drawer title={lookableType && lookableType[0].toUpperCase() + lookableType.slice(1)} open={isModalOpen} onClose={() => setIsModalOpen(false)} size={screens.md ? "large" : "default"}>
                 {isModalLoading 
                     ? 
                     <LoadingComp /> 
                     :
                     <>
-                        <Flex justify="space-between" style={{marginBottom: 16}}>
-                            <Tag>{modalData?.type?.toLocaleUpperCase()}</Tag>
-                            <Space>
-                                {modalData?.homepage_url && 
-                                    <Link href={modalData?.homepage_url} target="_blank" rel="noopener noreferrer">
-                                        <Tag>Website</Tag>
-                                    </Link>
-                                }
-                                {modalData?.openalex_id && 
-                                    <Link href={modalData?.openalex_id} target="_blank" rel="noopener noreferrer">
-                                        <Tag>OpenAlex</Tag>
-                                    </Link>
-                                }
-                                {modalData?.ror && 
-                                    <Link href={modalData?.ror} target="_blank" rel="noopener noreferrer">
-                                        <Tag>ROR</Tag>
-                                    </Link>
-                                }
-                            </Space>
-                        </Flex>
-                        <Title level={3}>{modalData?.display_name}</Title>
-                        <Title level={4}>{modalData?.display_name_acronyms?.[0]}</Title>
+                        {lookableType == "institute" && modalData && 'display_name' in modalData && <InstituteCard data={modalData} />}
+                        {lookableType == "author" && modalData && 'name' in modalData && <AuthorCard data={modalData} />}
                     </>
                 }
             </Drawer>
