@@ -1,7 +1,8 @@
 import { Author, Institution, InstitutionType } from "@/utils/paper-interfaces";
-import { Flex, Space, Tag } from "antd";
+import { Flex, Space, Tag, List, Button } from "antd";
 import Title from "antd/es/typography/Title";
 import Link from "next/link";
+import { useState } from "react";
 
 export function InstituteCard({data} : {data: Institution | null}){
 
@@ -52,7 +53,45 @@ export function AuthorCard({data} : {data: Author | null}){
             break
         }
     }
-    
+
+    const year_to_aff: Record<string, Institution[]> = {}
+
+    const aff_to_year: Record<string, {start: number, end: number}[]> = {}
+
+    for (const aff of data?.affiliations || []) {
+        if (aff.institution?.openalex_id && aff.years){
+            for (let idx = aff.years.length - 1; idx >= 0; idx--){
+                if (aff.institution.display_name in aff_to_year){
+                    const name = aff.institution.display_name
+
+                    if (aff_to_year[name].length > 0 && aff_to_year[name][aff_to_year[name].length - 1].end == aff.years[idx] - 1){
+                        aff_to_year[name][aff_to_year[name].length - 1].end = aff.years[idx]
+                    }
+                    else {
+                        aff_to_year[name].push({start: aff.years[idx], end: aff.years[idx]})
+                    }
+                }
+                else {
+                    aff_to_year[aff.institution.display_name] = [{start: aff.years[idx], end: aff.years[idx]}]
+                }
+            }
+        }
+    }
+
+    const author_affs = Object.entries(aff_to_year).flatMap(([name, years]) => {
+        return years.map(year => {
+            return {
+                name: name,
+                start: year.start,
+                end: year.end
+            }
+        })
+    }).sort((a, b) => b.end - a.end)
+
+    const [showAll, setShowAll] = useState(false);
+
+    const displayedAffs = showAll ? author_affs : author_affs.slice(0, 5);
+
     return  (
         <>
             <Flex justify="space-between" style={{marginBottom: 16}}>
@@ -71,6 +110,26 @@ export function AuthorCard({data} : {data: Author | null}){
                 </Space>
             </Flex>
             <Title level={3}>{data?.name}</Title>
+            <Title level={4}>Affiliation History</Title>
+            <List
+                itemLayout="horizontal"
+                dataSource={displayedAffs}
+                renderItem={aff => (
+                    <List.Item>
+                        <List.Item.Meta
+                            title={aff.name}
+                            description={`${aff.start} - ${aff.end}`}
+                        />
+                    </List.Item>
+                )}
+            />
+            {author_affs.length > 5 && (
+                <div style={{ textAlign: "center", marginTop: 16 }}>
+                    <Button type="text" size="small" onClick={() => setShowAll(!showAll)}>
+                        {showAll ? "View Less" : "View All"}
+                    </Button>
+                </div>
+            )}
         </>
     )
 }

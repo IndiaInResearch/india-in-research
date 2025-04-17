@@ -39,6 +39,12 @@ export interface Institution {
     latlon?: [number, number];
 }
 
+export interface AuthorInstitutionLink {
+    rank?: AuthorRank;
+    institution?: Institution;
+    years?: number[]
+}
+
 export interface InstitutionLink {
     rank?: AuthorRank;
     institution?: Institution;
@@ -65,9 +71,9 @@ export interface Author {
     openreview_id?: string;
     name: string;
     email?: string;
-    work?: InstitutionLink[];
-    education?: InstitutionLink[];
-    affiliations?: InstitutionLink[];
+    work?: AuthorInstitutionLink[];
+    education?: AuthorInstitutionLink[];
+    affiliations?: AuthorInstitutionLink[];
 }
 
 export interface AuthorLink {
