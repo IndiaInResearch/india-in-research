@@ -1,6 +1,6 @@
 [
     {
-        "id": "c281fea7-f9ca-4e76-8fb5-4b3ea08a1ae0",
+        "id": "e7b38e20-8453-49c8-8566-d6d4742823ac",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -38,7 +38,8 @@
                                     42.3751,
                                     -71.10561
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -102,7 +103,8 @@
                                     42.3751,
                                     -71.10561
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -164,7 +166,8 @@
                                     37.35411,
                                     -121.95524
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -224,7 +227,8 @@
                                     37.35411,
                                     -121.95524
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -284,7 +288,8 @@
                                     37.35411,
                                     -121.95524
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -346,7 +351,8 @@
                                     42.44063,
                                     -76.49661
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -410,7 +416,8 @@
                                     42.3751,
                                     -71.10561
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -495,7 +502,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "9770fb41-6d66-4f17-b907-1424c41fa73a",
+        "id": "7ba62af8-0121-44e8-bef3-f4240d64a595",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -534,7 +541,8 @@
                                     32.73569,
                                     -97.10807
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -600,7 +608,8 @@
                                     32.73569,
                                     -97.10807
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -666,7 +675,8 @@
                                     32.73569,
                                     -97.10807
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -732,7 +742,8 @@
                                     32.73569,
                                     -97.10807
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -798,7 +809,8 @@
                                     32.73569,
                                     -97.10807
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -861,7 +873,8 @@
                                     37.35411,
                                     -121.95524
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -921,7 +934,8 @@
                                     37.35411,
                                     -121.95524
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -1004,7 +1018,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "f7204663-e613-443a-8147-7831c5945498",
+        "id": "8bf1708a-1867-4b3e-880f-996e834eb574",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -1045,7 +1059,8 @@
                                     40.71427,
                                     -74.00597
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -1113,7 +1128,8 @@
                                     47.60621,
                                     -122.33207
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -1171,7 +1187,8 @@
                                 "country_code": null,
                                 "type": "other",
                                 "latlon": null
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -1229,7 +1246,8 @@
                                     40.71427,
                                     -74.00597
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -1294,7 +1312,8 @@
                                     37.35411,
                                     -121.95524
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -1354,7 +1373,8 @@
                                     37.35411,
                                     -121.95524
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -1414,7 +1434,8 @@
                                     37.35411,
                                     -121.95524
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -1474,7 +1495,8 @@
                                     37.35411,
                                     -121.95524
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -1538,7 +1560,8 @@
                                     43.07305,
                                     -89.40123
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -1606,7 +1629,8 @@
                                     42.27756,
                                     -83.74088
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -1675,7 +1699,8 @@
                                     40.71427,
                                     -74.00597
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -1771,7 +1796,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "d1dfe051-90a6-437e-a8b5-2419ffe83091",
+        "id": "d4ff00d9-30e0-4a74-b2d2-6e12e586df5d",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -1813,7 +1838,8 @@
                                     37.87159,
                                     -122.27275
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -1885,7 +1911,8 @@
                                     37.87159,
                                     -122.27275
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -1957,7 +1984,8 @@
                                     37.87159,
                                     -122.27275
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -2029,7 +2057,8 @@
                                     37.87159,
                                     -122.27275
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -2112,7 +2141,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "d88ae22b-9c27-49ee-aa57-dc5e9f445d40",
+        "id": "60cf16d2-191f-4bf4-96a6-45e57c823f0d",
         "openalex_id": "https://openalex.org/W4400023198",
         "doi": "https://doi.org/10.48550/arxiv.2406.16005",
         "conf_id": null,
@@ -2841,7 +2870,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "90f9b2b5-1add-4c0a-a719-4a171b0b33b5",
+        "id": "b8969978-b865-4434-8136-400d202521c9",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -2883,7 +2912,8 @@
                                     34.05223,
                                     -118.24368
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -2955,7 +2985,8 @@
                                     34.05223,
                                     -118.24368
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -3027,7 +3058,8 @@
                                     34.05223,
                                     -118.24368
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -3099,7 +3131,8 @@
                                     34.05223,
                                     -118.24368
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -3166,7 +3199,8 @@
                                     30.29365,
                                     120.16142
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -3228,7 +3262,8 @@
                                     30.29365,
                                     120.16142
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -3290,7 +3325,8 @@
                                     30.29365,
                                     120.16142
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -3355,7 +3391,8 @@
                                     32.71571,
                                     -117.16472
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -3425,7 +3462,8 @@
                                     34.05223,
                                     -118.24368
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -3497,7 +3535,8 @@
                                     34.05223,
                                     -118.24368
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -3592,7 +3631,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "5f36897c-84db-466f-a05f-1e2d7db356d5",
+        "id": "c0e8d378-a5d8-4ad0-a15e-f43913cdbb0c",
         "openalex_id": "https://openalex.org/W4392489911",
         "doi": "https://doi.org/10.48550/arxiv.2403.02310",
         "conf_id": null,
@@ -4075,7 +4114,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "be4b07ba-2331-4040-ab0e-16326d10e91a",
+        "id": "be201748-a4a6-45ad-8195-0ba9f0a82b0f",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -4111,7 +4150,8 @@
                                     55.95206,
                                     -3.19648
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -4171,7 +4211,8 @@
                                     55.95206,
                                     -3.19648
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -4231,7 +4272,8 @@
                                     55.95206,
                                     -3.19648
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -4291,7 +4333,8 @@
                                     55.95206,
                                     -3.19648
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -4346,7 +4389,8 @@
                                 "country_code": null,
                                 "type": "other",
                                 "latlon": null
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -4399,7 +4443,8 @@
                                     55.95206,
                                     -3.19648
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -4459,7 +4504,8 @@
                                     55.95206,
                                     -3.19648
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -4542,7 +4588,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "51cff9cb-9f08-4f43-9d1b-a14eb6237c6d",
+        "id": "8a35bb75-94fc-4545-bd3b-01757195816d",
         "openalex_id": "https://openalex.org/W4400222625",
         "doi": "https://doi.org/10.48550/arxiv.2406.19707",
         "conf_id": null,
@@ -4919,7 +4965,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "dd092604-eef1-44bf-afe9-4cfc41799889",
+        "id": "a90b529f-0b4e-4f6b-857a-e72c8b5aee8f",
         "openalex_id": "https://openalex.org/W4399453677",
         "doi": "https://doi.org/10.48550/arxiv.2406.03243",
         "conf_id": null,
@@ -5394,7 +5440,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "09c107e5-e269-430b-a3c2-484db1852149",
+        "id": "c2b93906-b6de-49b1-828a-f1fee6ab3140",
         "openalex_id": "https://openalex.org/W4391045969",
         "doi": "https://doi.org/10.48550/arxiv.2401.09670",
         "conf_id": null,
@@ -5954,7 +6000,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "d75591e0-bf43-457b-8a7b-b4af584e08b4",
+        "id": "6e1e79ec-5273-49de-a6a4-38b1a165b3c8",
         "openalex_id": "https://openalex.org/W4390041735",
         "doi": "https://doi.org/10.48550/arxiv.2312.11742",
         "conf_id": null,
@@ -6506,7 +6552,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "33b2d905-8e14-4781-be98-f326fde7c2c0",
+        "id": "faf6209c-7efb-4db6-978f-2567de0e892b",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -6542,7 +6588,8 @@
                                     39.95238,
                                     -75.16362
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -6607,7 +6654,8 @@
                                     31.22222,
                                     121.45806
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -6672,7 +6720,8 @@
                                     39.95238,
                                     -75.16362
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -6734,7 +6783,8 @@
                                     40.34872,
                                     -74.65905
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -6796,7 +6846,8 @@
                                     47.67399,
                                     -122.12151
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -6856,7 +6907,8 @@
                                     39.95238,
                                     -75.16362
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -6937,7 +6989,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "8a560dde-0e44-44ef-91fc-063e9b4e95f1",
+        "id": "939b9f3d-427a-42bf-ac71-40aee8a3da62",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -6978,7 +7030,8 @@
                                     31.22222,
                                     121.45806
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -7048,7 +7101,8 @@
                                     31.22222,
                                     121.45806
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -7118,7 +7172,8 @@
                                     31.22222,
                                     121.45806
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -7188,7 +7243,8 @@
                                     31.22222,
                                     121.45806
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -7270,7 +7326,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "7d6115a4-733d-4b09-9127-2a7bd4ae1c8f",
+        "id": "e814fbed-fb47-4a7e-8431-046220ee2e23",
         "openalex_id": "https://openalex.org/W4366204492",
         "doi": "https://doi.org/10.48550/arxiv.2304.07081",
         "conf_id": null,
@@ -7729,7 +7785,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "eee17d32-8358-44ec-b90c-884415805697",
+        "id": "43045f34-2239-4473-b172-178626d1619a",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -7767,7 +7823,8 @@
                                     31.86389,
                                     117.28083
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -7829,7 +7886,8 @@
                                     22.54554,
                                     114.0683
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -7884,7 +7942,8 @@
                                 "country_code": null,
                                 "type": "other",
                                 "latlon": null
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -7937,7 +7996,8 @@
                                     22.54554,
                                     114.0683
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -7999,7 +8059,8 @@
                                     31.86389,
                                     117.28083
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -8061,7 +8122,8 @@
                                     22.54554,
                                     114.0683
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -8121,7 +8183,8 @@
                                     22.54554,
                                     114.0683
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -8183,7 +8246,8 @@
                                     31.86389,
                                     117.28083
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -8246,7 +8310,8 @@
                                     28.19874,
                                     112.97087
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -8309,7 +8374,8 @@
                                     31.86389,
                                     117.28083
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -8373,7 +8439,8 @@
                                     31.86389,
                                     117.28083
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -8466,7 +8533,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "1886acf6-3c9b-4701-91fb-c666f1d93a2a",
+        "id": "9207cc3d-27db-4765-8553-1a9730acfb60",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -8504,7 +8571,8 @@
                                     39.9075,
                                     116.39723
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -8564,7 +8632,8 @@
                                     52.2,
                                     0.11667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -8620,7 +8689,8 @@
                                     52.2,
                                     0.11667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -8676,7 +8746,8 @@
                                     52.2,
                                     0.11667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -8732,7 +8803,8 @@
                                     52.2,
                                     0.11667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -8793,7 +8865,8 @@
                                     39.9075,
                                     116.39723
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -8854,7 +8927,8 @@
                                     52.2,
                                     0.11667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -8910,7 +8984,8 @@
                                     52.2,
                                     0.11667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -8966,7 +9041,8 @@
                                     52.2,
                                     0.11667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -9022,7 +9098,8 @@
                                     52.2,
                                     0.11667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -9078,7 +9155,8 @@
                                     52.2,
                                     0.11667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -9134,7 +9212,8 @@
                                     52.2,
                                     0.11667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -9225,7 +9304,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "19f0b83e-3283-4dad-b5c8-b43301088da4",
+        "id": "35a52a26-cf74-455c-98f1-52fa30a3dc8b",
         "openalex_id": "https://openalex.org/W4405845698",
         "doi": "https://doi.org/10.1145/3704742.3704964",
         "conf_id": null,
@@ -9262,26 +9341,6 @@
                             "homepage_url": "https://www.stanford.edu",
                             "country_code": "US",
                             "type": "funder",
-                            "latlon": [
-                                37.42411,
-                                -122.16608
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210137306",
-                            "display_name": "Stanford Medicine",
-                            "display_name_acronyms": [],
-                            "display_name_alternatives": [
-                                "Stanford University Medical Center"
-                            ],
-                            "ror": "https://ror.org/03mtd9a03",
-                            "homepage_url": "https://med.stanford.edu",
-                            "country_code": "US",
-                            "type": "healthcare",
                             "latlon": [
                                 37.42411,
                                 -122.16608
@@ -9411,26 +9470,6 @@
                                 -122.16608
                             ]
                         }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210137306",
-                            "display_name": "Stanford Medicine",
-                            "display_name_acronyms": [],
-                            "display_name_alternatives": [
-                                "Stanford University Medical Center"
-                            ],
-                            "ror": "https://ror.org/03mtd9a03",
-                            "homepage_url": "https://med.stanford.edu",
-                            "country_code": "US",
-                            "type": "healthcare",
-                            "latlon": [
-                                37.42411,
-                                -122.16608
-                            ]
-                        }
                     }
                 ],
                 "countries": [
@@ -9468,26 +9507,6 @@
                             "homepage_url": "https://www.stanford.edu",
                             "country_code": "US",
                             "type": "funder",
-                            "latlon": [
-                                37.42411,
-                                -122.16608
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210137306",
-                            "display_name": "Stanford Medicine",
-                            "display_name_acronyms": [],
-                            "display_name_alternatives": [
-                                "Stanford University Medical Center"
-                            ],
-                            "ror": "https://ror.org/03mtd9a03",
-                            "homepage_url": "https://med.stanford.edu",
-                            "country_code": "US",
-                            "type": "healthcare",
                             "latlon": [
                                 37.42411,
                                 -122.16608
@@ -9531,131 +9550,6 @@
                             "homepage_url": "https://www.umich.edu",
                             "country_code": "US",
                             "type": "funder",
-                            "latlon": [
-                                42.27756,
-                                -83.74088
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210130704",
-                            "display_name": "University of Michigan\u2013Dearborn",
-                            "display_name_acronyms": [],
-                            "display_name_alternatives": [],
-                            "ror": "https://ror.org/035wtm547",
-                            "homepage_url": "http://umdearborn.edu/",
-                            "country_code": "US",
-                            "type": "funder",
-                            "latlon": [
-                                42.32226,
-                                -83.17631
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210092198",
-                            "display_name": "University of Michigan\u2013Flint",
-                            "display_name_acronyms": [],
-                            "display_name_alternatives": [],
-                            "ror": "https://ror.org/01c3xc117",
-                            "homepage_url": "http://www.umflint.edu/",
-                            "country_code": "US",
-                            "type": "education",
-                            "latlon": [
-                                43.01253,
-                                -83.68746
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210114445",
-                            "display_name": "Michigan Medicine",
-                            "display_name_acronyms": [
-                                "UMHS"
-                            ],
-                            "display_name_alternatives": [
-                                "Syst\u00e8me de sant\u00e9 de l'universit\u00e9 du michigan",
-                                "University of Michigan Health System"
-                            ],
-                            "ror": "https://ror.org/01zcpa714",
-                            "homepage_url": "http://www.uofmhealth.org/",
-                            "country_code": "US",
-                            "type": "healthcare",
-                            "latlon": [
-                                42.27756,
-                                -83.74088
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4387930282",
-                            "display_name": "University of Michigan Biological Station",
-                            "display_name_acronyms": [
-                                "UMBS"
-                            ],
-                            "display_name_alternatives": [],
-                            "ror": "https://ror.org/02hhndj92",
-                            "homepage_url": "https://lsa.umich.edu/umbs",
-                            "country_code": null,
-                            "type": "facility",
-                            "latlon": [
-                                45.5528,
-                                -84.7854
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4390039285",
-                            "display_name": "U-M Rogel Cancer Center",
-                            "display_name_acronyms": [],
-                            "display_name_alternatives": [
-                                "University of Michigan Comprehensive Cancer Center",
-                                "UM Cancer Center",
-                                "University of Michigan Rogel Cancer Center",
-                                "University of Michigan Comprehensive Cancer Care Center",
-                                "UM Comprehensive Cancer Center",
-                                "Rogel Cancer Center",
-                                "Michigan Comprehensive Cancer Center",
-                                "University of Michigan Cancer Center",
-                                "Michigan Rogel Cancer Center"
-                            ],
-                            "ror": "https://ror.org/05asdy483",
-                            "homepage_url": "https://www.rogelcancercenter.org",
-                            "country_code": null,
-                            "type": "healthcare",
-                            "latlon": [
-                                42.27756,
-                                -83.74088
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4387153798",
-                            "display_name": "University of Michigan Press",
-                            "display_name_acronyms": [],
-                            "display_name_alternatives": [],
-                            "ror": "https://ror.org/00rx1p510",
-                            "homepage_url": "http://www.press.umich.edu",
-                            "country_code": null,
-                            "type": "other",
                             "latlon": [
                                 42.27756,
                                 -83.74088
@@ -9718,26 +9612,6 @@
                             "homepage_url": "https://www.stanford.edu",
                             "country_code": "US",
                             "type": "funder",
-                            "latlon": [
-                                37.42411,
-                                -122.16608
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210137306",
-                            "display_name": "Stanford Medicine",
-                            "display_name_acronyms": [],
-                            "display_name_alternatives": [
-                                "Stanford University Medical Center"
-                            ],
-                            "ror": "https://ror.org/03mtd9a03",
-                            "homepage_url": "https://med.stanford.edu",
-                            "country_code": "US",
-                            "type": "healthcare",
                             "latlon": [
                                 37.42411,
                                 -122.16608
@@ -9912,7 +9786,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "489906a0-2051-43d9-a3d7-95cc7f705cbc",
+        "id": "33224f54-67b3-4c65-aa5b-e55f0f1e7008",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -9950,7 +9824,8 @@
                                     31.86389,
                                     117.28083
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -10010,7 +9885,8 @@
                                     52.2,
                                     0.11667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -10066,7 +9942,8 @@
                                     52.2,
                                     0.11667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -10122,7 +9999,8 @@
                                     52.2,
                                     0.11667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -10178,7 +10056,8 @@
                                     52.2,
                                     0.11667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -10238,7 +10117,8 @@
                                     31.86389,
                                     117.28083
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -10300,7 +10180,8 @@
                                     37.77493,
                                     -122.41942
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -10356,7 +10237,8 @@
                                     52.2,
                                     0.11667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -10412,7 +10294,8 @@
                                     52.2,
                                     0.11667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -10468,7 +10351,8 @@
                                     52.2,
                                     0.11667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -10524,7 +10408,8 @@
                                     52.2,
                                     0.11667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -10580,7 +10465,8 @@
                                     52.2,
                                     0.11667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -10633,7 +10519,8 @@
                                 "country_code": null,
                                 "type": "other",
                                 "latlon": null
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -10684,7 +10571,8 @@
                                     52.2,
                                     0.11667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -10779,7 +10667,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "7903c142-4afe-4b0e-842a-b625922d0c5a",
+        "id": "f40a224e-7f0d-4af5-aeeb-55b398651f0c",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -10819,7 +10707,8 @@
                                     41.85003,
                                     -87.65005
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -10886,7 +10775,8 @@
                                     31.22222,
                                     121.45806
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -10953,7 +10843,8 @@
                                     41.85003,
                                     -87.65005
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -11021,7 +10912,8 @@
                                     41.85003,
                                     -87.65005
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -11089,7 +10981,8 @@
                                     41.85003,
                                     -87.65005
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -11157,7 +11050,8 @@
                                     41.85003,
                                     -87.65005
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -11225,7 +11119,8 @@
                                     41.85003,
                                     -87.65005
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -11312,7 +11207,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "513ea34c-d7cd-46e8-81fd-1b9e532afde7",
+        "id": "28ab665c-c17d-4be3-b7f6-1044f4f94e73",
         "openalex_id": "https://openalex.org/W4399758786",
         "doi": "https://doi.org/10.48550/arxiv.2406.09649",
         "conf_id": null,
@@ -11671,7 +11566,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "45faa3d2-004d-4134-a52a-41d371cd241d",
+        "id": "f9375a4b-08c1-4b66-a777-1be37e57e850",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -11710,7 +11605,8 @@
                                     37.42411,
                                     -122.16608
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -11776,7 +11672,8 @@
                                     37.42411,
                                     -122.16608
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -11842,7 +11739,8 @@
                                     37.42411,
                                     -122.16608
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -11907,7 +11805,8 @@
                                     42.44063,
                                     -76.49661
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -11971,7 +11870,8 @@
                                     42.44063,
                                     -76.49661
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -12031,7 +11931,8 @@
                                     48.13743,
                                     11.57549
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -12087,7 +11988,8 @@
                                     48.13743,
                                     11.57549
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -12143,7 +12045,8 @@
                                     48.13743,
                                     11.57549
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -12199,7 +12102,8 @@
                                     48.13743,
                                     11.57549
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -12255,7 +12159,8 @@
                                     48.13743,
                                     11.57549
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -12311,7 +12216,8 @@
                                     48.13743,
                                     11.57549
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -12367,7 +12273,8 @@
                                     48.13743,
                                     11.57549
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -12427,7 +12334,8 @@
                                     42.44063,
                                     -76.49661
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -12487,7 +12395,8 @@
                                     48.13743,
                                     11.57549
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -12548,7 +12457,8 @@
                                     37.42411,
                                     -122.16608
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -12650,7 +12560,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "5175a736-e8bc-4c32-b9f5-4a5a4ec706ba",
+        "id": "5aa5cb39-449c-4397-90cf-88d425eee247",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -12691,7 +12601,8 @@
                                     40.92565,
                                     -73.14094
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -12756,7 +12667,8 @@
                                     40.42587,
                                     -86.90807
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -12818,7 +12730,8 @@
                                     37.22957,
                                     -80.41394
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -12882,7 +12795,8 @@
                                     37.22957,
                                     -80.41394
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -12944,7 +12858,8 @@
                                     40.42587,
                                     -86.90807
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -13009,7 +12924,8 @@
                                     40.92565,
                                     -73.14094
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -13095,7 +13011,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "476eb458-740a-4aeb-8ccb-2607e1655c71",
+        "id": "027af427-431f-4b5f-883d-3a6b7165e8bf",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -13134,7 +13050,8 @@
                                     38.62727,
                                     -90.19789
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -13200,7 +13117,8 @@
                                     38.62727,
                                     -90.19789
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -13276,7 +13194,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "fb0e1769-c45b-4ccd-9e34-5cf0c540e59c",
+        "id": "60dc1015-8d11-46a8-8aa0-30bf6e47b8df",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -13312,7 +13230,8 @@
                                     22.54554,
                                     114.0683
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -13372,7 +13291,8 @@
                                     22.54554,
                                     114.0683
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -13432,7 +13352,8 @@
                                     22.54554,
                                     114.0683
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -13492,7 +13413,8 @@
                                     22.54554,
                                     114.0683
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -13552,7 +13474,8 @@
                                     22.54554,
                                     114.0683
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -13612,7 +13535,8 @@
                                     22.54554,
                                     114.0683
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -13672,7 +13596,8 @@
                                     22.54554,
                                     114.0683
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -13732,7 +13657,8 @@
                                     22.54554,
                                     114.0683
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -13792,7 +13718,8 @@
                                     22.54554,
                                     114.0683
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -13852,7 +13779,8 @@
                                     22.54554,
                                     114.0683
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -13912,7 +13840,8 @@
                                     22.54554,
                                     114.0683
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -13972,7 +13901,8 @@
                                     22.54554,
                                     114.0683
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -14032,7 +13962,8 @@
                                     22.54554,
                                     114.0683
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -14092,7 +14023,8 @@
                                     22.54554,
                                     114.0683
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -14152,7 +14084,8 @@
                                     22.54554,
                                     114.0683
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -14251,7 +14184,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "d38bf46e-b282-49b4-8a65-2acd06d327a7",
+        "id": "895d0f9c-2858-4f46-a954-7c1d1af7eb45",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -14287,7 +14220,8 @@
                                     42.41843,
                                     -71.10616
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -14347,7 +14281,8 @@
                                     42.41843,
                                     -71.10616
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -14407,7 +14342,8 @@
                                     42.41843,
                                     -71.10616
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -14467,7 +14403,8 @@
                                     42.41843,
                                     -71.10616
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -14527,7 +14464,8 @@
                                     42.41843,
                                     -71.10616
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -14606,7 +14544,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "6b706ad4-b4a2-48a2-b6f9-5475fa70bc2c",
+        "id": "a104a5cf-8a67-4ce2-9319-c93357e498ef",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -14643,7 +14581,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -14705,7 +14644,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -14767,7 +14707,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -14829,7 +14770,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -14891,7 +14833,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -14953,7 +14896,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -15015,7 +14959,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -15077,7 +15022,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -15139,7 +15085,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -15227,7 +15174,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "7bbea008-08e2-423a-8438-b5620e125893",
+        "id": "747ca154-8686-44e2-8273-04f87e8bfc3c",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -15266,7 +15213,8 @@
                                     37.42411,
                                     -122.16608
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -15329,7 +15277,8 @@
                                     43.70643,
                                     -79.39864
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -15392,7 +15341,8 @@
                                     37.42411,
                                     -122.16608
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -15455,7 +15405,8 @@
                                     43.70643,
                                     -79.39864
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -15513,7 +15464,8 @@
                                     37.77493,
                                     -122.41942
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -15569,7 +15521,8 @@
                                     37.77493,
                                     -122.41942
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -15625,7 +15578,8 @@
                                     37.77493,
                                     -122.41942
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -15681,7 +15635,8 @@
                                     37.77493,
                                     -122.41942
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -15739,7 +15694,8 @@
                                     43.70643,
                                     -79.39864
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -15826,7 +15782,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "a95dc329-e509-4bd8-991d-74b6dca0c667",
+        "id": "e21af762-023b-4f6e-868a-07873bc4eff7",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -15863,7 +15819,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -15925,7 +15882,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -15987,7 +15945,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -16049,7 +16008,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -16111,7 +16071,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -16173,7 +16134,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -16235,7 +16197,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -16297,7 +16260,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -16359,7 +16323,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -16421,7 +16386,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -16483,7 +16449,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -16545,7 +16512,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -16607,7 +16575,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -16669,7 +16638,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -16731,7 +16701,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -16793,7 +16764,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -16855,7 +16827,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -16917,7 +16890,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -16979,7 +16953,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -17087,7 +17062,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "9212d5a5-2b1f-45cf-8e19-6b38b8cb5cbb",
+        "id": "c466feac-8240-4119-a930-dc642aeb1528",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -17124,7 +17099,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -17186,7 +17162,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -17248,7 +17225,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -17307,7 +17285,8 @@
                                     37.36883,
                                     -122.03635
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -17366,7 +17345,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -17428,7 +17408,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -17490,7 +17471,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -17552,7 +17534,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -17614,7 +17597,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -17676,7 +17660,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -17738,7 +17723,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -17800,7 +17786,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -17862,7 +17849,8 @@
                                     32.08088,
                                     34.78057
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -17958,7 +17946,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "7839ea46-b55a-4b36-9670-1471f75c299f",
+        "id": "6121db8b-f329-492a-9ce0-fb9714ebc7fc",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -17996,7 +17984,8 @@
                                     46.516,
                                     6.63282
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -18060,7 +18049,8 @@
                                     46.516,
                                     6.63282
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -18124,7 +18114,8 @@
                                     46.516,
                                     6.63282
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -18201,7 +18192,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "610ece4d-304c-4d8d-88e3-ec019412fdf8",
+        "id": "1bc5d4ea-0a97-44d6-84dc-f806f6b7ecc2",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -18235,7 +18226,8 @@
                                     52.2,
                                     0.11667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -18297,7 +18289,8 @@
                                     43.07305,
                                     -89.40123
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -18359,7 +18352,8 @@
                                     52.2,
                                     0.11667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -18417,7 +18411,8 @@
                                     40.42587,
                                     -86.90807
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -18475,7 +18470,8 @@
                                     52.2,
                                     0.11667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -18531,7 +18527,8 @@
                                     52.2,
                                     0.11667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -18610,7 +18607,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "0a3e97e7-eedb-4128-8279-8333ce010a2b",
+        "id": "3c84e1db-9669-480f-ad8f-937ee9014f50",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -18653,7 +18650,8 @@
                                     47.36667,
                                     8.55
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -18727,7 +18725,8 @@
                                     47.36667,
                                     8.55
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -18807,7 +18806,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "7ba0ebb7-01a3-4333-845a-67d4bea82307",
+        "id": "48d2c74c-0b24-448b-9a09-689650cb5d45",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -18848,7 +18847,8 @@
                                     31.22222,
                                     121.45806
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -18918,7 +18918,8 @@
                                     31.22222,
                                     121.45806
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -18988,7 +18989,8 @@
                                     31.22222,
                                     121.45806
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -19058,7 +19060,8 @@
                                     31.22222,
                                     121.45806
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -19140,7 +19143,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "545d0c76-c912-4634-ad37-204fec70daca",
+        "id": "baa39004-c667-4f07-b181-f1810b61d347",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -19180,7 +19183,8 @@
                                     40.11059,
                                     -88.20727
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -19248,7 +19252,8 @@
                                     40.11059,
                                     -88.20727
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -19316,7 +19321,8 @@
                                     40.11059,
                                     -88.20727
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -19384,7 +19390,8 @@
                                     40.11059,
                                     -88.20727
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -19452,7 +19459,8 @@
                                     43.07305,
                                     -89.40123
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -19517,7 +19525,8 @@
                                     37.44188,
                                     -122.14302
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -19577,7 +19586,8 @@
                                     37.44188,
                                     -122.14302
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -19637,7 +19647,8 @@
                                     37.44188,
                                     -122.14302
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -19691,7 +19702,8 @@
                                 "country_code": null,
                                 "type": "other",
                                 "latlon": null
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -19745,7 +19757,8 @@
                                     37.44188,
                                     -122.14302
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -19808,7 +19821,8 @@
                                     40.11059,
                                     -88.20727
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -19903,7 +19917,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "295b571e-4609-428a-b1fb-aaab0f9ec6d1",
+        "id": "d8a3af8b-3534-4b7e-9dee-d82714233ba8",
         "openalex_id": "https://openalex.org/W4399597880",
         "doi": "https://doi.org/10.48550/arxiv.2406.07215",
         "conf_id": null,
@@ -20337,7 +20351,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "bd8dbc12-0087-40f7-855d-c9f4f4c92fd4",
+        "id": "2989ed5b-5418-4cc6-9d5e-d41f9a990527",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -20374,7 +20388,8 @@
                                     30.29365,
                                     120.16142
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -20436,7 +20451,8 @@
                                     30.29365,
                                     120.16142
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -20498,7 +20514,8 @@
                                     30.29365,
                                     120.16142
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -20560,7 +20577,8 @@
                                     30.29365,
                                     120.16142
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -20622,7 +20640,8 @@
                                     30.29365,
                                     120.16142
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -20684,7 +20703,8 @@
                                     30.29365,
                                     120.16142
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -20746,7 +20766,8 @@
                                     30.29365,
                                     120.16142
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -20808,7 +20829,8 @@
                                     30.29365,
                                     120.16142
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -20870,7 +20892,8 @@
                                     30.29365,
                                     120.16142
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -20932,7 +20955,8 @@
                                     30.29365,
                                     120.16142
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -20994,7 +21018,8 @@
                                     30.29365,
                                     120.16142
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -21056,7 +21081,8 @@
                                     30.29365,
                                     120.16142
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -21150,7 +21176,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "18df8320-fb1f-42d0-babb-104ab5685707",
+        "id": "67f99641-82fe-48e7-ab37-28bc668d6754",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -21184,7 +21210,8 @@
                                     12.97194,
                                     77.59369
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -21248,7 +21275,8 @@
                                     37.87159,
                                     -122.27275
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -21312,7 +21340,8 @@
                                     12.97194,
                                     77.59369
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -21376,7 +21405,8 @@
                                     37.87159,
                                     -122.27275
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -21448,7 +21478,8 @@
                                     37.87159,
                                     -122.27275
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -21533,7 +21564,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "5d58a6a6-e954-4a28-853e-e51b2b68408e",
+        "id": "92c313fe-01bb-47cd-a6e2-b01911e2884f",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -21575,7 +21606,8 @@
                                     37.87159,
                                     -122.27275
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -21647,7 +21679,8 @@
                                     37.87159,
                                     -122.27275
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -21713,7 +21746,8 @@
                                     41.27093,
                                     -73.77763
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -21779,7 +21813,8 @@
                                     37.87159,
                                     -122.27275
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -21862,7 +21897,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "247f60ee-b2d4-407c-9c25-8eed92fb08dd",
+        "id": "a27f92cb-2fb2-499e-9a3a-441ba38ae15f",
         "openalex_id": "https://openalex.org/W4408218722",
         "doi": "https://doi.org/10.1145/3718390",
         "conf_id": null,
@@ -21899,66 +21934,6 @@
                             "latlon": [
                                 40.44062,
                                 -79.99589
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210089979",
-                            "display_name": "Carnegie Mellon University Qatar",
-                            "display_name_acronyms": [
-                                "CMU-Q"
-                            ],
-                            "display_name_alternatives": [],
-                            "ror": "https://ror.org/00az5dt38",
-                            "homepage_url": "http://www.qatar.cmu.edu/",
-                            "country_code": "QA",
-                            "type": "education",
-                            "latlon": [
-                                25.28545,
-                                51.53096
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210091826",
-                            "display_name": "Carnegie Mellon University Australia",
-                            "display_name_acronyms": [
-                                "CMU"
-                            ],
-                            "display_name_alternatives": [],
-                            "ror": "https://ror.org/00ds41r10",
-                            "homepage_url": "https://www.australia.cmu.edu/",
-                            "country_code": "AU",
-                            "type": "education",
-                            "latlon": [
-                                -34.92866,
-                                138.59863
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210130200",
-                            "display_name": "Carnegie Mellon University Africa",
-                            "display_name_acronyms": [
-                                "CMU"
-                            ],
-                            "display_name_alternatives": [],
-                            "ror": "https://ror.org/02f33m021",
-                            "homepage_url": "https://www.africa.engineering.cmu.edu/",
-                            "country_code": "RW",
-                            "type": "education",
-                            "latlon": [
-                                -1.94995,
-                                30.05885
                             ]
                         }
                     }
@@ -21998,66 +21973,6 @@
                             "latlon": [
                                 40.44062,
                                 -79.99589
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210089979",
-                            "display_name": "Carnegie Mellon University Qatar",
-                            "display_name_acronyms": [
-                                "CMU-Q"
-                            ],
-                            "display_name_alternatives": [],
-                            "ror": "https://ror.org/00az5dt38",
-                            "homepage_url": "http://www.qatar.cmu.edu/",
-                            "country_code": "QA",
-                            "type": "education",
-                            "latlon": [
-                                25.28545,
-                                51.53096
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210091826",
-                            "display_name": "Carnegie Mellon University Australia",
-                            "display_name_acronyms": [
-                                "CMU"
-                            ],
-                            "display_name_alternatives": [],
-                            "ror": "https://ror.org/00ds41r10",
-                            "homepage_url": "https://www.australia.cmu.edu/",
-                            "country_code": "AU",
-                            "type": "education",
-                            "latlon": [
-                                -34.92866,
-                                138.59863
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210130200",
-                            "display_name": "Carnegie Mellon University Africa",
-                            "display_name_acronyms": [
-                                "CMU"
-                            ],
-                            "display_name_alternatives": [],
-                            "ror": "https://ror.org/02f33m021",
-                            "homepage_url": "https://www.africa.engineering.cmu.edu/",
-                            "country_code": "RW",
-                            "type": "education",
-                            "latlon": [
-                                -1.94995,
-                                30.05885
                             ]
                         }
                     },
@@ -22121,38 +22036,6 @@
                                 -79.05584
                             ]
                         }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4390039329",
-                            "display_name": "UNC Lineberger Comprehensive Cancer Center",
-                            "display_name_acronyms": [],
-                            "display_name_alternatives": [
-                                "University of North Carolina Cancer Center",
-                                "Lineberger Cancer Center",
-                                "Lineberger Cancer Research Center",
-                                "University of North Carolina Lineberger Cancer Research Center",
-                                "University of North Carolina at Chapel Hill Lineberger Comprehensive Cancer Center",
-                                "University of North Carolina at Chapel Hill Lineberger Cancer Center",
-                                "University of North Carolina Lineberger Cancer Center",
-                                "Lineberger Comprehensive Cancer Center",
-                                "UNC Cancer Center",
-                                "University of North Carolina Comprehensive Cancer Center",
-                                "UNC Comprehensive Cancer Center",
-                                "University of North Carolina Lineberger Comprehensive Cancer Center",
-                                "University of North Carolina Cancer Research Center"
-                            ],
-                            "ror": "https://ror.org/043ehm030",
-                            "homepage_url": "https://unclineberger.org",
-                            "country_code": null,
-                            "type": "healthcare",
-                            "latlon": [
-                                35.9132,
-                                -79.05584
-                            ]
-                        }
                     }
                 ],
                 "countries": [
@@ -22197,168 +22080,20 @@
                         "rank": null,
                         "institution": {
                             "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4400600948",
-                            "display_name": "Microsoft Research New England (United States)",
-                            "display_name_acronyms": [
-                                "MSR-NE"
-                            ],
-                            "display_name_alternatives": [
-                                "Microsoft Research New England"
-                            ],
-                            "ror": "https://ror.org/010wkqn50",
-                            "homepage_url": "https://www.microsoft.com/en-us/research/lab/microsoft-research-new-england/",
-                            "country_code": null,
-                            "type": "company",
-                            "latlon": [
-                                42.3751,
-                                -71.10561
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4401726785",
-                            "display_name": "Microsoft Research New York City (United States)",
-                            "display_name_acronyms": [
-                                "MSR-NYC"
-                            ],
-                            "display_name_alternatives": [
-                                "Microsoft Research New York City",
-                                "Microsoft Research New York"
-                            ],
-                            "ror": "https://ror.org/056zprp28",
-                            "homepage_url": "https://www.microsoft.com/en-us/research/lab/microsoft-research-new-york/",
-                            "country_code": null,
-                            "type": "company",
-                            "latlon": [
-                                40.71427,
-                                -74.00597
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
                             "openalex_id": "https://openalex.org/I58610484",
                             "display_name": "Seattle University",
                             "display_name_acronyms": [
                                 "SU"
                             ],
                             "display_name_alternatives": [
-                                "Universit\u00e9 de seattle",
                                 "Seattle U",
-                                "Universidad de Seattle"
+                                "Universidad de Seattle",
+                                "Universit\u00e9 de seattle"
                             ],
                             "ror": "https://ror.org/02jqc0m91",
                             "homepage_url": "https://www.seattleu.edu/",
                             "country_code": "US",
                             "type": "education",
-                            "latlon": [
-                                47.60621,
-                                -122.33207
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I11317958",
-                            "display_name": "Seattle Pacific University",
-                            "display_name_acronyms": [
-                                "SPU"
-                            ],
-                            "display_name_alternatives": [],
-                            "ror": "https://ror.org/02gzbg991",
-                            "homepage_url": "http://spu.edu/",
-                            "country_code": "US",
-                            "type": "education",
-                            "latlon": [
-                                47.60621,
-                                -122.33207
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I45029084",
-                            "display_name": "City University of Seattle",
-                            "display_name_acronyms": [],
-                            "display_name_alternatives": [
-                                "CityU"
-                            ],
-                            "ror": "https://ror.org/008a9hf75",
-                            "homepage_url": "http://www.cityu.edu/",
-                            "country_code": "US",
-                            "type": "education",
-                            "latlon": [
-                                47.60621,
-                                -122.33207
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I104304262",
-                            "display_name": "Antioch University Seattle",
-                            "display_name_acronyms": [
-                                "AUS"
-                            ],
-                            "display_name_alternatives": [],
-                            "ror": "https://ror.org/058gcv483",
-                            "homepage_url": "https://www.antioch.edu/seattle/",
-                            "country_code": "US",
-                            "type": "education",
-                            "latlon": [
-                                47.60621,
-                                -122.33207
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210094423",
-                            "display_name": "Vysok\u00e1 \u0161kola mana\u017ementu, City University of Seattle",
-                            "display_name_acronyms": [
-                                "VSM",
-                                "V\u0160M"
-                            ],
-                            "display_name_alternatives": [
-                                "Vysok\u00e1 \u0160kola Mana\u017ementu"
-                            ],
-                            "ror": "https://ror.org/00jjdh985",
-                            "homepage_url": "https://www.vsm.sk",
-                            "country_code": "SK",
-                            "type": "education",
-                            "latlon": [
-                                48.89452,
-                                18.04436
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4390039359",
-                            "display_name": "Fred Hutchinson/University of Washington/Seattle Children\u2019s Cancer Consortium",
-                            "display_name_acronyms": [],
-                            "display_name_alternatives": [
-                                "Fred Hutch/University of Washington/Seattle Children\u2019s Cancer Consortium"
-                            ],
-                            "ror": "https://ror.org/018da3y22",
-                            "homepage_url": "https://www.cancerconsortium.org",
-                            "country_code": null,
-                            "type": "healthcare",
                             "latlon": [
                                 47.60621,
                                 -122.33207
@@ -22382,212 +22117,6 @@
                             "homepage_url": "https://www.washington.edu",
                             "country_code": "US",
                             "type": "funder",
-                            "latlon": [
-                                47.60621,
-                                -122.33207
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I2801852214",
-                            "display_name": "University of Washington Medical Center",
-                            "display_name_acronyms": [
-                                "UWMC "
-                            ],
-                            "display_name_alternatives": [],
-                            "ror": "https://ror.org/00wbzw723",
-                            "homepage_url": "http://www.uwmedicine.org/uw-medical-center",
-                            "country_code": "US",
-                            "type": "healthcare",
-                            "latlon": [
-                                47.60621,
-                                -122.33207
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210138624",
-                            "display_name": "University of Washington Bothell",
-                            "display_name_acronyms": [],
-                            "display_name_alternatives": [
-                                "UW Bothell"
-                            ],
-                            "ror": "https://ror.org/02ygzhr13",
-                            "homepage_url": "https://www.uwb.edu/",
-                            "country_code": "US",
-                            "type": "funder",
-                            "latlon": [
-                                47.76232,
-                                -122.2054
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210138199",
-                            "display_name": "University of Washington Applied Physics Laboratory",
-                            "display_name_acronyms": [
-                                "APL-UW"
-                            ],
-                            "display_name_alternatives": [],
-                            "ror": "https://ror.org/03d17d270",
-                            "homepage_url": "https://www.apl.washington.edu/",
-                            "country_code": "US",
-                            "type": "facility",
-                            "latlon": [
-                                47.60621,
-                                -122.33207
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210150356",
-                            "display_name": "University of Washington Tacoma",
-                            "display_name_acronyms": [],
-                            "display_name_alternatives": [
-                                "UW Tacoma"
-                            ],
-                            "ror": "https://ror.org/05n8t2628",
-                            "homepage_url": "https://www.tacoma.uw.edu/",
-                            "country_code": "US",
-                            "type": "education",
-                            "latlon": [
-                                47.25288,
-                                -122.44429
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I191484440",
-                            "display_name": "University of Mary Washington",
-                            "display_name_acronyms": [
-                                "UMW"
-                            ],
-                            "display_name_alternatives": [
-                                "Universit\u00e9 de mary washington"
-                            ],
-                            "ror": "https://ror.org/03b48gv34",
-                            "homepage_url": "http://www.umw.edu/",
-                            "country_code": "US",
-                            "type": "education",
-                            "latlon": [
-                                38.30318,
-                                -77.46054
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4387153569",
-                            "display_name": "Friday Harbor Laboratories",
-                            "display_name_acronyms": [
-                                "FHL",
-                                "UW FHL"
-                            ],
-                            "display_name_alternatives": [
-                                "University of Washington Friday Harbor Laboratories",
-                                "UW Friday Harbor Laboratories"
-                            ],
-                            "ror": "https://ror.org/052w21a87",
-                            "homepage_url": "https://fhl.uw.edu",
-                            "country_code": null,
-                            "type": "funder",
-                            "latlon": [
-                                47.60621,
-                                -122.33207
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210091935",
-                            "display_name": "University of Maryland Baltimore Washington Medical Center",
-                            "display_name_acronyms": [
-                                "UM BWMC"
-                            ],
-                            "display_name_alternatives": [],
-                            "ror": "https://ror.org/00jyqx898",
-                            "homepage_url": "https://www.umms.org/bwmc",
-                            "country_code": "US",
-                            "type": "healthcare",
-                            "latlon": [
-                                39.16261,
-                                -76.62469
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210089965",
-                            "display_name": "Cancer Consortium",
-                            "display_name_acronyms": [],
-                            "display_name_alternatives": [
-                                "Fred Hutchinson/University of Washington Cancer Consortium"
-                            ],
-                            "ror": "https://ror.org/009tqys91",
-                            "homepage_url": "https://www.cancerconsortium.org",
-                            "country_code": "US",
-                            "type": "facility",
-                            "latlon": [
-                                47.60621,
-                                -122.33207
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4392738227",
-                            "display_name": "Taylor Family Institute for Innovative Psychiatric Research",
-                            "display_name_acronyms": [],
-                            "display_name_alternatives": [
-                                "Taylor Family Institute for Innovative Psychiatric Research at Washington University School of Medicine in St. Louis"
-                            ],
-                            "ror": "https://ror.org/03x3g5467",
-                            "homepage_url": "https://taylorfamilyinstitute.wustl.edu",
-                            "country_code": null,
-                            "type": "funder",
-                            "latlon": [
-                                38.62727,
-                                -90.19789
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4390039359",
-                            "display_name": "Fred Hutchinson/University of Washington/Seattle Children\u2019s Cancer Consortium",
-                            "display_name_acronyms": [],
-                            "display_name_alternatives": [
-                                "Fred Hutch/University of Washington/Seattle Children\u2019s Cancer Consortium"
-                            ],
-                            "ror": "https://ror.org/018da3y22",
-                            "homepage_url": "https://www.cancerconsortium.org",
-                            "country_code": null,
-                            "type": "healthcare",
                             "latlon": [
                                 47.60621,
                                 -122.33207
@@ -22632,66 +22161,6 @@
                                 -79.99589
                             ]
                         }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210089979",
-                            "display_name": "Carnegie Mellon University Qatar",
-                            "display_name_acronyms": [
-                                "CMU-Q"
-                            ],
-                            "display_name_alternatives": [],
-                            "ror": "https://ror.org/00az5dt38",
-                            "homepage_url": "http://www.qatar.cmu.edu/",
-                            "country_code": "QA",
-                            "type": "education",
-                            "latlon": [
-                                25.28545,
-                                51.53096
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210091826",
-                            "display_name": "Carnegie Mellon University Australia",
-                            "display_name_acronyms": [
-                                "CMU"
-                            ],
-                            "display_name_alternatives": [],
-                            "ror": "https://ror.org/00ds41r10",
-                            "homepage_url": "https://www.australia.cmu.edu/",
-                            "country_code": "AU",
-                            "type": "education",
-                            "latlon": [
-                                -34.92866,
-                                138.59863
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210130200",
-                            "display_name": "Carnegie Mellon University Africa",
-                            "display_name_acronyms": [
-                                "CMU"
-                            ],
-                            "display_name_alternatives": [],
-                            "ror": "https://ror.org/02f33m021",
-                            "homepage_url": "https://www.africa.engineering.cmu.edu/",
-                            "country_code": "RW",
-                            "type": "education",
-                            "latlon": [
-                                -1.94995,
-                                30.05885
-                            ]
-                        }
                     }
                 ],
                 "countries": [
@@ -22731,66 +22200,6 @@
                                 -79.99589
                             ]
                         }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210089979",
-                            "display_name": "Carnegie Mellon University Qatar",
-                            "display_name_acronyms": [
-                                "CMU-Q"
-                            ],
-                            "display_name_alternatives": [],
-                            "ror": "https://ror.org/00az5dt38",
-                            "homepage_url": "http://www.qatar.cmu.edu/",
-                            "country_code": "QA",
-                            "type": "education",
-                            "latlon": [
-                                25.28545,
-                                51.53096
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210091826",
-                            "display_name": "Carnegie Mellon University Australia",
-                            "display_name_acronyms": [
-                                "CMU"
-                            ],
-                            "display_name_alternatives": [],
-                            "ror": "https://ror.org/00ds41r10",
-                            "homepage_url": "https://www.australia.cmu.edu/",
-                            "country_code": "AU",
-                            "type": "education",
-                            "latlon": [
-                                -34.92866,
-                                138.59863
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210130200",
-                            "display_name": "Carnegie Mellon University Africa",
-                            "display_name_acronyms": [
-                                "CMU"
-                            ],
-                            "display_name_alternatives": [],
-                            "ror": "https://ror.org/02f33m021",
-                            "homepage_url": "https://www.africa.engineering.cmu.edu/",
-                            "country_code": "RW",
-                            "type": "education",
-                            "latlon": [
-                                -1.94995,
-                                30.05885
-                            ]
-                        }
                     }
                 ],
                 "countries": [
@@ -22828,66 +22237,6 @@
                             "latlon": [
                                 40.44062,
                                 -79.99589
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210089979",
-                            "display_name": "Carnegie Mellon University Qatar",
-                            "display_name_acronyms": [
-                                "CMU-Q"
-                            ],
-                            "display_name_alternatives": [],
-                            "ror": "https://ror.org/00az5dt38",
-                            "homepage_url": "http://www.qatar.cmu.edu/",
-                            "country_code": "QA",
-                            "type": "education",
-                            "latlon": [
-                                25.28545,
-                                51.53096
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210091826",
-                            "display_name": "Carnegie Mellon University Australia",
-                            "display_name_acronyms": [
-                                "CMU"
-                            ],
-                            "display_name_alternatives": [],
-                            "ror": "https://ror.org/00ds41r10",
-                            "homepage_url": "https://www.australia.cmu.edu/",
-                            "country_code": "AU",
-                            "type": "education",
-                            "latlon": [
-                                -34.92866,
-                                138.59863
-                            ]
-                        }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4210130200",
-                            "display_name": "Carnegie Mellon University Africa",
-                            "display_name_acronyms": [
-                                "CMU"
-                            ],
-                            "display_name_alternatives": [],
-                            "ror": "https://ror.org/02f33m021",
-                            "homepage_url": "https://www.africa.engineering.cmu.edu/",
-                            "country_code": "RW",
-                            "type": "education",
-                            "latlon": [
-                                -1.94995,
-                                30.05885
                             ]
                         }
                     }
@@ -23117,7 +22466,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "025b16b8-e69b-4ee3-994e-37ba80141c65",
+        "id": "ea68f4cb-e710-4de5-b1d2-89b5ec400137",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -23153,7 +22502,8 @@
                                     43.70643,
                                     -79.39864
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -23213,7 +22563,8 @@
                                     43.70643,
                                     -79.39864
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -23286,7 +22637,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "7aeb961b-6258-4ac5-9a7e-4aa8bf29fdb8",
+        "id": "12d595e2-43e9-4aa8-a8f3-939c0a848f9c",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -23325,7 +22676,8 @@
                                     39.9075,
                                     116.39723
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -23389,7 +22741,8 @@
                                     30.29365,
                                     120.16142
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -23451,7 +22804,8 @@
                                     30.29365,
                                     120.16142
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -23515,7 +22869,8 @@
                                     39.9075,
                                     116.39723
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -23581,7 +22936,8 @@
                                     39.9075,
                                     116.39723
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -23663,7 +23019,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "b61db398-5943-4900-81f6-423cba968581",
+        "id": "c98b2d64-a177-474b-955f-6cdc05cd2703",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -23702,7 +23058,8 @@
                                     30.58333,
                                     114.26667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -23768,7 +23125,8 @@
                                     30.58333,
                                     114.26667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -23834,7 +23192,8 @@
                                     30.58333,
                                     114.26667
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -23912,7 +23271,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "eba91a77-ba69-4d42-8eb8-acaf91aea2eb",
+        "id": "b0dc5223-9c8f-43c2-9c0d-96abe369b8a9",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -23955,7 +23314,8 @@
                                     47.36667,
                                     8.55
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -24029,7 +23389,8 @@
                                     47.36667,
                                     8.55
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -24109,7 +23470,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "c2aad625-6956-4b9b-ad7a-5f159f66178c",
+        "id": "554948f8-9a7b-46c2-9efc-3d3b1834553f",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -24149,7 +23510,8 @@
                                     42.27756,
                                     -83.74088
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -24213,7 +23575,8 @@
                                     40.44062,
                                     -79.99589
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -24277,7 +23640,8 @@
                                     42.27756,
                                     -83.74088
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -24345,7 +23709,8 @@
                                     43.07305,
                                     -89.40123
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -24409,7 +23774,8 @@
                                     40.44062,
                                     -79.99589
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -24488,7 +23854,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "500ff117-9ff7-4559-8d72-50415d2e632b",
+        "id": "978b800f-4f92-4033-afdd-7b4a9f278f6a",
         "openalex_id": "https://openalex.org/W4381611541",
         "doi": "https://doi.org/10.1145/3593856.3595904",
         "conf_id": null,
@@ -24717,30 +24083,6 @@
                                 -122.27275
                             ]
                         }
-                    },
-                    {
-                        "rank": null,
-                        "institution": {
-                            "id": "unknown",
-                            "openalex_id": "https://openalex.org/I4392738292",
-                            "display_name": "Pacific Earthquake Engineering Research Center",
-                            "display_name_acronyms": [
-                                "PEER",
-                                "UCB PEER"
-                            ],
-                            "display_name_alternatives": [
-                                "University of California Berkeley Pacific Earthquake Engineering Research Center",
-                                "UC Berkeley Pacific Earthquake Engineering Research Center"
-                            ],
-                            "ror": "https://ror.org/02cq2e244",
-                            "homepage_url": "https://peer.berkeley.edu",
-                            "country_code": null,
-                            "type": "funder",
-                            "latlon": [
-                                37.87159,
-                                -122.27275
-                            ]
-                        }
                     }
                 ],
                 "countries": [
@@ -24929,7 +24271,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "d023e1f5-a85d-449c-b42e-5d47ae99cb6d",
+        "id": "db95f0dc-5989-4e41-93d5-9731d57532de",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -24969,7 +24311,8 @@
                                     42.27756,
                                     -83.74088
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -25037,7 +24380,8 @@
                                     42.27756,
                                     -83.74088
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -25105,7 +24449,8 @@
                                     42.27756,
                                     -83.74088
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -25173,7 +24518,8 @@
                                     42.27756,
                                     -83.74088
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -25254,7 +24600,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "1c23db17-326b-4424-8c6b-2a13c6c1fecf",
+        "id": "5dc429c3-8b0d-4bc1-8b0a-61997147ef72",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -25292,7 +24638,8 @@
                                     37.566,
                                     126.9784
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -25356,7 +24703,8 @@
                                     37.566,
                                     126.9784
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -25420,7 +24768,8 @@
                                     36.34913,
                                     127.38493
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -25482,7 +24831,8 @@
                                     37.566,
                                     126.9784
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -25559,7 +24909,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "f1d3eb7d-c12e-4b82-86e6-968e0d0fb99c",
+        "id": "0094b224-1e68-4476-b870-e809c4b1c699",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -25598,7 +24948,8 @@
                                     39.9075,
                                     116.39723
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -25664,7 +25015,8 @@
                                     39.9075,
                                     116.39723
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -25730,7 +25082,8 @@
                                     39.9075,
                                     116.39723
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -25795,7 +25148,8 @@
                                     31.22222,
                                     121.45806
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -25858,7 +25212,8 @@
                                     39.9075,
                                     116.39723
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -25924,7 +25279,8 @@
                                     39.9075,
                                     116.39723
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -26008,7 +25364,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "fbb971b6-7f92-4e9d-ba44-c912240bcaa5",
+        "id": "9af3a89d-e1c4-4ded-b6a1-4bdc92c5c57e",
         "openalex_id": "https://openalex.org/W4399252473",
         "doi": "https://doi.org/10.48550/arxiv.2405.19888",
         "conf_id": null,
@@ -26456,7 +25812,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "88cd7a58-7dc3-4e22-bb17-cf2190b92cb2",
+        "id": "1bc32a2a-736b-4f5e-b3fc-a4d0268dc5c9",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -26495,7 +25851,8 @@
                                     38.02931,
                                     -78.47668
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -26561,7 +25918,8 @@
                                     38.02931,
                                     -78.47668
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -26627,7 +25985,8 @@
                                     33.749,
                                     -84.38798
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -26705,7 +26064,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "c5550215-d4bb-4519-8eff-25de0b5fefaf",
+        "id": "3140e6ca-a462-4bb4-82f3-ad837b98c414",
         "openalex_id": "https://openalex.org/W4390529219",
         "doi": "https://doi.org/10.48550/arxiv.2401.00588",
         "conf_id": null,
@@ -27284,7 +26643,7 @@
         "percent_novelty_from_paper": []
     },
     {
-        "id": "1d97a107-1e0f-431b-9be3-62eef74d5643",
+        "id": "035c7df9-6396-4c47-af0f-f3f507a77591",
         "openalex_id": null,
         "doi": null,
         "conf_id": null,
@@ -27323,7 +26682,8 @@
                                     -33.86785,
                                     151.20732
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -27387,7 +26747,8 @@
                                     30.29365,
                                     120.16142
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -27451,7 +26812,8 @@
                                     -33.86785,
                                     151.20732
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -27515,7 +26877,8 @@
                                     30.29365,
                                     120.16142
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -27577,7 +26940,8 @@
                                     30.29365,
                                     120.16142
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -27639,7 +27003,8 @@
                                     30.29365,
                                     120.16142
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
@@ -27703,7 +27068,8 @@
                                     -33.86785,
                                     151.20732
                                 ]
-                            }
+                            },
+                            "years": []
                         }
                     ]
                 },
