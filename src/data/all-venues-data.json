@@ -103,6 +103,15 @@
                                     "year": 2024,
                                     "location": "Bangkok, Thailand"
                                 }]
+                            },
+                            {
+                                "label": "NAACL",
+                                "value": "naacl",
+                                "full_name": "Annual Conference of the North American Chapter of the Association for Computational Linguistics",
+                                "places": [{
+                                    "year": 2024,
+                                    "location": "Mexico City, Mexico"
+                                }]
                             }
                         ]
                     }
