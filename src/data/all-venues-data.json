@@ -94,6 +94,15 @@
                                     "year": 2024,
                                     "location": "Miami, USA"
                                 }]
+                            },
+                            {
+                                "label": "ACL",
+                                "value": "acl",
+                                "full_name": "Annual Meeting of the Association for Computational Linguistics",
+                                "places": [{
+                                    "year": 2024,
+                                    "location": "Bangkok, Thailand"
+                                }]
                             }
                         ]
                     }
