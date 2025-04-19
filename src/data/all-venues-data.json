@@ -112,6 +112,33 @@
                                     "year": 2024,
                                     "location": "Mexico City, Mexico"
                                 }]
+                            },
+                            {
+                                "label": "LREC-COLING",
+                                "value": "coling",
+                                "full_name": "Joint International Conference on Computational Linguistics, Language Resources and Evaluation",
+                                "places": [{
+                                    "year": 2024,
+                                    "location": "Torino, Italia"
+                                }]
+                            },
+                            {
+                                "label": "EACL",
+                                "value": "eacl",
+                                "full_name": "Conference of the European Chapter of the Association for Computational Linguistics",
+                                "places": [{
+                                    "year": 2024,
+                                    "location": "St George’s Bay, Malta"
+                                }]
+                            },
+                            {
+                                "label": "TACL",
+                                "value": "tacl",
+                                "full_name": "Transactions of the Association for Computational Linguistics",
+                                "places": [{
+                                    "year": 2024,
+                                    "location": null
+                                }]
                             }
                         ]
                     }
