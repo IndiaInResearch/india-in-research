@@ -51,12 +51,29 @@ export default function PaperStat({data}: {data: getDataReturnType}) {
         }) || [];
     })
 
-    // use fuzzy search here
-    const filteredPapers = indian_papers.filter((paper: any) =>
-        Object.values(paper).some(value =>
-            value && value.toString().toLowerCase().includes(searchText.toLowerCase())
-        )
-    );
+    const traversePaper = (paper: any): string[] => {
+        const traverse = (obj: any): string[] => {
+            if (obj === null || obj === undefined) return [];
+            if (typeof obj === 'object') {
+                if (Array.isArray(obj)) {
+                    return obj.flatMap(traverse);
+                } else {
+                    return Object.values(obj).flatMap(traverse);
+                }
+            }
+            return [obj.toString()];
+        };
+        return traverse(paper);
+    };
+
+    const traversedPapers = indian_papers.map(paper => traversePaper(paper));
+
+    const filteredPapers = traversedPapers.map((traversedValues, index) => {
+        if (traversedValues.some(value => value.toLowerCase().includes(searchText.toLowerCase()))) {
+            return indian_papers[index];
+        }
+        return null;
+    }).filter(Boolean);
 
     const columns: ColumnsType = [
         {
@@ -80,8 +97,8 @@ export default function PaperStat({data}: {data: getDataReturnType}) {
             dataIndex: "aff_render",
             key: "authors_aff",
             // filter not working. search not working. 
-            filters: Array.from(new Set(indian_papers.flatMap((paper) => paper.aff_render))).sort().map(aff => ({ text: aff?.text as React.ReactNode, value: aff?.text as string })),
-            onFilter: (value, record) => record.aff_render.includes(value),
+            filters: Array.from(new Set(indian_papers.flatMap((paper) => paper.aff_render?.map(aff => aff?.text)))).sort().map(aff => ({ text: aff as React.ReactNode, value: aff as string })),
+            onFilter: (value, record) => record.aff_render.some((aff: {text: string, link: string | undefined}) => aff.text === value),
             filterIcon: false,
             filterSearch: true,
             render: (aff_render: {text: string, link: string | undefined}[]) => RenderArrayAsLookableText(aff_render)
