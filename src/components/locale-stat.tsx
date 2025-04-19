@@ -16,6 +16,7 @@ export default function LocaleHighlights({data}: {
     const [showExpanded, setShowExpanded] = useState(true);
 
     const institute_to_papers_with_latlon = data.indian_institute_to_papers_with_latlon_for_graph;
+
     const indian_institutes_to_papers = data.indian_institutes_to_papers.map(institute => ({
         ...institute,
         researchers: [] as string[]
@@ -118,7 +119,7 @@ export default function LocaleHighlights({data}: {
             </Flex>
             <Space direction="vertical" style={{width: "100%"}}>
                 <Flex vertical align="center">
-                    <IndiaGeoMap width="100%" height="min(90vw, 800px)" data={institute_to_papers_with_latlon} />
+                    <IndiaGeoMap width="100%" height="min(90vw, 800px)" data={showExpanded ? institute_to_papers_with_latlon : institute_to_papers_with_latlon.length > 15 ? institute_to_papers_with_latlon.slice(0, 15) : institute_to_papers_with_latlon} />
                     <Text>
                         {maxCountInstitutes.map((institute) => institute.name).join(', ')} lead{maxCountInstitutes.length > 1 ? '' : 's'} at {maxCount} papers {maxCountInstitutes.length > 1 ? 'each' : ''}
                     </Text>
