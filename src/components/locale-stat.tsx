@@ -13,7 +13,7 @@ import { getDataReturnType } from "@/utils/data-handlers";
 export default function LocaleHighlights({data}: {
     data: getDataReturnType
 }) {
-    const [showExpanded, setShowExpanded] = useState(true);
+    const [showExpanded, setShowExpanded] = useState(false);
 
     const institute_to_papers_with_latlon = data.indian_institute_to_papers_with_latlon_for_graph;
 

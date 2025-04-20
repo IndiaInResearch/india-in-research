@@ -164,6 +164,33 @@
                                     "year": 2024,
                                     "location": "Tokyo, Japan"
                                 }]
+                            },
+                            {
+                                "label": "SenSys",
+                                "value": "sensys",
+                                "full_name": "ACM Conference on Embedded Networked Sensor Systems",
+                                "places": [{
+                                    "year": 2024,
+                                    "location": "Hangzhou, China"
+                                }]
+                            },
+                            {
+                                "label": "MobiCom",
+                                "value": "mobicom",
+                                "full_name": "Annual International Conference on Mobile Computing and Networking",
+                                "places": [{
+                                    "year": 2024,
+                                    "location": "Washington, D.C., USA"
+                                }]
+                            },
+                            {
+                                "label": "UbiComp/IMWUT",
+                                "value": "imwut",
+                                "full_name": "UbiComp/IWSC - ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies (IMWUT)",
+                                "places": [{
+                                    "year": 2024,
+                                    "location": "Melbourne, Australia"
+                                }]
                             }
                         ]
                     },
@@ -180,6 +207,24 @@
                                 "places": [{
                                     "year": 2024,
                                     "location": "Guangzhou, China"
+                                }]
+                            },
+                            {
+                                "label": "SIGMOD",
+                                "value": "sigmod",
+                                "full_name": "ACM SIGMOD/PODS International Conference on Management of Data",
+                                "places": [{
+                                    "year": 2024,
+                                    "location": "Santiago, Chile"
+                                }]
+                            },
+                            {
+                                "label": "PODS",
+                                "value": "pods",
+                                "full_name": "ACM SIGMOD/PODS International Conference on Management of Data",
+                                "places": [{
+                                    "year": 2024,
+                                    "location": "Santiago, Chile"
                                 }]
                             }
                         ]
@@ -257,6 +302,15 @@
                                 "places": [{
                                     "year": 2024,
                                     "location": "Chicago, USA"
+                                }]
+                            },
+                            {
+                                "label": "SODA",
+                                "value": "soda",
+                                "full_name": "ACM-SIAM Symposium on Discrete Algorithms",
+                                "places": [{
+                                    "year": 2024,
+                                    "location": "Alexandria, USA"
                                 }]
                             }
                         ]
