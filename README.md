@@ -1,36 +1,15 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# India In Research
 
-## Getting Started
+[indiainresearch.org](https://indiainresearch.org/) is an initiative which aims to covers cover stories and insights about Indian research and academia. We scrape and then illustrate the analysis in a manner that can be readily understood by (perhaps) a school student.
 
-First, run the development server:
+In the longer context, this aims to become a transparent [GOTO](https://gotorankings.org/) ranking system, subtly different from alternatives like NIRF. The closest alternative project to this is the very popular [csrankings.org](https://csrankings.org/).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Right now, we have included several of the most popular conferences in computer science including NeurIPS, ICML, CVPR, STOC, FOCS, ACL, MobiCom etc. 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Data Sources
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+We are currently using multiple data source including, [OpenAlex](https://openalex.org/), [arXiv](https://arxiv.org/), [dblp](https://dblp.org/), [Paper Copilot](https://github.com/papercopilot), [ACL Anthology](https://aclanthology.org/).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Our data for raw analysis is available here: [paper-data](https://github.com/IndiaInResearch/paper-data).
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Note: Some data has been analyzed by AI and may be incorrect.
