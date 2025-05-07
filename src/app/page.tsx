@@ -7,7 +7,7 @@ import IndiaGeoMap from "@/components/india-geo-map";
 
 export default async function Home() {
 
-  const neuripsData = await getData('cs', ['neurips'], 2024);
+  const neuripsData = await getData('cs', { 'neurips': [2024] });
   const institute_to_papers_with_latlon = neuripsData?.indian_institute_to_papers_with_latlon_for_graph;
 
   return (
