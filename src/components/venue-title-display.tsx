@@ -10,19 +10,21 @@ export default function VenueTitleDisplay({
     singleConfData, 
     selectedVenues,
     hierarchyLabels,
-    year
+    year,
+    venueKeysWithYear
 }: {
     singleConfData: boolean,
     selectedVenues: any[],
     hierarchyLabels: string[],
-    year: number
+    year: number | null,
+    venueKeysWithYear: Record<string, number[]>
 }) {
 
     const [showExpanded, setShowExpanded] = useState(false);
     const tokens = useToken()[1]
 
     const conf_name = singleConfData ? selectedVenues[0].full_name : "Top " + hierarchyLabels.join(" > ") + " Venues";
-    const location = singleConfData ? selectedVenues[0].places.find((v: any) => v.year === year)?.location : "";
+    const location = singleConfData ? selectedVenues[0].places.find((v: any) => v.year === venueKeysWithYear[selectedVenues[0].value][0])?.location : "";
 
     const venueLabels = selectedVenues.map((v) => v.label)
 
@@ -30,24 +32,24 @@ export default function VenueTitleDisplay({
         <>
             {singleConfData ?
                 (
-                    <Title level={3}>{conf_name}, {year}. {location}.</Title>
+                    <Title level={3}>{conf_name}, {venueKeysWithYear[selectedVenues[0].value][0] ? venueKeysWithYear[selectedVenues[0].value][0] : ''}. {location}.</Title>
                 ) :
                 (
                     <>
-                        <Flex vertical>
-                        <Space align="baseline">
-                            <Title level={2}>{conf_name}, {year}.</Title>
-                            <Button 
-                                variant="link" 
-                                color="default"
-                                onClick={() => setShowExpanded(!showExpanded)}
-                            >
-                                {showExpanded ? 'Hide List <' : 'View List >'}
-                            </Button>
-                        </Space>
-                        {showExpanded && (
-                            <Text style={{fontSize: tokens.fontSizeHeading5}}>{venueLabels.join(", ")}</Text>
-                        )}
+                        <Flex vertical style={{maxWidth: 600}}>
+                            <Space align="baseline">
+                                <Title level={2}>{conf_name}, {year ? year : "Latest"}.</Title>
+                                <Button 
+                                    variant="link" 
+                                    color="default"
+                                    onClick={() => setShowExpanded(!showExpanded)}
+                                >
+                                    {showExpanded ? 'Hide List <' : 'View List >'}
+                                </Button>
+                            </Space>
+                            {showExpanded && (
+                                <Text style={{fontSize: tokens.fontSizeHeading5}}>{Object.entries(venueKeysWithYear).map(([venue, years]) => `${venue.toLocaleUpperCase()} (${years.join(", ")})`).join(", ")}</Text>
+                            )}
                         </Flex>
                     </>
                 )

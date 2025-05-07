@@ -28,14 +28,16 @@ export interface getDataReturnType {
     }
 }
 
-export async function getData(domain: string, confs: string[], year: number): Promise<getDataReturnType | null> {
-
+export async function getData(domain: string, confs: Record<string, number[]>): Promise<getDataReturnType | null> {
     const data_agg: NewPaper[] = []
-    for (const conf of confs) {
+    
+    for (const [conf, years] of Object.entries(confs)) {
         try {
-            const data = await import(`@/data/${domain}/${conf}/${year}.json`);
-            if (data) {
-                data_agg.push(...data.default)
+            for (const year of years) {
+                const data = await import(`@/data/${domain}/${conf}/${year}.json`);
+                if (data) {
+                    data_agg.push(...data.default)
+                }
             }
         } catch (error) {
             console.error(error)
