@@ -14,6 +14,7 @@ import VenueTitleDisplay from "@/components/venue-title-display";
 import UndergraduateStat from "@/components/undergraduate-stat";
 import PaperStat from "@/components/paper-stat";
 import { Metadata } from "next";
+import ShowRecommended from "@/components/show-recommended";
 
 export function generateStaticParams() {
     return buildStaticParamsForAllVenues();
@@ -216,6 +217,7 @@ export default async function StatPage({
                         <Breadcrumb items={breadCrumbLabels.map((label) => ({ title: label }))} />
                     </Space>
                     <VenueTitleDisplay singleConfData={singleConfData} selectedVenues={selectedVenues} hierarchyLabels={hierarchyLabels} year={year} venueKeysWithYear={venueKeysWithYear}/>
+                    <ShowRecommended domain={domain} subdomain={subdomain} subsubdomain={subsubdomain} venue={conf} year={year} venueKeysWithYear={venueKeysWithYear} />
                     <Divider />
                     <PaperStat data={data} />
                     <Divider />
@@ -236,7 +238,7 @@ export default async function StatPage({
                             )}
                         </>
                     }
-                    
+                    <ShowRecommended domain={domain} subdomain={subdomain} subsubdomain={subsubdomain} venue={conf} year={year} venueKeysWithYear={venueKeysWithYear} />
                 </Flex>
             </Flex>
         </>
