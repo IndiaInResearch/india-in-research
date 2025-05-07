@@ -22,19 +22,32 @@ export function generateStaticParams() {
 // LLM generated code
 export function generateMetadata({ 
     params,
-    searchParams,
 }: { 
     params: { params: string[] };
-    searchParams: { [key: string]: string | string[] | undefined };
 }): Metadata {
     if (params.params.length > 0) {
-        const hasYear = params.params.length === 5;
-        const lastKey = hasYear ? params.params[params.params.length - 2] : params.params[params.params.length - 1];
-        const yearToFetch = hasYear ? params.params[4] : null;
-        const queryYear = searchParams.year ? Number(searchParams.year) : null;
+        const yearParam = params.params.find(param => param.startsWith('year%3D'));
+        let year: number | null = null;
+        
+        // Check if year parameter exists and is not the last parameter
+        if (yearParam && yearParam !== params.params[params.params.length - 1]) {
+            return { 
+                title: "Not Found",
+                description: "Page not found. Invalid."
+            };
+        }
+        
+        try {
+            if (yearParam) {
+                year = Number(yearParam.split('%3D')[1]);
+            }
+        } catch {
+            year = null;
+        }
 
-        // Prioritize path parameter over query parameter
-        const year = yearToFetch ? Number(yearToFetch) : queryYear;
+        // Remove year parameter from the array for finding the title
+        const paramsWithoutYear = params.params.filter(param => !param.startsWith('year%3D'));
+        const lastKey = paramsWithoutYear[paramsWithoutYear.length - 1];
 
         let title: string | null = null
 
@@ -89,17 +102,34 @@ export function generateMetadata({
 
 export default async function StatPage({
   params,
-  searchParams,
 }: {
   params: {params: string[]};
-  searchParams: { [key: string]: string | string[] | undefined };
 }) {
     if (params.params.length > 5) {
         notFound();
     }
 
-    const [domain, subdomain, subsubdomain, conf, yearToFetch] = params.params;
-    const queryYear = searchParams.year ? Number(searchParams.year) : null;
+    // Extract year from params if it exists
+    console.log(params.params)
+    const yearParam = params.params.find(param => param.startsWith('year%3D'));
+    let year: number | null = null;
+    
+    // Check if year parameter exists and is not the last parameter
+    if (yearParam && yearParam !== params.params[params.params.length - 1]) {
+        notFound();
+    }
+    
+    try {
+        if (yearParam) {
+            year = Number(yearParam.split('%3D')[1]);
+        }
+    } catch {
+        year = null;
+    }
+
+    // Remove year parameter from the array for processing other params
+    const paramsWithoutYear = params.params.filter(param => !param.startsWith('year%3D'));
+    const [domain, subdomain, subsubdomain, conf] = paramsWithoutYear;
 
     if (!domain) {
         notFound();
@@ -147,9 +177,6 @@ export default async function StatPage({
 
     const venueKeysWithYear: Record<string, number[]> = {}
 
-    // Prioritize path parameter over query parameter
-    let year = yearToFetch ? Number(yearToFetch) : queryYear ? Number(queryYear) : null
-
     selectedVenues.forEach((venue) => {
         if (venue.places) {
             if (year){
@@ -166,8 +193,8 @@ export default async function StatPage({
         }
     })
 
-    if (selectedVenues.length == 1) {
-        year = venueKeysWithYear[selectedVenues[0].value][0]
+    if (Object.keys(venueKeysWithYear).length == 1){
+        year = Object.values(venueKeysWithYear)[0][0]
     }
 
     console.log(venueKeysWithYear)

@@ -78,7 +78,7 @@ export default function ExploreForm({ domain, subdomain, subsubdomain, venue, ye
                 size="large"
                 style={{ minWidth: 80 }}
             />
-            <Link href={`/explore/${selectedDomain}/${selectedPath}${selectedYear === 'latest' ? '' : `?year=${selectedYear}`}`}>
+            <Link href={`/explore/${selectedDomain}/${selectedPath}${selectedYear === 'latest' ? '' : `/year=${selectedYear}`}`}>
                 <Button type="primary" size="large">Explore</Button>
             </Link>
         </Space>
